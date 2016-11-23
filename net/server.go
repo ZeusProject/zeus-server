@@ -7,22 +7,20 @@ import (
 )
 
 type Server struct {
-	endpoint string
 	handler  Handler
 	listener net.Listener
 	log      *logrus.Entry
 }
 
-func NewServer(endpoint string, handler Handler) *Server {
+func NewServer(handler Handler) *Server {
 	return &Server{
-		handler:  handler,
-		endpoint: endpoint,
-		log:      logrus.WithField("component", "server"),
+		handler: handler,
+		log:     logrus.WithField("component", "server"),
 	}
 }
 
-func (s *Server) Listen() error {
-	l, err := net.Listen("tcp", s.endpoint)
+func (s *Server) Listen(endpoint string) error {
+	l, err := net.Listen("tcp", endpoint)
 
 	if err != nil {
 		return err
