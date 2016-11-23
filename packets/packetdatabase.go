@@ -21,7 +21,7 @@ func New(version uint32) (*PacketDatabase, error) {
 	}
 
 	db.Register("CA_LOGIN", 0x64, 55)
-	db.Register("AC_LOGIN", 0x65, -1)
+	db.Register("AC_ACCEPT_LOGIN", 0x69, -1)
 
 	return db, nil
 }

@@ -45,23 +45,38 @@ func (c *GameClient) Send(p packets.OutgoingPacket) error {
 		return err
 	}
 
-	totalLen := 2 + raw.Len()
+	totalLen := uint16(2 + raw.Size)
 
 	if def.Size == -1 {
 		totalLen += 2
 	}
 
-	data := bytes.NewBuffer(make([]byte, totalLen))
+	err = binary.Write(c.conn, binary.LittleEndian, raw.ID)
 
-	binary.Write(data, binary.LittleEndian, raw.ID)
-
-	if def.Size == -1 {
-		binary.Write(data, binary.LittleEndian, totalLen)
+	if err != nil {
+		return err
 	}
 
-	binary.Write(data, binary.LittleEndian, raw.Bytes())
+	if def.Size == -1 {
+		err = binary.Write(c.conn, binary.LittleEndian, totalLen)
 
-	_, err = c.conn.Write(data.Bytes())
+		if err != nil {
+			return err
+		}
+	}
+
+	err = binary.Write(c.conn, binary.LittleEndian, raw.Bytes()[:raw.Size])
+
+	if err != nil {
+		return err
+	}
+
+	c.log.WithFields(logrus.Fields{
+		"packet": def.Name,
+		"id":     def.ID,
+		"length": totalLen,
+		"parsed": p,
+	}).Debug("packet sent")
 
 	return err
 }
@@ -119,10 +134,11 @@ func (c *GameClient) run() {
 						return
 					}
 
+					size -= 4
 					state++
 				}
 			} else {
-				size = uint16(s)
+				size = uint16(s) - 2
 				state++
 			}
 		}

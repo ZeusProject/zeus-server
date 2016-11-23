@@ -6,6 +6,6 @@ var incomingTypeMap = map[string]IncomingPacket{
 }
 
 var outgoingTypeMap = map[string]OutgoingPacket{
-	"SS_NULL":  &NullPacket{},
-	"AC_LOGIN": &LoginResponse{},
+	"SS_NULL":         &NullPacket{},
+	"AC_ACCEPT_LOGIN": &AcceptLoginResponse{},
 }
