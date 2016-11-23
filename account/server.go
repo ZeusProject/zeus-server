@@ -1,4 +1,4 @@
-package login
+package account
 
 import (
 	gonet "net"
@@ -8,15 +8,15 @@ import (
 	"github.com/zeusproject/zeus-server/packets"
 )
 
-type LoginServer struct {
+type Server struct {
 	server         *net.Server
 	packetDatabase *packets.PacketDatabase
 	log            *logrus.Entry
 }
 
-func NewLoginServer() *LoginServer {
-	l := &LoginServer{
-		log: logrus.WithField("component", "login"),
+func NewServer() *Server {
+	l := &Server{
+		log: logrus.WithField("component", "accountserver"),
 	}
 
 	l.server = net.NewServer(net.HandlerFn{l.acceptClient})
@@ -24,7 +24,7 @@ func NewLoginServer() *LoginServer {
 	return l
 }
 
-func (l *LoginServer) Run() error {
+func (l *Server) Run() error {
 	pdb, err := packets.New(20159999)
 
 	if err != nil {
@@ -46,7 +46,7 @@ func (l *LoginServer) Run() error {
 	return nil
 }
 
-func (l *LoginServer) Close() {
+func (l *Server) Close() {
 	l.log.Info("closing server")
 
 	if err := l.server.Stop(); err != nil {
@@ -56,6 +56,6 @@ func (l *LoginServer) Close() {
 	l.log.Info("server closed")
 }
 
-func (l *LoginServer) acceptClient(conn gonet.Conn) {
+func (l *Server) acceptClient(conn gonet.Conn) {
 	NewClient(conn, l).Start()
 }

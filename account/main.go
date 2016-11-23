@@ -1,4 +1,4 @@
-package login
+package account
 
 import (
 	"github.com/Sirupsen/logrus"
@@ -10,7 +10,7 @@ import (
 func Run(args map[string]interface{}) {
 	logrus.SetLevel(logrus.DebugLevel)
 
-	l := NewLoginServer()
+	l := NewServer()
 
 	sig := make(chan os.Signal)
 	signal.Notify(sig, syscall.SIGINT)

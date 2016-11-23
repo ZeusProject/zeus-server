@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/docopt/docopt-go"
 
-	"github.com/zeusproject/zeus-server/login"
+	"github.com/zeusproject/zeus-server/account"
 )
 
 func main() {
@@ -24,8 +24,8 @@ Usage:
 	if args["server"] == true {
 		mode := args["<mode>"]
 
-		if mode == "login" {
-			login.Run(args)
+		if mode == "account" {
+			account.Run(args)
 		} else {
 			fmt.Printf("Invalid server mode: %s\n", mode)
 			return

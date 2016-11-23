@@ -1,4 +1,4 @@
-package login
+package account
 
 import (
 	gonet "net"
@@ -11,17 +11,17 @@ import (
 type Client struct {
 	*net.GameClient
 
-	login *LoginServer
-	log   *logrus.Entry
+	server *Server
+	log    *logrus.Entry
 }
 
-func NewClient(conn gonet.Conn, login *LoginServer) *Client {
+func NewClient(conn gonet.Conn, server *Server) *Client {
 	c := &Client{
-		login: login,
-		log:   logrus.WithField("component", "client"),
+		server: server,
+		log:    logrus.WithField("component", "client"),
 	}
 
-	c.GameClient = net.NewGameClient(conn, c.handlePacket, login.packetDatabase)
+	c.GameClient = net.NewGameClient(conn, c.handlePacket, server.packetDatabase)
 
 	return c
 }
