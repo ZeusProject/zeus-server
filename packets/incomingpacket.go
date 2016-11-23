@@ -1,5 +1,5 @@
 package packets
 
-type Packet interface {
+type IncomingPacket interface {
 	Parse(db *PacketDatabase, d *Definition, r *RawPacket) error
 }

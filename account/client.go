@@ -26,7 +26,7 @@ func NewClient(conn gonet.Conn, server *Server) *Client {
 	return c
 }
 
-func (c *Client) handlePacket(d *packets.Definition, p packets.Packet) {
+func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	c.log.WithFields(logrus.Fields{
 		"packet": d.Name,
 		"id":     d.ID,

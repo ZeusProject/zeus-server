@@ -8,3 +8,7 @@ func (r *NullPacket) Parse(db *PacketDatabase, d *Definition, p *RawPacket) erro
 	r.Raw = p
 	return nil
 }
+
+func (r *NullPacket) Write(db *PacketDatabase, d *Definition, p *RawPacket) error {
+	return nil
+}

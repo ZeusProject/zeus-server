@@ -38,6 +38,34 @@ func (c *GameClient) Disconnect() error {
 	return c.conn.Close()
 }
 
+func (c *GameClient) Send(p packets.OutgoingPacket) error {
+	def, raw, err := c.db.Write(p)
+
+	if err != nil {
+		return err
+	}
+
+	totalLen := 2 + raw.Len()
+
+	if def.Size == -1 {
+		totalLen += 2
+	}
+
+	data := bytes.NewBuffer(make([]byte, totalLen))
+
+	binary.Write(data, binary.LittleEndian, raw.ID)
+
+	if def.Size == -1 {
+		binary.Write(data, binary.LittleEndian, totalLen)
+	}
+
+	binary.Write(data, binary.LittleEndian, raw.Bytes())
+
+	_, err = c.conn.Write(data.Bytes())
+
+	return err
+}
+
 func (c *GameClient) run() {
 	var packet uint16
 	var size uint16

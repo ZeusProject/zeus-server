@@ -1,6 +1,11 @@
 package packets
 
-var typeMap = map[string]Packet{
+var incomingTypeMap = map[string]IncomingPacket{
 	"SS_NULL":  &NullPacket{},
 	"CA_LOGIN": &LoginRequest{},
+}
+
+var outgoingTypeMap = map[string]OutgoingPacket{
+	"SS_NULL":  &NullPacket{},
+	"AC_LOGIN": &LoginResponse{},
 }
