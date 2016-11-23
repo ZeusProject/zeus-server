@@ -3,6 +3,7 @@ package net
 import (
 	"bytes"
 	"encoding/binary"
+	"fmt"
 	"github.com/Sirupsen/logrus"
 	"net"
 )
@@ -49,6 +50,7 @@ func (c *GameClient) run() {
 
 		if err != nil {
 			c.log.WithError(err).Error("error reading from socket")
+			c.Disconnect()
 			return
 		}
 
@@ -60,6 +62,7 @@ func (c *GameClient) run() {
 
 				if err != nil {
 					c.log.WithError(err).Error("error reading from socket")
+					c.Disconnect()
 					return
 				}
 
@@ -68,18 +71,27 @@ func (c *GameClient) run() {
 		}
 
 		if state == 1 {
-			size = c.db[packet]
+			s, ok := c.db[packet]
 
-			if size == 0xFFFF {
+			if !ok {
+				c.log.WithField("packet", fmt.Sprintf("%x", packet)).Error("invalid packet")
+				return
+			}
+
+			if s == -1 {
 				if offset >= 4 {
 					err := binary.Read(buffer, binary.LittleEndian, &size)
 
 					if err != nil {
 						c.log.WithError(err).Error("error reading from socket")
+						c.Disconnect()
 						return
 					}
+
+					state++
 				}
 			} else {
+				size = uint16(s)
 				state++
 			}
 		}
