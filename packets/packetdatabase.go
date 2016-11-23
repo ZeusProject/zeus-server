@@ -20,8 +20,15 @@ func New(version uint32) (*PacketDatabase, error) {
 		outgoingMap: make(map[reflect.Type]*Definition),
 	}
 
-	db.Register("CA_LOGIN", 0x64, 55)
-	db.Register("AC_ACCEPT_LOGIN", 0x69, -1)
+	pv, found := PacketVersions[int(version)]
+
+	if !found {
+		return nil, errors.New("invalid packet version")
+	}
+
+	for id, d := range pv.Packets {
+		db.Register(d.Packet, id, d.Size)
+	}
 
 	return db, nil
 }
