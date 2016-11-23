@@ -12,6 +12,14 @@ type RawPacket struct {
 	Size uint16
 }
 
+func (p *RawPacket) ReadString(len int, s *string) {
+	b := make([]byte, len)
+
+	p.Read(b)
+
+	*s = string(b)
+}
+
 func (p *RawPacket) Hex() string {
 	return fmt.Sprintf("%04x", p.ID)
 }
