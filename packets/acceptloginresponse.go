@@ -1,7 +1,6 @@
 package packets
 
 import (
-	"fmt"
 	"net"
 )
 
