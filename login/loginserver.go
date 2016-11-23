@@ -5,18 +5,18 @@ import (
 
 	"github.com/Sirupsen/logrus"
 	"github.com/zeusproject/zeus-server/net"
+	"github.com/zeusproject/zeus-server/packets"
 )
 
 type LoginServer struct {
 	server         *net.Server
-	packetDatabase net.PacketDatabase
+	packetDatabase *packets.PacketDatabase
 	log            *logrus.Entry
 }
 
 func NewLoginServer() *LoginServer {
 	l := &LoginServer{
-		packetDatabase: make(net.PacketDatabase),
-		log:            logrus.WithField("component", "login"),
+		log: logrus.WithField("component", "login"),
 	}
 
 	l.server = net.NewServer(net.HandlerFn{l.acceptClient})
@@ -25,7 +25,16 @@ func NewLoginServer() *LoginServer {
 }
 
 func (l *LoginServer) Run() error {
-	err := l.server.Listen(":6900")
+	pdb, err := packets.New(20159999)
+
+	if err != nil {
+		l.log.WithError(err).Fatal("error initializing packets")
+		return err
+	}
+
+	l.packetDatabase = pdb
+
+	err = l.server.Listen(":6900")
 
 	if err != nil {
 		l.log.WithError(err).Fatal("error listening on server socket")

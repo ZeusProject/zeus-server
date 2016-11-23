@@ -1,12 +1,15 @@
 package login
 
 import (
+	"github.com/Sirupsen/logrus"
 	"os"
 	"os/signal"
 	"syscall"
 )
 
 func Run(args map[string]interface{}) {
+	logrus.SetLevel(logrus.DebugLevel)
+
 	l := NewLoginServer()
 
 	sig := make(chan os.Signal)

@@ -5,6 +5,7 @@ import (
 
 	"github.com/Sirupsen/logrus"
 	"github.com/zeusproject/zeus-server/net"
+	"github.com/zeusproject/zeus-server/packets"
 )
 
 type Client struct {
@@ -25,9 +26,10 @@ func NewClient(conn gonet.Conn, login *LoginServer) *Client {
 	return c
 }
 
-func (c *Client) handlePacket(p *net.Packet) {
+func (c *Client) handlePacket(d *packets.Definition, p packets.Packet) {
 	c.log.WithFields(logrus.Fields{
-		"packet": p.Packet,
-		"size":   p.Size,
+		"packet": d.Name,
+		"id":     d.ID,
+		"parsed": p,
 	}).Debug("packet arrived")
 }

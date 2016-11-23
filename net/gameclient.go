@@ -4,8 +4,10 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
-	"github.com/Sirupsen/logrus"
 	"net"
+
+	"github.com/Sirupsen/logrus"
+	"github.com/zeusproject/zeus-server/packets"
 )
 
 const (
@@ -15,11 +17,11 @@ const (
 type GameClient struct {
 	conn    net.Conn
 	handler PacketHandler
-	db      PacketDatabase
+	db      *packets.PacketDatabase
 	log     *logrus.Entry
 }
 
-func NewGameClient(conn net.Conn, handler PacketHandler, db PacketDatabase) *GameClient {
+func NewGameClient(conn net.Conn, handler PacketHandler, db *packets.PacketDatabase) *GameClient {
 	return &GameClient{
 		conn:    conn,
 		handler: handler,
@@ -71,10 +73,11 @@ func (c *GameClient) run() {
 		}
 
 		if state == 1 {
-			s, ok := c.db[packet]
+			s, ok := c.db.GetSize(packet)
 
 			if !ok {
-				c.log.WithField("packet", fmt.Sprintf("%x", packet)).Error("invalid packet")
+				c.log.WithField("packet", fmt.Sprintf("%04x", packet)).Error("invalid packet")
+				c.Disconnect()
 				return
 			}
 
@@ -98,13 +101,21 @@ func (c *GameClient) run() {
 
 		if state == 2 {
 			if offset >= int(size) {
-				p := &Packet{
-					Packet: packet,
+				raw := &packets.RawPacket{
+					Buffer: bytes.NewBuffer(raw[:size]),
+					ID:     packet,
 					Size:   size,
-					Data:   bytes.NewBuffer(raw[:size]),
 				}
 
-				c.handler(p)
+				def, packet, err := c.db.Parse(raw)
+
+				if err != nil {
+					c.log.WithField("packet", fmt.Sprintf("%04x", packet)).Error("invalid packet")
+					c.Disconnect()
+					return
+				}
+
+				c.handler(def, packet)
 
 				state = 0
 				offset = 0
