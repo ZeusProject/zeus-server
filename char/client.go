@@ -1,4 +1,4 @@
-package account
+package char
 
 import (
 	gonet "net"
@@ -33,26 +33,35 @@ func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 		"parsed": p,
 	}).Debug("packet arrived")
 
-	switch p.(type) {
-	case *packets.LoginRequest:
-		res := &packets.AcceptLoginResponse{
-			AuthenticationCode: 0xDEADBEEF,
-			AccountID:          2000000,
-			AccountLevel:       0xBAADCAFE,
-			Sex:                0,
-			Servers: []packets.CharServer{
-				packets.CharServer{
-					IP:       gonet.ParseIP("127.0.0.1"),
-					Port:     6121,
-					Name:     "Zeus Project",
-					Users:    1000,
-					State:    0,
-					Property: 0,
-				},
-			},
-		}
+	switch p := p.(type) {
+	case *packets.CharEnter:
+		c.SendRaw(p.AccountID)
 
-		c.Send(res)
+		// c.Send(&packets.RefuseCharEnter{
+		// 	Reason: 0,
+		// })
+
+		c.Send(&packets.AcceptCharEnter2{
+			NormalSlots:     9,
+			PremiumSlots:    0,
+			BillingSlots:    0,
+			ProducibleSlots: 9,
+			ValidSlots:      9,
+		})
+
+		c.Send(&packets.AcceptCharEnter{
+			TotalSlotCount:   9,
+			PremiumSlotStart: 9,
+			PremiumSlotEnd:   9,
+		})
+
+		c.Send(&packets.BlockCharacter{})
+
+		c.Send(&packets.SecondPasswordLogin{
+			AccountID: p.AccountID,
+			Seed:      0xDEADBEEF,
+			Result:    4,
+		})
 	case *packets.NullPacket:
 		c.log.WithFields(logrus.Fields{
 			"packet": d.Name,

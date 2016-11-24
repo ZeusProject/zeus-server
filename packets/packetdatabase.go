@@ -27,7 +27,13 @@ func New(version uint32) (*PacketDatabase, error) {
 	}
 
 	for id, d := range pv.Packets {
-		db.Register(d.Packet, id, d.Size)
+		headerSize := 2
+
+		if d.Size == -1 {
+			headerSize = 0
+		}
+
+		db.Register(d.Packet, id, d.Size-headerSize)
 	}
 
 	return db, nil

@@ -1,4 +1,4 @@
-package account
+package char
 
 import (
 	gonet "net"
@@ -16,7 +16,7 @@ type Server struct {
 
 func NewServer() *Server {
 	l := &Server{
-		log: logrus.WithField("component", "accountserver"),
+		log: logrus.WithField("component", "charserver"),
 	}
 
 	l.server = net.NewServer(net.HandlerFn{l.acceptClient})
@@ -34,14 +34,14 @@ func (l *Server) Run() error {
 
 	l.packetDatabase = pdb
 
-	err = l.server.Listen(":6900")
+	err = l.server.Listen(":6121")
 
 	if err != nil {
 		l.log.WithError(err).Fatal("error listening on server socket")
 		return err
 	}
 
-	l.log.Info("server started on :6900")
+	l.log.Info("server started on :6121")
 
 	return nil
 }

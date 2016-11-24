@@ -38,6 +38,10 @@ func (c *GameClient) Disconnect() error {
 	return c.conn.Close()
 }
 
+func (c *GameClient) SendRaw(data interface{}) error {
+	return binary.Write(c.conn, binary.LittleEndian, data)
+}
+
 func (c *GameClient) Send(p packets.OutgoingPacket) error {
 	def, raw, err := c.db.Write(p)
 
@@ -66,6 +70,8 @@ func (c *GameClient) Send(p packets.OutgoingPacket) error {
 	}
 
 	err = binary.Write(c.conn, binary.LittleEndian, raw.Bytes()[:raw.Size])
+
+	fmt.Printf("%x\n", raw.Bytes()[:raw.Size])
 
 	if err != nil {
 		return err

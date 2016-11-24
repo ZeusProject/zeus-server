@@ -1276,7 +1276,7 @@
       packet: SS_NONE
       size: -1
     0x020d:
-      packet: SS_NONE
+      packet: HC_BLOCK_CHARACTER
       size: -1
     0x020e:
       packet: SS_NONE
@@ -2766,6 +2766,9 @@
     0x082c:
       packet: SS_NONE
       size: 14
+    0x082d:
+      packet: HC_ACCEPT2
+      size: -1
     0x0835:
       packet: SearchStoreInfoNextPage
       size: 2
@@ -2871,6 +2874,9 @@
     0x08b6:
       packet: SS_NONE
       size: 3
+    0x08b9:
+      packet: HC_SECOND_PASSWD_LOGIN
+      size: 12
     0x08c0:
       packet: SS_NONE
       size: -1

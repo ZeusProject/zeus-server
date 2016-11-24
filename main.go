@@ -5,6 +5,7 @@ import (
 	"github.com/docopt/docopt-go"
 
 	"github.com/zeusproject/zeus-server/account"
+	"github.com/zeusproject/zeus-server/char"
 )
 
 func main() {
@@ -26,6 +27,8 @@ Usage:
 
 		if mode == "account" {
 			account.Run(args)
+		} else if mode == "char" {
+			char.Run(args)
 		} else {
 			fmt.Printf("Invalid server mode: %s\n", mode)
 			return
