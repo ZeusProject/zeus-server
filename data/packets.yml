@@ -1,5 +1,7 @@
 20151104:
   packets:
+    # Implemented packets
+    # Account & Char
     0x0064:
       packet: CA_LOGIN
       size: 55
@@ -42,2988 +44,3565 @@
     0x0071:
       packet: HC_NOTIFY_ZONESVR
       size: 28
-    0x0072:
-      packet: UseSkillToId
-      size: 22
-    0x0073:
-      packet: SS_NONE
-      size: 11
-    0x0074:
-      packet: SS_NONE
-      size: 3
-    0x0075:
-      packet: SS_NONE
-      size: -1
-    0x0076:
-      packet: SS_NONE
-      size: 9
-    0x0077:
-      packet: SS_NONE
-      size: 5
-    0x0078:
-      packet: SS_NONE
-      size: 55
-    0x0079:
-      packet: SS_NONE
-      size: 53
-    0x007a:
-      packet: SS_NONE
-      size: 58
-    0x007b:
-      packet: SS_NONE
-      size: 60
-    0x007c:
-      packet: SS_NONE
-      size: 44
-    0x007d:
-      packet: LoadEndAck
-      size: 2
-    0x007e:
-      packet: UseSkillToPosMoreInfo
-      size: 105
-    0x007f:
-      packet: SS_NONE
-      size: 6
-    0x0080:
-      packet: SS_NONE
-      size: 7
-    0x0081:
-      packet: SS_NONE
-      size: 3
-    0x0082:
-      packet: SS_NONE
-      size: 2
-    0x0083:
-      packet: SS_NONE
-      size: 2
-    0x0084:
-      packet: SS_NONE
-      size: 2
-    0x0085:
-      packet: ChangeDir
-      size: 10
-    0x0086:
-      packet: SS_NONE
-      size: 16
-    0x0087:
-      packet: SS_NONE
-      size: 12
-    0x0088:
-      packet: SS_NONE
-      size: 10
-    0x0089:
-      packet: TickSend
-      size: 11
-    0x008a:
-      packet: SS_NONE
-      size: 29
-    0x008b:
-      packet: SS_NONE
-      size: 2
-    0x008c:
-      packet: GetCharNameRequest
-      size: 14
-    0x008d:
-      packet: SS_NONE
-      size: -1
-    0x008e:
-      packet: SS_NONE
-      size: -1
-    0x008f:
-      packet: SS_NONE
-      size: -1
-    0x0090:
-      packet: NpcClicked
-      size: 7
-    0x0091:
-      packet: SS_NONE
-      size: 22
-    0x0092:
-      packet: SS_NONE
-      size: 28
-    0x0093:
-      packet: SS_NONE
-      size: 2
-    0x0094:
-      packet: MoveToKafra
-      size: 19
-    0x0095:
-      packet: SS_NONE
-      size: 30
-    0x0096:
-      packet: WisMessage
-      size: -1
-    0x0097:
-      packet: SS_NONE
-      size: -1
-    0x0098:
-      packet: SS_NONE
-      size: 3
-    0x0099:
-      packet: Broadcast
-      size: -1
-    0x009a:
-      packet: SS_NONE
-      size: -1
-    0x009b:
-      packet: WantToConnection
-      size: 34
-    0x009c:
-      packet: SS_NONE
-      size: 9
-    0x009d:
-      packet: SS_NONE
-      size: 17
-    0x009e:
-      packet: SS_NONE
-      size: 17
-    0x009f:
-      packet: UseItem
-      size: 20
-    0x00a0:
-      packet: SS_NONE
-      size: 23
-    0x00a1:
-      packet: SS_NONE
-      size: 6
-    0x00a2:
-      packet: SolveCharName
-      size: 14
-    0x00a3:
-      packet: SS_NONE
-      size: -1
-    0x00a4:
-      packet: SS_NONE
-      size: -1
-    0x00a5:
-      packet: SS_NONE
-      size: -1
-    0x00a6:
-      packet: SS_NONE
-      size: -1
-    0x00a7:
-      packet: WalkToXY
-      size: 9
-    0x00a8:
-      packet: SS_NONE
-      size: 7
-    0x00a9:
-      packet: EquipItem
-      size: 6
-    0x00aa:
-      packet: SS_NONE
-      size: 9
-    0x00ab:
-      packet: UnequipItem
-      size: 4
-    0x00ac:
-      packet: SS_NONE
-      size: 7
-    0x00ad:
-      packet: SS_NONE
-      size: -1
-    0x00ae:
-      packet: SS_NONE
-      size: -1
-    0x00af:
-      packet: SS_NONE
-      size: 6
-    0x00b0:
-      packet: SS_NONE
-      size: 8
-    0x00b1:
-      packet: SS_NONE
-      size: 8
-    0x00b2:
-      packet: Restart
-      size: 3
-    0x00b3:
-      packet: SS_NONE
-      size: 3
-    0x00b4:
-      packet: SS_NONE
-      size: -1
-    0x00b5:
-      packet: SS_NONE
-      size: 6
-    0x00b6:
-      packet: SS_NONE
-      size: 6
-    0x00b7:
-      packet: SS_NONE
-      size: -1
-    0x00b8:
-      packet: NpcSelectMenu
-      size: 7
-    0x00b9:
-      packet: NpcNextClicked
-      size: 6
-    0x00ba:
-      packet: SS_NONE
-      size: 2
-    0x00bb:
-      packet: StatusUp
-      size: 5
-    0x00bc:
-      packet: SS_NONE
-      size: 6
-    0x00bd:
-      packet: SS_NONE
-      size: 44
-    0x00be:
-      packet: SS_NONE
-      size: 5
-    0x00bf:
-      packet: Emotion
-      size: 3
-    0x00c0:
-      packet: SS_NONE
-      size: 7
-    0x00c1:
-      packet: HowManyConnections
-      size: 2
-    0x00c2:
-      packet: SS_NONE
-      size: 6
-    0x00c3:
-      packet: SS_NONE
-      size: 8
-    0x00c4:
-      packet: SS_NONE
-      size: 6
-    0x00c5:
-      packet: NpcBuySellSelected
-      size: 7
-    0x00c6:
-      packet: SS_NONE
-      size: -1
-    0x00c7:
-      packet: SS_NONE
-      size: -1
-    0x00c8:
-      packet: NpcBuyListSend
-      size: -1
-    0x00c9:
-      packet: NpcSellListSend
-      size: -1
-    0x00ca:
-      packet: SS_NONE
-      size: 3
-    0x00cb:
-      packet: SS_NONE
-      size: 3
-    0x00cc:
-      packet: GMKick
-      size: 6
-    0x00cd:
-      packet: SS_NONE
-      size: 3
-    0x00ce:
-      packet: GMKickAll
-      size: 2
-    0x00cf:
-      packet: PMIgnore
-      size: 27
-    0x00d0:
-      packet: PMIgnoreAll
-      size: 3
-    0x00d1:
-      packet: SS_NONE
-      size: 4
-    0x00d2:
-      packet: SS_NONE
-      size: 4
-    0x00d3:
-      packet: PMIgnoreList
-      size: 2
-    0x00d4:
-      packet: SS_NONE
-      size: -1
-    0x00d5:
-      packet: CreateChatRoom
-      size: -1
-    0x00d6:
-      packet: SS_NONE
-      size: 3
-    0x00d7:
-      packet: SS_NONE
-      size: -1
-    0x00d8:
-      packet: SS_NONE
-      size: 6
-    0x00d9:
-      packet: ChatAddMember
-      size: 14
-    0x00da:
-      packet: SS_NONE
-      size: 3
-    0x00db:
-      packet: SS_NONE
-      size: -1
-    0x00dc:
-      packet: SS_NONE
-      size: 28
-    0x00dd:
-      packet: SS_NONE
-      size: 29
-    0x00de:
-      packet: ChatRoomStatusChange
-      size: -1
-    0x00df:
-      packet: SS_NONE
-      size: -1
-    0x00e0:
-      packet: ChangeChatOwner
-      size: 30
-    0x00e1:
-      packet: SS_NONE
-      size: 30
-    0x00e2:
-      packet: KickFromChat
-      size: 26
-    0x00e3:
-      packet: ChatLeave
-      size: 2
-    0x00e4:
-      packet: TradeRequest
-      size: 6
-    0x00e5:
-      packet: SS_NONE
-      size: 26
-    0x00e6:
-      packet: TradeAck
-      size: 3
-    0x00e7:
-      packet: SS_NONE
-      size: 3
-    0x00e8:
-      packet: TradeAddItem
-      size: 8
-    0x00e9:
-      packet: SS_NONE
-      size: 19
-    0x00ea:
-      packet: SS_NONE
-      size: 5
-    0x00eb:
-      packet: TradeOk
-      size: 2
-    0x00ec:
-      packet: SS_NONE
-      size: 3
-    0x00ed:
-      packet: TradeCancel
-      size: 2
-    0x00ee:
-      packet: SS_NONE
-      size: 2
-    0x00ef:
-      packet: TradeCommit
-      size: 2
-    0x00f0:
-      packet: SS_NONE
-      size: 3
-    0x00f1:
-      packet: SS_NONE
-      size: 2
-    0x00f2:
-      packet: SS_NONE
-      size: 6
-    0x00f3:
-      packet: GlobalMessage
-      size: -1
-    0x00f4:
-      packet: SS_NONE
-      size: 21
-    0x00f5:
-      packet: TakeItem
-      size: 11
-    0x00f6:
-      packet: SS_NONE
-      size: 8
-    0x00f7:
-      packet: MoveFromKafra
-      size: 17
-    0x00f8:
-      packet: SS_NONE
-      size: 2
-    0x00f9:
-      packet: CreateParty
-      size: 26
-    0x00fa:
-      packet: SS_NONE
-      size: 3
-    0x00fb:
-      packet: SS_NONE
-      size: -1
-    0x00fc:
-      packet: PartyInvite
-      size: 6
-    0x00fd:
-      packet: SS_NONE
-      size: 27
-    0x00fe:
-      packet: SS_NONE
-      size: 30
-    0x00ff:
-      packet: ReplyPartyInvite
-      size: 10
-    0x0100:
-      packet: LeaveParty
-      size: 2
-    0x0101:
-      packet: SS_NONE
-      size: 6
-    0x0102:
-      packet: PartyChangeOption
-      size: 6
-    0x0103:
-      packet: RemovePartyMember
-      size: 30
-    0x0104:
-      packet: SS_NONE
-      size: 79
-    0x0105:
-      packet: SS_NONE
-      size: 31
-    0x0106:
-      packet: SS_NONE
-      size: 10
-    0x0107:
-      packet: SS_NONE
-      size: 10
-    0x0108:
-      packet: PartyMessage
-      size: -1
-    0x0109:
-      packet: SS_NONE
-      size: -1
-    0x010a:
-      packet: SS_NONE
-      size: 4
-    0x010b:
-      packet: SS_NONE
-      size: 6
-    0x010c:
-      packet: SS_NONE
-      size: 6
-    0x010d:
-      packet: SS_NONE
-      size: 2
-    0x010e:
-      packet: SS_NONE
-      size: 11
-    0x010f:
-      packet: SS_NONE
-      size: -1
-    0x0110:
-      packet: SS_NONE
-      size: 10
-    0x0111:
-      packet: SS_NONE
-      size: 39
-    0x0112:
-      packet: SkillUp
-      size: 4
-    0x0113:
-      packet: UseSkillToPos
-      size: 25
-    0x0114:
-      packet: SS_NONE
-      size: 31
-    0x0115:
-      packet: SS_NONE
-      size: 35
-    0x0116:
-      packet: DropItem
-      size: 17
-    0x0117:
-      packet: SS_NONE
-      size: 18
-    0x0118:
-      packet: StopAttack
-      size: 2
-    0x0119:
-      packet: SS_NONE
-      size: 13
-    0x011a:
-      packet: SS_NONE
-      size: 15
-    0x011b:
-      packet: UseSkillMap
-      size: 20
-    0x011c:
-      packet: SS_NONE
-      size: 68
-    0x011d:
-      packet: RequestMemo
-      size: 2
-    0x011e:
-      packet: SS_NONE
-      size: 3
-    0x011f:
-      packet: SS_NONE
-      size: 16
-    0x0120:
-      packet: SS_NONE
-      size: 6
-    0x0121:
-      packet: SS_NONE
-      size: 14
-    0x0122:
-      packet: SS_NONE
-      size: -1
-    0x0123:
-      packet: SS_NONE
-      size: -1
-    0x0124:
-      packet: SS_NONE
-      size: 21
-    0x0125:
-      packet: SS_NONE
-      size: 8
-    0x0126:
-      packet: PutItemToCart
-      size: 8
-    0x0127:
-      packet: GetItemFromCart
-      size: 8
-    0x0128:
-      packet: MoveFromKafraToCart
-      size: 8
-    0x0129:
-      packet: MoveToKafraFromCart
-      size: 8
-    0x012a:
-      packet: RemoveOption
-      size: 2
-    0x012b:
-      packet: SS_NONE
-      size: 2
-    0x012c:
-      packet: SS_NONE
-      size: 3
-    0x012d:
-      packet: SS_NONE
-      size: 4
-    0x012e:
-      packet: CloseVending
-      size: 2
-    0x012f:
-      packet: SS_NONE
-      size: -1
-    0x0130:
-      packet: VendingListReq
-      size: 6
-    0x0131:
-      packet: SS_NONE
-      size: 86
-    0x0132:
-      packet: SS_NONE
-      size: 6
-    0x0133:
-      packet: SS_NONE
-      size: -1
-    0x0134:
-      packet: PurchaseReq
-      size: -1
-    0x0135:
-      packet: SS_NONE
-      size: 7
-    0x0136:
-      packet: SS_NONE
-      size: -1
-    0x0137:
-      packet: SS_NONE
-      size: 6
-    0x0138:
-      packet: SS_NONE
-      size: 3
-    0x0139:
-      packet: SS_NONE
-      size: 16
-    0x013a:
-      packet: SS_NONE
-      size: 4
-    0x013b:
-      packet: SS_NONE
-      size: 4
-    0x013c:
-      packet: SS_NONE
-      size: 4
-    0x013d:
-      packet: SS_NONE
-      size: 6
-    0x013e:
-      packet: SS_NONE
-      size: 24
-    0x013f:
-      packet: GM_Monster_Item
-      size: 26
-    0x0140:
-      packet: MapMove
-      size: 22
-    0x0141:
-      packet: SS_NONE
-      size: 14
-    0x0142:
-      packet: SS_NONE
-      size: 6
-    0x0143:
-      packet: NpcAmountInput
-      size: 10
-    0x0144:
-      packet: SS_NONE
-      size: 23
-    0x0145:
-      packet: SS_NONE
-      size: 19
-    0x0146:
-      packet: NpcCloseClicked
-      size: 6
-    0x0147:
-      packet: SS_NONE
-      size: 39
-    0x0148:
-      packet: SS_NONE
-      size: 8
-    0x0149:
-      packet: GMReqNoChat
-      size: 9
-    0x014a:
-      packet: SS_NONE
-      size: 6
-    0x014b:
-      packet: SS_NONE
-      size: 27
-    0x014c:
-      packet: SS_NONE
-      size: -1
-    0x014d:
-      packet: GuildCheckMaster
-      size: 2
-    0x014e:
-      packet: SS_NONE
-      size: 6
-    0x014f:
-      packet: GuildRequestInfo
-      size: 6
-    0x0150:
-      packet: SS_NONE
-      size: 110
-    0x0151:
-      packet: GuildRequestEmblem
-      size: 6
-    0x0152:
-      packet: SS_NONE
-      size: -1
-    0x0153:
-      packet: GuildChangeEmblem
-      size: -1
-    0x0154:
-      packet: SS_NONE
-      size: -1
-    0x0155:
-      packet: GuildChangeMemberPosition
-      size: -1
-    0x0156:
-      packet: SS_NONE
-      size: -1
-    0x0157:
-      packet: SS_NONE
-      size: 6
-    0x0158:
-      packet: SS_NONE
-      size: -1
-    0x0159:
-      packet: GuildLeave
-      size: 54
-    0x015a:
-      packet: SS_NONE
-      size: 66
-    0x015b:
-      packet: GuildExpulsion
-      size: 54
-    0x015c:
-      packet: SS_NONE
-      size: 90
-    0x015d:
-      packet: GuildBreak
-      size: 42
-    0x015e:
-      packet: SS_NONE
-      size: 6
-    0x015f:
-      packet: SS_NONE
-      size: 42
-    0x0160:
-      packet: SS_NONE
-      size: -1
-    0x0161:
-      packet: GuildChangePositionInfo
-      size: -1
-    0x0162:
-      packet: SS_NONE
-      size: -1
-    0x0163:
-      packet: SS_NONE
-      size: -1
-    0x0164:
-      packet: SS_NONE
-      size: -1
-    0x0165:
-      packet: CreateGuild
-      size: 30
-    0x0166:
-      packet: SS_NONE
-      size: -1
-    0x0167:
-      packet: SS_NONE
-      size: 3
-    0x0168:
-      packet: GuildInvite
-      size: 14
-    0x0169:
-      packet: SS_NONE
-      size: 3
-    0x016a:
-      packet: SS_NONE
-      size: 30
-    0x016b:
-      packet: GuildReplyInvite
-      size: 10
-    0x016c:
-      packet: SS_NONE
-      size: 43
-    0x016d:
-      packet: SS_NONE
-      size: 14
-    0x016e:
-      packet: GuildChangeNotice
-      size: 186
-    0x016f:
-      packet: SS_NONE
-      size: 182
-    0x0170:
-      packet: GuildRequestAlliance
-      size: 14
-    0x0171:
-      packet: SS_NONE
-      size: 30
-    0x0172:
-      packet: GuildReplyAlliance
-      size: 10
-    0x0173:
-      packet: SS_NONE
-      size: 3
-    0x0174:
-      packet: SS_NONE
-      size: -1
-    0x0175:
-      packet: SS_NONE
-      size: 6
-    0x0176:
-      packet: SS_NONE
-      size: 106
-    0x0177:
-      packet: SS_NONE
-      size: -1
-    0x0178:
-      packet: ItemIdentify
-      size: 4
-    0x0179:
-      packet: SS_NONE
-      size: 5
-    0x017a:
-      packet: UseCard
-      size: 4
-    0x017b:
-      packet: SS_NONE
-      size: -1
-    0x017c:
-      packet: InsertCard
-      size: 6
-    0x017d:
-      packet: SS_NONE
-      size: 7
-    0x017e:
-      packet: GuildMessage
-      size: -1
-    0x017f:
-      packet: SS_NONE
-      size: -1
-    0x0180:
-      packet: GuildOpposition
-      size: 6
-    0x0181:
-      packet: SS_NONE
-      size: 3
-    0x0182:
-      packet: SS_NONE
-      size: 106
-    0x0183:
-      packet: GuildDelAlliance
-      size: 10
-    0x0184:
-      packet: SS_NONE
-      size: 10
-    0x0185:
-      packet: SS_NONE
-      size: 34
-    0x0186:
-      packet: SS_NONE
-      size: -1
-    0x0187:
-      packet: SS_PING
-      size: 6
-    0x0188:
-      packet: SS_NONE
-      size: 8
-    0x0189:
-      packet: SS_NONE
-      size: 4
-    0x018a:
-      packet: QuitGame
-      size: 4
-    0x018b:
-      packet: SS_NONE
-      size: 4
-    0x018c:
-      packet: SS_NONE
-      size: 29
-    0x018d:
-      packet: SS_NONE
-      size: -1
-    0x018e:
-      packet: ProduceMix
-      size: 10
-    0x018f:
-      packet: SS_NONE
-      size: 6
-    0x0190:
-      packet: ActionRequest
-      size: 23
-    0x0191:
-      packet: SS_NONE
-      size: 86
-    0x0192:
-      packet: SS_NONE
-      size: 24
-    0x0193:
-      packet: CloseKafra
-      size: 2
-    0x0194:
-      packet: SS_NONE
-      size: 30
-    0x0195:
-      packet: SS_NONE
-      size: 102
-    0x0196:
-      packet: SS_NONE
-      size: 9
-    0x0197:
-      packet: ResetChar
-      size: 4
-    0x0198:
-      packet: GMChangeMapType
-      size: 8
-    0x0199:
-      packet: SS_NONE
-      size: 4
-    0x019a:
-      packet: SS_NONE
-      size: 14
-    0x019b:
-      packet: SS_NONE
-      size: 10
-    0x019c:
-      packet: LocalBroadcast
-      size: -1
-    0x019d:
-      packet: GMHide
-      size: 6
-    0x019e:
-      packet: SS_NONE
-      size: 2
-    0x019f:
-      packet: CatchPet
-      size: 6
-    0x01a0:
-      packet: SS_NONE
-      size: 3
-    0x01a1:
-      packet: PetMenu
-      size: 3
-    0x01a2:
-      packet: SS_NONE
-      size: 37
-    0x01a3:
-      packet: SS_NONE
-      size: 5
-    0x01a4:
-      packet: SS_NONE
-      size: 11
-    0x01a5:
-      packet: ChangePetName
-      size: 26
-    0x01a6:
-      packet: SS_NONE
-      size: -1
-    0x01a7:
-      packet: SelectEgg
-      size: 4
-    0x01a8:
-      packet: SS_NONE
-      size: 4
-    0x01a9:
-      packet: SendEmotion
-      size: 6
-    0x01aa:
-      packet: SS_NONE
-      size: 10
-    0x01ab:
-      packet: SS_NONE
-      size: 12
-    0x01ac:
-      packet: SS_NONE
-      size: 6
-    0x01ad:
-      packet: SS_NONE
-      size: -1
-    0x01ae:
-      packet: SelectArrow
-      size: 4
-    0x01af:
-      packet: ChangeCart
-      size: 4
-    0x01b0:
-      packet: SS_NONE
-      size: 11
-    0x01b1:
-      packet: SS_NONE
-      size: 7
-    0x01b2:
-      packet: OpenVending
-      size: -1
-    0x01b3:
-      packet: SS_NONE
-      size: 67
-    0x01b4:
-      packet: SS_NONE
-      size: 12
-    0x01b5:
-      packet: SS_NONE
-      size: 18
-    0x01b6:
-      packet: SS_NONE
-      size: 114
-    0x01b7:
-      packet: SS_NONE
-      size: 6
-    0x01b8:
-      packet: SS_NONE
-      size: 3
-    0x01b9:
-      packet: SS_NONE
-      size: 6
-    0x01ba:
-      packet: GMShift
-      size: 26
-    0x01bb:
-      packet: GMShift
-      size: 26
-    0x01bc:
-      packet: GMRecall
-      size: 26
-    0x01bd:
-      packet: GMRecall
-      size: 26
-    0x01be:
-      packet: SS_NONE
-      size: 2
-    0x01bf:
-      packet: SS_NONE
-      size: 3
-    0x01c0:
-      packet: SS_NONE
-      size: 2
-    0x01c1:
-      packet: SS_NONE
-      size: 14
-    0x01c2:
-      packet: SS_NONE
-      size: 10
-    0x01c3:
-      packet: SS_NONE
-      size: -1
-    0x01c4:
-      packet: SS_NONE
-      size: 22
-    0x01c5:
-      packet: SS_NONE
-      size: 22
-    0x01c6:
-      packet: SS_NONE
-      size: 4
-    0x01c7:
-      packet: SS_NONE
-      size: 2
-    0x01c8:
-      packet: SS_NONE
-      size: 13
-    0x01c9:
-      packet: SS_NONE
-      size: 97
-    0x01ca:
-      packet: SS_NONE
-      size: 3
-    0x01cb:
-      packet: SS_NONE
-      size: 9
-    0x01cc:
-      packet: SS_NONE
-      size: 9
-    0x01cd:
-      packet: SS_NONE
-      size: 30
-    0x01ce:
-      packet: AutoSpell
-      size: 6
-    0x01cf:
-      packet: SS_NONE
-      size: 28
-    0x01d0:
-      packet: SS_NONE
-      size: 8
-    0x01d1:
-      packet: SS_NONE
-      size: 14
-    0x01d2:
-      packet: SS_NONE
-      size: 10
-    0x01d3:
-      packet: SS_NONE
-      size: 35
-    0x01d4:
-      packet: SS_NONE
-      size: 6
-    0x01d5:
-      packet: NpcStringInput
-      size: -1
-    0x01d6:
-      packet: SS_NONE
-      size: 4
-    0x01d7:
-      packet: SS_NONE
-      size: 11
-    0x01d8:
-      packet: SS_NONE
-      size: 54
-    0x01d9:
-      packet: SS_NONE
-      size: 53
-    0x01da:
-      packet: SS_NONE
-      size: 60
-    0x01db:
-      packet: SS_NONE
-      size: 2
-    0x01dc:
-      packet: SS_NONE
-      size: -1
-    0x01dd:
-      packet: SS_NONE
-      size: 47
-    0x01de:
-      packet: SS_NONE
-      size: 33
-    0x01df:
-      packet: GMReqAccountName
-      size: 6
-    0x01e0:
-      packet: SS_NONE
-      size: 30
-    0x01e1:
-      packet: SS_NONE
-      size: 8
-    0x01e2:
-      packet: SS_NONE
-      size: 34
-    0x01e3:
-      packet: SS_NONE
-      size: 14
-    0x01e4:
-      packet: SS_NONE
-      size: 2
-    0x01e5:
-      packet: SS_NONE
-      size: 6
-    0x01e6:
-      packet: SS_NONE
-      size: 26
-    0x01e7:
-      packet: NoviceDoriDori
-      size: 2
-    0x01e8:
-      packet: CreateParty2
-      size: 28
-    0x01e9:
-      packet: SS_NONE
-      size: 81
-    0x01ea:
-      packet: SS_NONE
-      size: 6
-    0x01eb:
-      packet: SS_NONE
-      size: 10
-    0x01ec:
-      packet: SS_NONE
-      size: 26
-    0x01ed:
-      packet: NoviceExplosionSpirits
-      size: 2
-    0x01ee:
-      packet: SS_NONE
-      size: -1
-    0x01ef:
-      packet: SS_NONE
-      size: -1
-    0x01f0:
-      packet: SS_NONE
-      size: -1
-    0x01f1:
-      packet: SS_NONE
-      size: -1
-    0x01f2:
-      packet: SS_NONE
-      size: 20
-    0x01f3:
-      packet: SS_NONE
-      size: 10
-    0x01f4:
-      packet: SS_NONE
-      size: 32
-    0x01f5:
-      packet: SS_NONE
-      size: 9
-    0x01f6:
-      packet: SS_NONE
-      size: 34
-    0x01f7:
-      packet: Adopt_reply
-      size: 14
-    0x01f8:
-      packet: SS_NONE
-      size: 2
-    0x01f9:
-      packet: Adopt_request
-      size: 6
-    0x01fa:
-      packet: SS_NONE
-      size: 48
-    0x01fb:
-      packet: SS_NONE
-      size: 56
-    0x01fc:
-      packet: SS_NONE
-      size: -1
-    0x01fd:
-      packet: RepairItem
-      size: 15
-    0x01fe:
-      packet: SS_NONE
-      size: 5
-    0x01ff:
-      packet: SS_NONE
-      size: 10
-    0x0200:
-      packet: SS_NONE
-      size: 26
-    0x0201:
-      packet: SS_NONE
-      size: -1
-    0x0202:
-      packet: FriendsListAdd
-      size: 26
-    0x0203:
-      packet: FriendsListRemove
-      size: 10
-    0x0204:
-      packet: SS_NONE
-      size: 18
-    0x0205:
-      packet: SS_NONE
-      size: 26
-    0x0206:
-      packet: SS_NONE
-      size: 11
-    0x0207:
-      packet: SS_NONE
-      size: 34
-    0x0208:
-      packet: FriendsListReply
-      size: 14
-    0x0209:
-      packet: SS_NONE
-      size: 36
-    0x020a:
-      packet: SS_NONE
-      size: 10
-    0x020b:
-      packet: SS_NONE
-      size: -1
-    0x020c:
-      packet: SS_NONE
-      size: -1
     0x020d:
       packet: HC_BLOCK_CHARACTER
       size: -1
-    0x020e:
-      packet: SS_NONE
-      size: 32
-    0x020f:
-      packet: PVPInfo
-      size: 10
-    0x0210:
-      packet: SS_NONE
-      size: 22
-    0x0212:
-      packet: GMRc
-      size: 26
-    0x0213:
-      packet: Check
-      size: 26
-    0x0214:
-      packet: SS_NONE
-      size: 42
-    0x0215:
-      packet: SS_NONE
-      size: 6
-    0x0216:
-      packet: SS_NONE
-      size: 6
-    0x0217:
-      packet: Blacksmith
-      size: 2
-    0x0218:
-      packet: Alchemist
-      size: 2
-    0x0219:
-      packet: SS_NONE
-      size: 282
-    0x021a:
-      packet: SS_NONE
-      size: 282
-    0x021b:
-      packet: SS_NONE
-      size: 10
-    0x021c:
-      packet: SS_NONE
-      size: 10
-    0x021d:
-      packet: LessEffect
-      size: 6
-    0x021e:
-      packet: SS_NONE
-      size: 6
-    0x021f:
-      packet: SS_NONE
-      size: 66
-    0x0220:
-      packet: SS_NONE
-      size: 10
-    0x0221:
-      packet: SS_NONE
+    0x082d:
+      packet: HC_ACCEPT2
       size: -1
-    0x0222:
-      packet: WeaponRefine
-      size: 6
-    0x0223:
-      packet: SS_NONE
-      size: 8
-    0x0224:
-      packet: SS_NONE
-      size: 10
-    0x0225:
-      packet: Taekwon
-      size: 2
-    0x0226:
-      packet: SS_NONE
-      size: 282
-    0x0227:
-      packet: SS_NONE
-      size: 18
-    0x0228:
-      packet: SS_NONE
-      size: 18
-    0x0229:
-      packet: SS_NONE
-      size: 15
-    0x022a:
-      packet: SS_NONE
-      size: 58
-    0x022b:
-      packet: SS_NONE
-      size: 57
-    0x022c:
-      packet: SS_NONE
-      size: 65
-    0x022d:
-      packet: HomMenu
-      size: 5
-    0x022e:
-      packet: SS_NONE
-      size: 71
-    0x022f:
-      packet: SS_NONE
-      size: 5
-    0x0230:
-      packet: SS_NONE
+    0x08b9:
+      packet: HC_SECOND_PASSWD_LOGIN
       size: 12
-    0x0231:
-      packet: ChangeHomunculusName
-      size: 26
-    0x0232:
-      packet: HomMoveTo
-      size: 9
-    0x0233:
-      packet: HomAttack
-      size: 11
-    0x0234:
-      packet: HomMoveToMaster
-      size: 6
-    0x0235:
-      packet: SS_NONE
-      size: -1
-    0x0236:
-      packet: SS_NONE
-      size: 10
-    0x0237:
-      packet: RankingPk
-      size: 2
-    0x0238:
-      packet: SS_NONE
-      size: 282
-    0x0239:
-      packet: SS_NONE
-      size: 11
-    0x023a:
-      packet: SS_NONE
-      size: 4
-    0x023b:
-      packet: StoragePassword
-      size: 36
-    0x023c:
-      packet: SS_NONE
-      size: 6
-    0x023d:
-      packet: SS_NONE
-      size: -1
-    0x023e:
-      packet: SS_NONE
-      size: 8
-    0x023f:
-      packet: Mail_refreshinbox
-      size: 2
-    0x0240:
-      packet: SS_NONE
-      size: -1
-    0x0241:
-      packet: Mail_read
-      size: 6
-    0x0242:
-      packet: SS_NONE
-      size: -1
-    0x0243:
-      packet: Mail_delete
-      size: 6
-    0x0244:
-      packet: Mail_getattach
-      size: 6
-    0x0245:
-      packet: SS_NONE
-      size: 3
-    0x0246:
-      packet: Mail_winopen
-      size: 4
-    0x0247:
-      packet: Mail_setattach
-      size: 8
-    0x0248:
-      packet: Mail_send
-      size: -1
-    0x0249:
-      packet: SS_NONE
-      size: 3
-    0x024a:
-      packet: SS_NONE
-      size: 70
-    0x024b:
-      packet: Auction_cancelreg
-      size: 4
-    0x024c:
-      packet: Auction_setitem
-      size: 8
-    0x024d:
-      packet: Auction_register
-      size: 12
-    0x024e:
-      packet: Auction_cancel
-      size: 6
-    0x024f:
-      packet: Auction_bid
-      size: 10
-    0x0250:
-      packet: SS_NONE
-      size: 3
-    0x0251:
-      packet: Auction_search
-      size: 34
-    0x0252:
-      packet: SS_NONE
-      size: -1
-    0x0253:
-      packet: SS_NONE
-      size: 3
-    0x0254:
-      packet: FeelSaveOk
-      size: 3
-    0x0255:
-      packet: SS_NONE
-      size: 5
-    0x0256:
-      packet: SS_NONE
-      size: 5
-    0x0257:
-      packet: SS_NONE
-      size: 8
-    0x0258:
-      packet: SS_NONE
-      size: 2
-    0x0259:
-      packet: SS_NONE
-      size: 3
-    0x025a:
-      packet: SS_NONE
-      size: -1
-    0x025b:
-      packet: Cooking
-      size: 6
-    0x025c:
-      packet: Auction_buysell
-      size: 4
-    0x025d:
-      packet: Auction_close
-      size: 6
-    0x025e:
-      packet: SS_NONE
-      size: 4
-    0x025f:
-      packet: SS_NONE
-      size: 6
-    0x0260:
-      packet: SS_NONE
-      size: 6
-    0x0261:
-      packet: SS_NONE
-      size: 11
-    0x0262:
-      packet: SS_NONE
-      size: 11
-    0x0263:
-      packet: SS_NONE
-      size: 11
-    0x0264:
-      packet: SS_NONE
-      size: 20
-    0x0265:
-      packet: SS_NONE
-      size: 20
-    0x0266:
-      packet: SS_NONE
-      size: 30
-    0x0267:
-      packet: SS_NONE
-      size: 4
-    0x0268:
-      packet: SS_NONE
-      size: 4
-    0x0269:
-      packet: SS_NONE
-      size: 4
-    0x026a:
-      packet: SS_NONE
-      size: 4
-    0x026b:
-      packet: SS_NONE
-      size: 4
-    0x026c:
-      packet: SS_NONE
-      size: 4
-    0x026d:
-      packet: SS_NONE
-      size: 4
-    0x026f:
-      packet: SS_NONE
-      size: 2
-    0x0270:
-      packet: SS_NONE
-      size: 2
-    0x0271:
-      packet: SS_NONE
-      size: 40
-    0x0272:
-      packet: SS_NONE
-      size: 44
-    0x0273:
-      packet: Mail_return
-      size: 30
-    0x0274:
-      packet: SS_NONE
-      size: 8
-    0x0275:
-      packet: SS_NONE
-      size: 37
-    0x0276:
-      packet: SS_NONE
-      size: -1
-    0x0277:
-      packet: SS_NONE
-      size: 84
-    0x0278:
-      packet: SS_NONE
-      size: 2
-    0x0279:
-      packet: SS_NONE
-      size: 2
-    0x027a:
-      packet: SS_NONE
-      size: -1
-    0x027b:
-      packet: SS_NONE
-      size: 14
-    0x027c:
-      packet: SS_NONE
-      size: 60
-    0x027d:
-      packet: SS_NONE
-      size: 62
-    0x027e:
-      packet: SS_NONE
-      size: -1
-    0x027f:
-      packet: SS_NONE
-      size: 8
-    0x0280:
-      packet: SS_NONE
-      size: 12
-    0x0281:
-      packet: SS_NONE
-      size: 4
-    0x0282:
-      packet: SS_NONE
-      size: 284
+
+    # Zone
     0x0283:
       packet: ZC_AID
-      size: 6
-    0x0284:
-      packet: SS_NONE
-      size: 14
-    0x0285:
-      packet: SS_NONE
-      size: 6
-    0x0286:
-      packet: SS_NONE
-      size: 4
-    0x0287:
-      packet: SS_NONE
-      size: -1
-    0x0288:
-      packet: cashshop_buy
-      size: -1
-    0x0289:
-      packet: SS_NONE
-      size: 12
-    0x028a:
-      packet: SS_NONE
-      size: 18
-    0x028b:
-      packet: SS_NONE
-      size: -1
-    0x028c:
-      packet: SS_NONE
-      size: 46
-    0x028d:
-      packet: SS_NONE
-      size: 34
-    0x028e:
-      packet: SS_NONE
-      size: 4
-    0x028f:
-      packet: SS_NONE
-      size: 6
-    0x0290:
-      packet: SS_NONE
-      size: 4
-    0x0291:
-      packet: SS_NONE
-      size: 4
-    0x0292:
-      packet: AutoRevive
-      size: 2
-    0x0293:
-      packet: SS_NONE
-      size: 70
-    0x0294:
-      packet: SS_NONE
-      size: 10
-    0x0295:
-      packet: SS_NONE
-      size: -1
-    0x0296:
-      packet: SS_NONE
-      size: -1
-    0x0297:
-      packet: SS_NONE
-      size: -1
-    0x0298:
-      packet: SS_NONE
-      size: 8
-    0x0299:
-      packet: SS_NONE
-      size: 6
-    0x029a:
-      packet: SS_NONE
-      size: 27
-    0x029b:
-      packet: SS_NONE
-      size: 80
-    0x029c:
-      packet: SS_NONE
-      size: 66
-    0x029d:
-      packet: SS_NONE
-      size: -1
-    0x029e:
-      packet: SS_NONE
-      size: 11
-    0x029f:
-      packet: mercenary_action
-      size: 3
-    0x02a0:
-      packet: SS_NONE
-      size: -1
-    0x02a1:
-      packet: SS_NONE
-      size: -1
-    0x02a2:
-      packet: SS_NONE
-      size: 8
-    0x02a3:
-      packet: SS_NONE
-      size: -1
-    0x02a4:
-      packet: SS_NONE
-      size: -1
-    0x02a5:
-      packet: SS_NONE
-      size: 8
-    0x02a6:
-      packet: SS_NONE
-      size: -1
-    0x02a7:
-      packet: SS_NONE
-      size: -1
-    0x02a8:
-      packet: SS_NONE
-      size: 162
-    0x02a9:
-      packet: SS_NONE
-      size: 58
-    0x02aa:
-      packet: SS_NONE
-      size: 4
-    0x02ab:
-      packet: SS_NONE
-      size: 36
-    0x02ac:
-      packet: SS_NONE
-      size: 6
-    0x02ad:
-      packet: SS_NONE
-      size: 8
-    0x02b0:
-      packet: SS_NONE
-      size: 85
-    0x02b1:
-      packet: SS_NONE
-      size: -1
-    0x02b2:
-      packet: SS_NONE
-      size: -1
-    0x02b3:
-      packet: SS_NONE
-      size: 107
-    0x02b4:
-      packet: SS_NONE
-      size: 6
-    0x02b5:
-      packet: SS_NONE
-      size: -1
-    0x02b6:
-      packet: questStateAck
-      size: 7
-    0x02b7:
-      packet: SS_NONE
-      size: 7
-    0x02b8:
-      packet: SS_NONE
-      size: 22
-    0x02b9:
-      packet: SS_NONE
-      size: 191
-    0x02ba:
-      packet: Hotkey
-      size: 11
-    0x02bb:
-      packet: SS_NONE
-      size: 8
-    0x02bc:
-      packet: SS_NONE
-      size: 6
-    0x02bf:
-      packet: SS_NONE
-      size: -1
-    0x02c0:
-      packet: SS_NONE
-      size: -1
-    0x02c1:
-      packet: SS_NONE
-      size: -1
-    0x02c2:
-      packet: SS_NONE
-      size: -1
-    0x02c4:
-      packet: PartyInvite2
-      size: 26
-    0x02c5:
-      packet: SS_NONE
-      size: 30
-    0x02c6:
-      packet: SS_NONE
-      size: 30
-    0x02c7:
-      packet: ReplyPartyInvite2
-      size: 7
-    0x02c8:
-      packet: PartyTick
-      size: 3
-    0x02c9:
-      packet: SS_NONE
-      size: 3
-    0x02ca:
-      packet: SS_NONE
-      size: 3
-    0x02cb:
-      packet: SS_NONE
-      size: 65
-    0x02cc:
-      packet: SS_NONE
-      size: 4
-    0x02cd:
-      packet: SS_NONE
-      size: 71
-    0x02ce:
-      packet: SS_NONE
-      size: 10
-    0x02cf:
-      packet: SS_NONE
-      size: 6
-    0x02d0:
-      packet: SS_NONE
-      size: -1
-    0x02d1:
-      packet: SS_NONE
-      size: -1
-    0x02d2:
-      packet: SS_NONE
-      size: -1
-    0x02d3:
-      packet: SS_NONE
-      size: 4
-    0x02d4:
-      packet: SS_NONE
-      size: 29
-    0x02d5:
-      packet: SS_NONE
-      size: 2
-    0x02d6:
-      packet: ViewPlayerEquip
-      size: 6
-    0x02d7:
-      packet: SS_NONE
-      size: -1
-    0x02d8:
-      packet: EquipTick
-      size: 10
-    0x02d9:
-      packet: SS_NONE
-      size: 10
-    0x02da:
-      packet: SS_NONE
-      size: 3
-    0x02db:
-      packet: BattleChat
-      size: -1
-    0x02dc:
-      packet: SS_NONE
-      size: -1
-    0x02dd:
-      packet: SS_NONE
-      size: 32
-    0x02de:
-      packet: SS_NONE
-      size: 6
-    0x02df:
-      packet: SS_NONE
-      size: 36
-    0x02e0:
-      packet: SS_NONE
-      size: 34
-    0x02e1:
-      packet: SS_NONE
-      size: 33
-    0x02e2:
-      packet: SS_NONE
-      size: 20
-    0x02e3:
-      packet: SS_NONE
-      size: 22
-    0x02e4:
-      packet: SS_NONE
-      size: 11
-    0x02e5:
-      packet: SS_NONE
-      size: 9
-    0x02e6:
-      packet: SS_NONE
-      size: 6
-    0x02e7:
-      packet: SS_NONE
-      size: -1
-    0x02e8:
-      packet: SS_NONE
-      size: -1
-    0x02e9:
-      packet: SS_NONE
-      size: -1
-    0x02ea:
-      packet: SS_NONE
-      size: -1
-    0x02eb:
-      packet: SS_NONE
-      size: 13
-    0x02ec:
-      packet: SS_NONE
-      size: 67
-    0x02ed:
-      packet: SS_NONE
-      size: 59
-    0x02ee:
-      packet: SS_NONE
-      size: 60
-    0x02ef:
-      packet: SS_NONE
-      size: 8
-    0x02f0:
-      packet: SS_NONE
-      size: 10
-    0x02f1:
-      packet: Progressbar
-      size: 2
-    0x02f2:
-      packet: SS_NONE
-      size: 2
-    0x02f3:
-      packet: Dull
-      size: -1
-    0x02f4:
-      packet: SS_NONE
-      size: 3
-    0x02f5:
-      packet: SS_NONE
-      size: 7
-    0x02f6:
-      packet: Dull
-      size: 7
-    0x02f7:
-      packet: SS_NONE
-      size: -1
-    0x02f8:
-      packet: SS_NONE
-      size: -1
-    0x02f9:
-      packet: SS_NONE
-      size: -1
-    0x02fa:
-      packet: SS_NONE
-      size: -1
-    0x02fb:
-      packet: SS_NONE
-      size: -1
-    0x02fc:
-      packet: SS_NONE
-      size: -1
-    0x02fd:
-      packet: SS_NONE
-      size: -1
-    0x02fe:
-      packet: SS_NONE
-      size: -1
-    0x02ff:
-      packet: SS_NONE
-      size: -1
-    0x0300:
-      packet: SS_NONE
-      size: -1
-    0x0301:
-      packet: SS_NONE
-      size: -1
-    0x0302:
-      packet: SS_NONE
-      size: -1
-    0x0303:
-      packet: SS_NONE
-      size: -1
-    0x0304:
-      packet: SS_NONE
-      size: -1
-    0x0305:
-      packet: SS_NONE
-      size: -1
-    0x0306:
-      packet: SS_NONE
-      size: -1
-    0x0307:
-      packet: SS_NONE
-      size: -1
-    0x0308:
-      packet: SS_NONE
-      size: -1
-    0x0309:
-      packet: SS_NONE
-      size: -1
-    0x030a:
-      packet: SS_NONE
-      size: -1
-    0x030b:
-      packet: SS_NONE
-      size: -1
-    0x030c:
-      packet: SS_NONE
-      size: -1
-    0x030d:
-      packet: SS_NONE
-      size: -1
-    0x030e:
-      packet: SS_NONE
-      size: -1
-    0x030f:
-      packet: SS_NONE
-      size: -1
-    0x0310:
-      packet: SS_NONE
-      size: -1
-    0x0311:
-      packet: SS_NONE
-      size: -1
-    0x0312:
-      packet: SS_NONE
-      size: -1
-    0x0313:
-      packet: SS_NONE
-      size: -1
-    0x0314:
-      packet: SS_NONE
-      size: -1
-    0x0315:
-      packet: SS_NONE
-      size: -1
-    0x0316:
-      packet: SS_NONE
-      size: -1
-    0x0317:
-      packet: SS_NONE
-      size: -1
-    0x0318:
-      packet: SS_NONE
-      size: -1
-    0x0319:
-      packet: SS_NONE
-      size: -1
-    0x031a:
-      packet: SS_NONE
-      size: -1
-    0x031b:
-      packet: SS_NONE
-      size: -1
-    0x031c:
-      packet: SS_NONE
-      size: -1
-    0x031d:
-      packet: SS_NONE
-      size: -1
-    0x031e:
-      packet: SS_NONE
-      size: -1
-    0x031f:
-      packet: SS_NONE
-      size: -1
-    0x0320:
-      packet: SS_NONE
-      size: -1
-    0x0321:
-      packet: SS_NONE
-      size: -1
-    0x0322:
-      packet: SS_NONE
-      size: -1
-    0x0323:
-      packet: SS_NONE
-      size: -1
-    0x0324:
-      packet: SS_NONE
-      size: -1
-    0x0325:
-      packet: SS_NONE
-      size: -1
-    0x0326:
-      packet: SS_NONE
-      size: -1
-    0x0327:
-      packet: SS_NONE
-      size: -1
-    0x0328:
-      packet: SS_NONE
-      size: -1
-    0x0329:
-      packet: SS_NONE
-      size: -1
-    0x032a:
-      packet: SS_NONE
-      size: -1
-    0x032b:
-      packet: SS_NONE
-      size: -1
-    0x032c:
-      packet: SS_NONE
-      size: -1
-    0x032d:
-      packet: SS_NONE
-      size: -1
-    0x032e:
-      packet: SS_NONE
-      size: -1
-    0x032f:
-      packet: SS_NONE
-      size: -1
-    0x0330:
-      packet: SS_NONE
-      size: -1
-    0x0331:
-      packet: SS_NONE
-      size: -1
-    0x0332:
-      packet: SS_NONE
-      size: -1
-    0x0333:
-      packet: SS_NONE
-      size: -1
-    0x0334:
-      packet: SS_NONE
-      size: -1
-    0x0335:
-      packet: SS_NONE
-      size: -1
-    0x0336:
-      packet: SS_NONE
-      size: -1
-    0x0337:
-      packet: SS_NONE
-      size: -1
-    0x0338:
-      packet: SS_NONE
-      size: -1
-    0x0339:
-      packet: SS_NONE
-      size: -1
-    0x033a:
-      packet: SS_NONE
-      size: -1
-    0x033b:
-      packet: SS_NONE
-      size: -1
-    0x033c:
-      packet: SS_NONE
-      size: -1
-    0x033d:
-      packet: SS_NONE
-      size: -1
-    0x033e:
-      packet: SS_NONE
-      size: -1
-    0x033f:
-      packet: SS_NONE
-      size: -1
-    0x0340:
-      packet: SS_NONE
-      size: -1
-    0x0341:
-      packet: SS_NONE
-      size: -1
-    0x0342:
-      packet: SS_NONE
-      size: -1
-    0x0343:
-      packet: SS_NONE
-      size: -1
-    0x0344:
-      packet: SS_NONE
-      size: -1
-    0x0345:
-      packet: SS_NONE
-      size: -1
-    0x0346:
-      packet: SS_NONE
-      size: -1
-    0x0347:
-      packet: SS_NONE
-      size: -1
-    0x0348:
-      packet: SS_NONE
-      size: -1
-    0x0349:
-      packet: SS_NONE
-      size: -1
-    0x034a:
-      packet: SS_NONE
-      size: -1
-    0x034b:
-      packet: SS_NONE
-      size: -1
-    0x034c:
-      packet: SS_NONE
-      size: -1
-    0x034d:
-      packet: SS_NONE
-      size: -1
-    0x034e:
-      packet: SS_NONE
-      size: -1
-    0x034f:
-      packet: SS_NONE
-      size: -1
-    0x0350:
-      packet: SS_NONE
-      size: -1
-    0x0351:
-      packet: SS_NONE
-      size: -1
-    0x0352:
-      packet: SS_NONE
-      size: -1
-    0x0353:
-      packet: SS_NONE
-      size: -1
-    0x0354:
-      packet: SS_NONE
-      size: -1
-    0x0355:
-      packet: SS_NONE
-      size: -1
-    0x0356:
-      packet: SS_NONE
-      size: -1
-    0x0357:
-      packet: SS_NONE
-      size: -1
-    0x0358:
-      packet: SS_NONE
-      size: -1
-    0x0359:
-      packet: SS_NONE
-      size: -1
-    0x035a:
-      packet: SS_NONE
-      size: -1
-    0x035b:
-      packet: SS_NONE
-      size: -1
-    0x035c:
-      packet: SS_NONE
-      size: 2
-    0x035d:
-      packet: SS_NONE
-      size: -1
-    0x035e:
-      packet: SS_NONE
-      size: 2
-    0x035f:
-      packet: TickSend
       size: 6
     0x0360:
       packet: CZ_ENTER
       size: 19
-    0x0361:
-      packet: ChangeDir
-      size: 5
-    0x0362:
-      packet: ChangeDir
-      size: 5
-    0x0363:
-      packet: DropItem
-      size: 6
-    0x0364:
-      packet: MoveToKafra
-      size: 8
-    0x0365:
-      packet: MoveFromKafra
-      size: 8
-    0x0366:
-      packet: UseSkillToPosMoreInfo
-      size: 90
-    0x0367:
-      packet: UseSkillToPosMoreInfo
-      size: 90
-    0x0368:
-      packet: SolveCharName
-      size: 6
-    0x0369:
-      packet: ActionRequest
-      size: 7
-    0x0389:
-      packet: SS_NONE
-      size: -1
-    0x040c:
-      packet: SS_NONE
-      size: -1
-    0x040d:
-      packet: SS_NONE
-      size: -1
-    0x040e:
-      packet: SS_NONE
-      size: -1
-    0x040f:
-      packet: SS_NONE
-      size: -1
-    0x0410:
-      packet: SS_NONE
-      size: -1
-    0x0411:
-      packet: SS_NONE
-      size: -1
-    0x0412:
-      packet: SS_NONE
-      size: -1
-    0x0413:
-      packet: SS_NONE
-      size: -1
-    0x0414:
-      packet: SS_NONE
-      size: -1
-    0x0415:
-      packet: SS_NONE
-      size: -1
-    0x0416:
-      packet: SS_NONE
-      size: -1
-    0x0417:
-      packet: SS_NONE
-      size: -1
-    0x0418:
-      packet: SS_NONE
-      size: -1
-    0x0419:
-      packet: SS_NONE
-      size: -1
-    0x041a:
-      packet: SS_NONE
-      size: -1
-    0x041b:
-      packet: SS_NONE
-      size: -1
-    0x041c:
-      packet: SS_NONE
-      size: -1
-    0x041d:
-      packet: SS_NONE
-      size: -1
-    0x041e:
-      packet: SS_NONE
-      size: -1
-    0x041f:
-      packet: SS_NONE
-      size: -1
-    0x0420:
-      packet: SS_NONE
-      size: -1
-    0x0421:
-      packet: SS_NONE
-      size: -1
-    0x0422:
-      packet: SS_NONE
-      size: -1
-    0x0423:
-      packet: SS_NONE
-      size: -1
-    0x0424:
-      packet: SS_NONE
-      size: -1
-    0x0425:
-      packet: SS_NONE
-      size: -1
-    0x0426:
-      packet: SS_NONE
-      size: -1
-    0x0427:
-      packet: SS_NONE
-      size: -1
-    0x0428:
-      packet: SS_NONE
-      size: -1
-    0x0429:
-      packet: SS_NONE
-      size: -1
-    0x042a:
-      packet: SS_NONE
-      size: -1
-    0x042b:
-      packet: SS_NONE
-      size: -1
-    0x042c:
-      packet: SS_NONE
-      size: -1
-    0x042d:
-      packet: SS_NONE
-      size: -1
-    0x042e:
-      packet: SS_NONE
-      size: -1
-    0x042f:
-      packet: SS_NONE
-      size: -1
-    0x0430:
-      packet: SS_NONE
-      size: -1
-    0x0431:
-      packet: SS_NONE
-      size: -1
-    0x0432:
-      packet: SS_NONE
-      size: -1
-    0x0433:
-      packet: SS_NONE
-      size: -1
-    0x0434:
-      packet: SS_NONE
-      size: -1
-    0x0435:
-      packet: SS_NONE
-      size: -1
-    0x0436:
-      packet: SS_NONE
-      size: 19
-    0x0437:
-      packet: WalkToXY
-      size: 5
-    0x0438:
-      packet: UseSkillToPos
-      size: 10
-    0x0439:
-      packet: UseItem
-      size: 8
-    0x043d:
-      packet: SS_NONE
-      size: 8
-    0x043e:
-      packet: SS_NONE
-      size: -1
-    0x043f:
-      packet: SS_NONE
-      size: 25
-    0x0440:
-      packet: SS_NONE
-      size: 10
-    0x0441:
-      packet: SS_NONE
-      size: 4
-    0x0442:
-      packet: SS_NONE
-      size: -1
-    0x0443:
-      packet: SkillSelectMenu
-      size: 8
-    0x0444:
-      packet: SS_NONE
-      size: -1
-    0x0445:
-      packet: SS_NONE
-      size: 10
-    0x0446:
-      packet: SS_NONE
-      size: 14
-    0x0447:
-      packet: SS_NONE
-      size: 2
-    0x0448:
-      packet: SS_NONE
-      size: -1
-    0x0449:
-      packet: SS_NONE
-      size: 4
-    0x044a:
-      packet: SS_NONE
-      size: 6
-    0x044b:
-      packet: SS_NONE
-      size: 2
-    0x07d0:
-      packet: SS_NONE
-      size: 6
-    0x07d1:
-      packet: SS_NONE
-      size: 2
-    0x07d2:
-      packet: SS_NONE
-      size: -1
-    0x07d3:
-      packet: SS_NONE
-      size: 4
-    0x07d4:
-      packet: SS_NONE
-      size: 4
-    0x07d5:
-      packet: SS_NONE
-      size: 4
-    0x07d6:
-      packet: SS_NONE
-      size: 4
-    0x07d7:
-      packet: PartyChangeOption
-      size: 8
-    0x07d8:
-      packet: SS_NONE
-      size: 8
-    0x07d9:
-      packet: SS_NONE
-      size: 268
-    0x07da:
-      packet: PartyChangeLeader
-      size: 6
-    0x07db:
-      packet: SS_NONE
-      size: 8
-    0x07dc:
-      packet: SS_NONE
-      size: 6
-    0x07dd:
-      packet: SS_NONE
-      size: 54
-    0x07de:
-      packet: SS_NONE
-      size: 30
-    0x07df:
-      packet: SS_NONE
-      size: 54
-    0x07e0:
-      packet: SS_NONE
-      size: 58
-    0x07e1:
-      packet: SS_NONE
-      size: 15
-    0x07e2:
-      packet: SS_NONE
-      size: 8
-    0x07e3:
-      packet: SS_NONE
-      size: 6
-    0x07e4:
-      packet: ItemListWindowSelected
-      size: -1
-    0x07e5:
-      packet: SS_NONE
-      size: 8
-    0x07e6:
-      packet: SS_NONE
-      size: 8
-    0x07e7:
-      packet: SS_NONE
-      size: 32
-    0x07e8:
-      packet: SS_NONE
-      size: -1
-    0x07e9:
-      packet: SS_NONE
-      size: 5
-    0x07ea:
-      packet: SS_NONE
-      size: 2
-    0x07eb:
-      packet: SS_NONE
-      size: -1
-    0x07ec:
-      packet: SS_NONE
-      size: 8
-    0x07ed:
-      packet: SS_NONE
-      size: 10
-    0x07ee:
-      packet: SS_NONE
-      size: 6
-    0x07ef:
-      packet: SS_NONE
-      size: 8
-    0x07f0:
-      packet: SS_NONE
-      size: 6
-    0x07f1:
-      packet: SS_NONE
-      size: 18
-    0x07f2:
-      packet: SS_NONE
-      size: 8
-    0x07f3:
-      packet: SS_NONE
-      size: 6
-    0x07f4:
-      packet: SS_NONE
-      size: 3
-    0x07f5:
-      packet: GMFullStrip
-      size: 6
-    0x07f6:
-      packet: SS_NONE
-      size: 14
-    0x07f7:
-      packet: SS_NONE
-      size: -1
-    0x07f8:
-      packet: SS_NONE
-      size: -1
-    0x07f9:
-      packet: SS_NONE
-      size: -1
-    0x07fa:
-      packet: SS_NONE
-      size: 8
-    0x07fb:
-      packet: SS_NONE
-      size: 25
-    0x07fc:
-      packet: SS_NONE
-      size: 10
-    0x07fd:
-      packet: SS_NONE
-      size: -1
-    0x07fe:
-      packet: SS_NONE
-      size: 26
-    0x07ff:
-      packet: SS_NONE
-      size: -1
-    0x0800:
-      packet: SS_NONE
-      size: -1
-    0x0801:
-      packet: PurchaseReq2
-      size: -1
-    0x0802:
-      packet: PartyBookingRegisterReq
-      size: 18
-    0x0803:
-      packet: SS_NONE
-      size: 4
-    0x0804:
-      packet: PartyBookingSearchReq
-      size: 14
-    0x0805:
-      packet: SS_NONE
-      size: -1
-    0x0806:
-      packet: PartyBookingDeleteReq
-      size: 2
-    0x0807:
-      packet: SS_NONE
-      size: 4
-    0x0808:
-      packet: PartyBookingUpdateReq
-      size: 14
-    0x0809:
-      packet: SS_NONE
-      size: 50
-    0x080a:
-      packet: SS_NONE
-      size: 18
-    0x080b:
-      packet: SS_NONE
-      size: 6
-    0x080c:
-      packet: SS_NONE
-      size: 2
-    0x080d:
-      packet: SS_NONE
-      size: 3
-    0x080e:
-      packet: SS_NONE
-      size: 14
-    0x080f:
-      packet: SS_NONE
-      size: 20
-    0x0810:
-      packet: SS_NONE
-      size: 3
-    0x0811:
-      packet: ReqTradeBuyingStore
-      size: -1
-    0x0812:
-      packet: SS_NONE
-      size: 8
-    0x0813:
-      packet: SS_NONE
-      size: -1
-    0x0814:
-      packet: SS_NONE
-      size: 86
-    0x0815:
-      packet: ReqOpenBuyingStore
-      size: -1
-    0x0816:
-      packet: SS_NONE
-      size: 6
-    0x0817:
-      packet: ReqCloseBuyingStore
-      size: 2
-    0x0818:
-      packet: SS_NONE
-      size: -1
-    0x0819:
-      packet: SearchStoreInfo
-      size: -1
-    0x081a:
-      packet: SS_NONE
-      size: 4
-    0x081b:
-      packet: SS_NONE
-      size: 10
-    0x081c:
-      packet: SS_NONE
-      size: 10
-    0x081d:
-      packet: SS_NONE
-      size: 22
-    0x081e:
-      packet: SS_NONE
-      size: 8
-    0x081f:
-      packet: SS_NONE
-      size: -1
-    0x0820:
-      packet: SS_NONE
-      size: 11
-    0x0821:
-      packet: SS_NONE
-      size: 2
-    0x0822:
-      packet: SS_NONE
-      size: 9
-    0x0823:
-      packet: SS_NONE
-      size: -1
-    0x0824:
-      packet: SS_NONE
-      size: 6
-    0x0825:
-      packet: SS_NONE
-      size: -1
-    0x0826:
-      packet: SS_NONE
-      size: 4
-    0x0827:
-      packet: SS_NONE
-      size: 6
-    0x0828:
-      packet: SS_NONE
-      size: 14
-    0x0829:
-      packet: SS_NONE
-      size: 6
-    0x082a:
-      packet: SS_NONE
-      size: 10
-    0x082b:
-      packet: SS_NONE
-      size: 6
-    0x082c:
-      packet: SS_NONE
-      size: 14
-    0x082d:
-      packet: HC_ACCEPT2
-      size: -1
-    0x0835:
-      packet: SearchStoreInfoNextPage
-      size: 2
-    0x0836:
-      packet: SS_NONE
-      size: -1
-    0x0837:
-      packet: SS_NONE
-      size: 3
-    0x0838:
-      packet: SearchStoreInfoListItemClick
-      size: 12
-    0x0839:
-      packet: SS_NONE
-      size: 66
-    0x083a:
-      packet: SS_NONE
-      size: 5
-    0x083b:
-      packet: CloseSearchStoreInfo
-      size: 2
-    0x083c:
-      packet: UseSkillToId
-      size: 10
-    0x083d:
-      packet: SS_NONE
-      size: 6
-    0x083e:
-      packet: SS_NONE
-      size: 26
-    0x083f:
-      packet: SS_NONE
-      size: 22
-    0x0840:
-      packet: SS_NONE
-      size: -1
-    0x0841:
-      packet: SS_NONE
-      size: 4
-    0x0842:
-      packet: GMRecall2
-      size: 6
-    0x0843:
-      packet: GMRemove2
-      size: 6
-    0x0844:
-      packet: CashShopOpen
-      size: 2
-    0x0846:
-      packet: CashShopReqTab
-      size: 4
-    0x0848:
-      packet: CashShopBuy
-      size: -1
-    0x084a:
-      packet: CashShopClose
-      size: 2
-    0x0856:
-      packet: SS_NONE
-      size: -1
-    0x0857:
-      packet: SS_NONE
-      size: -1
-    0x0858:
-      packet: SS_NONE
-      size: -1
-    0x0859:
-      packet: SS_NONE
-      size: -1
-    0x0861:
-      packet: PartyRecruitRegisterReq
-      size: 18
-    0x0862:
-      packet: Dull
-      size: 4
-    0x0886:
-      packet: ReqCloseBuyingStore
-      size: 2
-    0x0887:
-      packet: MoveToKafra
-      size: 8
-    0x08a1:
-      packet: TakeItem
-      size: 6
-    0x08aa:
-      packet: Dull
-      size: 8
-    0x08ac:
-      packet: MoveFromKafra
-      size: 8
-    0x08b1:
-      packet: SS_NONE
-      size: -1
-    0x08b3:
-      packet: SS_NONE
-      size: -1
-    0x08b4:
-      packet: SS_NONE
-      size: 2
-    0x08b5:
-      packet: Dull
-      size: 6
-    0x08b6:
-      packet: SS_NONE
-      size: 3
-    0x08b9:
-      packet: HC_SECOND_PASSWD_LOGIN
-      size: 12
-    0x08c0:
-      packet: SS_NONE
-      size: -1
-    0x08c1:
-      packet: Dull
-      size: 2
-    0x08c2:
-      packet: Dull
-      size: 2
-    0x08c7:
-      packet: SS_NONE
-      size: -1
-    0x08c8:
-      packet: SS_NONE
-      size: 34
-    0x08c9:
-      packet: CashShopSchedule
-      size: 2
-    0x08ca:
-      packet: SS_NONE
-      size: -1
-    0x08cb:
-      packet: SS_NONE
-      size: -1
-    0x08cf:
-      packet: SS_NONE
-      size: 10
-    0x08d0:
-      packet: SS_NONE
-      size: 9
-    0x08d1:
-      packet: SS_NONE
-      size: 7
-    0x08d2:
-      packet: SS_NONE
-      size: 10
-    0x08d3:
-      packet: SS_NONE
-      size: 10
-    0x08d6:
-      packet: SS_NONE
-      size: 6
-    0x092d:
-      packet: PartyBookingRegisterReq
-      size: 18
-    0x0931:
-      packet: HomMenu
-      size: 5
-    0x093e:
-      packet: StoragePassword
-      size: 36
-    0x0943:
-      packet: WantToConnection
-      size: 19
-    0x0944:
-      packet: DropItem
-      size: 6
-    0x0947:
-      packet: PartyInvite2
-      size: 26
-    0x0962:
-      packet: FriendsListAdd
-      size: 26
-    0x0963:
-      packet: ItemListWindowSelected
-      size: -1
-    0x096a:
-      packet: GetCharNameRequest
-      size: 6
-    0x096e:
-      packet: ackmergeitems
-      size: -1
-    0x0974:
-      packet: cancelmergeitem
-      size: 2
-    0x097d:
-      packet: SS_NONE
-      size: 288
-    0x097e:
-      packet: SS_NONE
-      size: 12
-    0x097f:
-      packet: SS_NONE
-      size: -1
-    0x0980:
-      packet: SelectCart
-      size: 7
-    0x09a6:
-      packet: SS_NONE
-      size: 12
-    0x09a7:
-      packet: BankDeposit
-      size: 10
-    0x09a8:
-      packet: SS_NONE
-      size: 16
-    0x09a9:
-      packet: BankWithdraw
-      size: 10
-    0x09aa:
-      packet: SS_NONE
-      size: 16
-    0x09ab:
-      packet: BankCheck
-      size: 6
-    0x09b6:
-      packet: BankOpen
-      size: 6
-    0x09b7:
-      packet: SS_NONE
-      size: 4
-    0x09b8:
-      packet: BankClose
-      size: 6
-    0x09b9:
-      packet: SS_NONE
-      size: 4
-    0x09dc:
-      packet: SS_NONE
-      size: 2
-    0x0a09:
-      packet: SS_NONE
-      size: 45
-    0x0a0a:
-      packet: SS_NONE
-      size: 47
-    0x0a0b:
-      packet: SS_NONE
-      size: 47
-    0x0a0c:
-      packet: SS_NONE
-      size: 56
-    0x0a0d:
-      packet: SS_NONE
-      size: -1
-    0x0a0e:
-      packet: SS_NONE
-      size: 14
-    0x0a0f:
-      packet: SS_NONE
-      size: -1
-    0x0a10:
-      packet: SS_NONE
-      size: -1
     0x0a18:
       packet: ZC_ACCEPT_ENTER
       size: 14
-    0x0a28:
+
+    # Other packets
+    0x72:
+      packet: useskilltoid
+      size: 22
+    0x73:
+      packet: SS_NONE
+      size: 11
+    0x74:
       packet: SS_NONE
       size: 3
+    0x75:
+      packet: SS_NONE
+      size: -1
+    0x76:
+      packet: SS_NONE
+      size: 9
+    0x77:
+      packet: SS_NONE
+      size: 5
+    0x78:
+      packet: SS_NONE
+      size: 55
+    0x79:
+      packet: SS_NONE
+      size: 53
+    0x7a:
+      packet: SS_NONE
+      size: 58
+    0x7b:
+      packet: SS_NONE
+      size: 60
+    0x7c:
+      packet: SS_NONE
+      size: 44
+    0x7d:
+      packet: loadendack
+      size: 2
+    0x7e:
+      packet: useskilltoposinfo
+      size: 105
+    0x7f:
+      packet: SS_NONE
+      size: 6
+    0x80:
+      packet: SS_NONE
+      size: 7
+    0x81:
+      packet: SS_NONE
+      size: 3
+    0x82:
+      packet: SS_NONE
+      size: 2
+    0x83:
+      packet: SS_NONE
+      size: 2
+    0x84:
+      packet: SS_NONE
+      size: 2
+    0x85:
+      packet: changedir
+      size: 10
+    0x86:
+      packet: SS_NONE
+      size: 16
+    0x87:
+      packet: SS_NONE
+      size: 12
+    0x88:
+      packet: SS_NONE
+      size: 10
+    0x89:
+      packet: ticksend
+      size: 11
+    0x8a:
+      packet: SS_NONE
+      size: 29
+    0x8b:
+      packet: SS_NONE
+      size: 2
+    0x8c:
+      packet: getcharnamerequest
+      size: 14
+    0x8d:
+      packet: SS_NONE
+      size: -1
+    0x8e:
+      packet: SS_NONE
+      size: -1
+    0x90:
+      packet: npcclicked
+      size: 7
+    0x91:
+      packet: SS_NONE
+      size: 22
+    0x92:
+      packet: SS_NONE
+      size: 28
+    0x93:
+      packet: SS_NONE
+      size: 2
+    0x94:
+      packet: movetokafra
+      size: 19
+    0x95:
+      packet: SS_NONE
+      size: 30
+    0x96:
+      packet: wis
+      size: -1
+    0x97:
+      packet: SS_NONE
+      size: -1
+    0x98:
+      packet: SS_NONE
+      size: 3
+    0x99:
+      packet: broadcast
+      size: -1
+    0x9a:
+      packet: SS_NONE
+      size: -1
+    0x9b:
+      packet: wanttoconnection
+      size: 34
+    0x9c:
+      packet: SS_NONE
+      size: 9
+    0x9d:
+      packet: SS_NONE
+      size: 17
+    0x9e:
+      packet: SS_NONE
+      size: 17
+    0x9f:
+      packet: useitem
+      size: 20
+    0xa0:
+      packet: SS_NONE
+      size: 23
+    0xa1:
+      packet: SS_NONE
+      size: 6
+    0xa2:
+      packet: solvecharname
+      size: 14
+    0xa3:
+      packet: SS_NONE
+      size: -1
+    0xa4:
+      packet: SS_NONE
+      size: -1
+    0xa5:
+      packet: SS_NONE
+      size: -1
+    0xa6:
+      packet: SS_NONE
+      size: -1
+    0xa7:
+      packet: walktoxy
+      size: 9
+    0xa8:
+      packet: SS_NONE
+      size: 7
+    0xa9:
+      packet: equipitem
+      size: 6
+    0xaa:
+      packet: ZC_WEAR_EQUIP_ACK
+      size: 9
+    0xab:
+      packet: unequipitem
+      size: 4
+    0xac:
+      packet: SS_NONE
+      size: 7
+    0xae:
+      packet: SS_NONE
+      size: -1
+    0xaf:
+      packet: SS_NONE
+      size: 6
+    0xb0:
+      packet: SS_NONE
+      size: 8
+    0xb1:
+      packet: SS_NONE
+      size: 8
+    0xb2:
+      packet: restart
+      size: 3
+    0xb3:
+      packet: SS_NONE
+      size: 3
+    0xb4:
+      packet: SS_NONE
+      size: -1
+    0xb5:
+      packet: SS_NONE
+      size: 6
+    0xb6:
+      packet: SS_NONE
+      size: 6
+    0xb7:
+      packet: SS_NONE
+      size: -1
+    0xb8:
+      packet: npcselectmenu
+      size: 7
+    0xb9:
+      packet: npcnextclicked
+      size: 6
+    0xba:
+      packet: SS_NONE
+      size: 2
+    0xbb:
+      packet: statusup
+      size: 5
+    0xbc:
+      packet: SS_NONE
+      size: 6
+    0xbd:
+      packet: SS_NONE
+      size: 44
+    0xbe:
+      packet: SS_NONE
+      size: 5
+    0xbf:
+      packet: emotion
+      size: 3
+    0xc0:
+      packet: SS_NONE
+      size: 7
+    0xc1:
+      packet: howmanyconnections
+      size: 2
+    0xc2:
+      packet: SS_NONE
+      size: 6
+    0xc3:
+      packet: SS_NONE
+      size: 8
+    0xc4:
+      packet: SS_NONE
+      size: 6
+    0xc5:
+      packet: npcbuysellselected
+      size: 7
+    0xc6:
+      packet: SS_NONE
+      size: -1
+    0xc7:
+      packet: SS_NONE
+      size: -1
+    0xc8:
+      packet: npcbuylistsend
+      size: -1
+    0xc9:
+      packet: npcselllistsend
+      size: -1
+    0xca:
+      packet: SS_NONE
+      size: 3
+    0xcb:
+      packet: SS_NONE
+      size: 3
+    0xcc:
+      packet: gmkick
+      size: 6
+    0xcd:
+      packet: SS_NONE
+      size: 3
+    0xce:
+      packet: killall
+      size: 2
+    0xcf:
+      packet: wisexin
+      size: 27
+    0xd0:
+      packet: wisall
+      size: 3
+    0xd1:
+      packet: SS_NONE
+      size: 4
+    0xd2:
+      packet: SS_NONE
+      size: 4
+    0xd3:
+      packet: wisexlist
+      size: 2
+    0xd4:
+      packet: SS_NONE
+      size: -1
+    0xd5:
+      packet: createchatroom
+      size: -1
+    0xd6:
+      packet: SS_NONE
+      size: 3
+    0xd7:
+      packet: SS_NONE
+      size: -1
+    0xd8:
+      packet: SS_NONE
+      size: 6
+    0xd9:
+      packet: chataddmember
+      size: 14
+    0xda:
+      packet: SS_NONE
+      size: 3
+    0xdb:
+      packet: SS_NONE
+      size: -1
+    0xdc:
+      packet: SS_NONE
+      size: 28
+    0xdd:
+      packet: SS_NONE
+      size: 29
+    0xde:
+      packet: chatroomstatuschange
+      size: -1
+    0xdf:
+      packet: SS_NONE
+      size: -1
+    0xe0:
+      packet: changechatowner
+      size: 30
+    0xe1:
+      packet: SS_NONE
+      size: 30
+    0xe2:
+      packet: kickfromchat
+      size: 26
+    0xe3:
+      packet: chatleave
+      size: 2
+    0xe4:
+      packet: traderequest
+      size: 6
+    0xe5:
+      packet: SS_NONE
+      size: 26
+    0xe6:
+      packet: tradeack
+      size: 3
+    0xe7:
+      packet: SS_NONE
+      size: 3
+    0xe8:
+      packet: tradeadditem
+      size: 8
+    0xe9:
+      packet: SS_NONE
+      size: 19
+    0xea:
+      packet: SS_NONE
+      size: 5
+    0xeb:
+      packet: tradeok
+      size: 2
+    0xec:
+      packet: SS_NONE
+      size: 3
+    0xed:
+      packet: tradecancel
+      size: 2
+    0xee:
+      packet: SS_NONE
+      size: 2
+    0xef:
+      packet: tradecommit
+      size: 2
+    0xf0:
+      packet: SS_NONE
+      size: 3
+    0xf1:
+      packet: SS_NONE
+      size: 2
+    0xf2:
+      packet: SS_NONE
+      size: 6
+    0xf3:
+      packet: globalmessage
+      size: -1
+    0xf4:
+      packet: SS_NONE
+      size: 21
+    0xf5:
+      packet: takeitem
+      size: 11
+    0xf6:
+      packet: SS_NONE
+      size: 8
+    0xf7:
+      packet: movefromkafra
+      size: 17
+    0xf8:
+      packet: SS_NONE
+      size: 2
+    0xf9:
+      packet: createparty
+      size: 26
+    0xfa:
+      packet: SS_NONE
+      size: 3
+    0xfb:
+      packet: SS_NONE
+      size: -1
+    0xfc:
+      packet: partyinvite
+      size: 6
+    0xfd:
+      packet: SS_NONE
+      size: 27
+    0xfe:
+      packet: SS_NONE
+      size: 30
+    0xff:
+      packet: replypartyinvite
+      size: 10
+    0x100:
+      packet: leaveparty
+      size: 2
+    0x101:
+      packet: SS_NONE
+      size: 6
+    0x102:
+      packet: partychangeoption
+      size: 6
+    0x103:
+      packet: removepartymember
+      size: 30
+    0x104:
+      packet: SS_NONE
+      size: 79
+    0x105:
+      packet: SS_NONE
+      size: 31
+    0x106:
+      packet: SS_NONE
+      size: 10
+    0x107:
+      packet: SS_NONE
+      size: 10
+    0x108:
+      packet: partymessage
+      size: -1
+    0x109:
+      packet: SS_NONE
+      size: -1
+    0x10a:
+      packet: SS_NONE
+      size: 4
+    0x10b:
+      packet: SS_NONE
+      size: 6
+    0x10c:
+      packet: SS_NONE
+      size: 6
+    0x10d:
+      packet: SS_NONE
+      size: 2
+    0x10e:
+      packet: SS_NONE
+      size: 11
+    0x10f:
+      packet: SS_NONE
+      size: -1
+    0x110:
+      packet: SS_NONE
+      size: 10
+    0x111:
+      packet: SS_NONE
+      size: 39
+    0x112:
+      packet: skillup
+      size: 4
+    0x113:
+      packet: useskilltopos
+      size: 25
+    0x114:
+      packet: SS_NONE
+      size: 31
+    0x115:
+      packet: SS_NONE
+      size: 35
+    0x116:
+      packet: dropitem
+      size: 17
+    0x117:
+      packet: SS_NONE
+      size: 18
+    0x118:
+      packet: stopattack
+      size: 2
+    0x119:
+      packet: SS_NONE
+      size: 13
+    0x11a:
+      packet: SS_NONE
+      size: 15
+    0x11b:
+      packet: useskillmap
+      size: 20
+    0x11c:
+      packet: SS_NONE
+      size: 68
+    0x11d:
+      packet: requestmemo
+      size: 2
+    0x11e:
+      packet: SS_NONE
+      size: 3
+    0x11f:
+      packet: SS_NONE
+      size: 16
+    0x120:
+      packet: SS_NONE
+      size: 6
+    0x121:
+      packet: SS_NONE
+      size: 14
+    0x122:
+      packet: SS_NONE
+      size: -1
+    0x123:
+      packet: SS_NONE
+      size: -1
+    0x124:
+      packet: SS_NONE
+      size: 21
+    0x125:
+      packet: SS_NONE
+      size: 8
+    0x126:
+      packet: putitemtocart
+      size: 8
+    0x127:
+      packet: getitemfromcart
+      size: 8
+    0x128:
+      packet: movefromkafratocart
+      size: 8
+    0x129:
+      packet: movetokafrafromcart
+      size: 8
+    0x12a:
+      packet: removeoption
+      size: 2
+    0x12b:
+      packet: SS_NONE
+      size: 2
+    0x12c:
+      packet: SS_NONE
+      size: 3
+    0x12d:
+      packet: SS_NONE
+      size: 4
+    0x12e:
+      packet: closevending
+      size: 2
+    0x12f:
+      packet: openvending
+      size: -1
+    0x130:
+      packet: vendinglistreq
+      size: 6
+    0x131:
+      packet: SS_NONE
+      size: 86
+    0x132:
+      packet: SS_NONE
+      size: 6
+    0x133:
+      packet: SS_NONE
+      size: -1
+    0x134:
+      packet: purchasereq
+      size: -1
+    0x135:
+      packet: SS_NONE
+      size: 7
+    0x136:
+      packet: SS_NONE
+      size: -1
+    0x137:
+      packet: SS_NONE
+      size: 6
+    0x138:
+      packet: SS_NONE
+      size: 3
+    0x139:
+      packet: SS_NONE
+      size: 16
+    0x13a:
+      packet: SS_NONE
+      size: 4
+    0x13b:
+      packet: SS_NONE
+      size: 4
+    0x13c:
+      packet: SS_NONE
+      size: 4
+    0x13d:
+      packet: SS_NONE
+      size: 6
+    0x13e:
+      packet: SS_NONE
+      size: 24
+    0x13f:
+      packet: itemmonster
+      size: 26
+    0x140:
+      packet: mapmove
+      size: 22
+    0x141:
+      packet: SS_NONE
+      size: 14
+    0x142:
+      packet: SS_NONE
+      size: 6
+    0x143:
+      packet: npcamountinput
+      size: 10
+    0x144:
+      packet: SS_NONE
+      size: 23
+    0x145:
+      packet: SS_NONE
+      size: 19
+    0x146:
+      packet: npccloseclicked
+      size: 6
+    0x147:
+      packet: SS_NONE
+      size: 39
+    0x148:
+      packet: SS_NONE
+      size: 8
+    0x149:
+      packet: gmreqnochat
+      size: 9
+    0x14a:
+      packet: SS_NONE
+      size: 6
+    0x14b:
+      packet: SS_NONE
+      size: 27
+    0x14c:
+      packet: SS_NONE
+      size: -1
+    0x14d:
+      packet: guildcheckmaster
+      size: 2
+    0x14e:
+      packet: SS_NONE
+      size: 6
+    0x14f:
+      packet: guildrequestinfo
+      size: 6
+    0x150:
+      packet: SS_NONE
+      size: 110
+    0x151:
+      packet: guildrequestemblem
+      size: 6
+    0x152:
+      packet: SS_NONE
+      size: -1
+    0x153:
+      packet: guildchangeemblem
+      size: -1
+    0x154:
+      packet: SS_NONE
+      size: -1
+    0x155:
+      packet: guildchangememberposition
+      size: -1
+    0x156:
+      packet: SS_NONE
+      size: -1
+    0x157:
+      packet: SS_NONE
+      size: 6
+    0x158:
+      packet: SS_NONE
+      size: -1
+    0x159:
+      packet: guildleave
+      size: 54
+    0x15a:
+      packet: SS_NONE
+      size: 66
+    0x15b:
+      packet: guildexpulsion
+      size: 54
+    0x15c:
+      packet: SS_NONE
+      size: 90
+    0x15d:
+      packet: guildbreak
+      size: 42
+    0x15e:
+      packet: SS_NONE
+      size: 6
+    0x15f:
+      packet: SS_NONE
+      size: 42
+    0x160:
+      packet: SS_NONE
+      size: -1
+    0x161:
+      packet: guildchangepositioninfo
+      size: -1
+    0x162:
+      packet: SS_NONE
+      size: -1
+    0x163:
+      packet: SS_NONE
+      size: -1
+    0x164:
+      packet: SS_NONE
+      size: -1
+    0x165:
+      packet: createguild
+      size: 30
+    0x166:
+      packet: SS_NONE
+      size: -1
+    0x167:
+      packet: SS_NONE
+      size: 3
+    0x168:
+      packet: guildinvite
+      size: 14
+    0x169:
+      packet: SS_NONE
+      size: 3
+    0x16a:
+      packet: SS_NONE
+      size: 30
+    0x16b:
+      packet: guildreplyinvite
+      size: 10
+    0x16c:
+      packet: SS_NONE
+      size: 43
+    0x16d:
+      packet: SS_NONE
+      size: 14
+    0x16e:
+      packet: guildchangenotice
+      size: 186
+    0x16f:
+      packet: SS_NONE
+      size: 182
+    0x170:
+      packet: guildrequestalliance
+      size: 14
+    0x171:
+      packet: SS_NONE
+      size: 30
+    0x172:
+      packet: guildreplyalliance
+      size: 10
+    0x173:
+      packet: SS_NONE
+      size: 3
+    0x174:
+      packet: SS_NONE
+      size: -1
+    0x175:
+      packet: SS_NONE
+      size: 6
+    0x176:
+      packet: SS_NONE
+      size: 106
+    0x177:
+      packet: SS_NONE
+      size: -1
+    0x178:
+      packet: itemidentify
+      size: 4
+    0x179:
+      packet: SS_NONE
+      size: 5
+    0x17a:
+      packet: usecard
+      size: 4
+    0x17b:
+      packet: SS_NONE
+      size: -1
+    0x17c:
+      packet: insertcard
+      size: 6
+    0x17d:
+      packet: SS_NONE
+      size: 7
+    0x17e:
+      packet: guildmessage
+      size: -1
+    0x17f:
+      packet: SS_NONE
+      size: -1
+    0x180:
+      packet: guildopposition
+      size: 6
+    0x181:
+      packet: SS_NONE
+      size: 3
+    0x182:
+      packet: SS_NONE
+      size: 106
+    0x183:
+      packet: guilddelalliance
+      size: 10
+    0x184:
+      packet: SS_NONE
+      size: 10
+    0x185:
+      packet: SS_NONE
+      size: 34
+    0x187:
+      packet: SS_NONE
+      size: 6
+    0x188:
+      packet: SS_NONE
+      size: 8
+    0x189:
+      packet: SS_NONE
+      size: 4
+    0x18a:
+      packet: quitgame
+      size: 4
+    0x18b:
+      packet: SS_NONE
+      size: 4
+    0x18c:
+      packet: SS_NONE
+      size: 29
+    0x18d:
+      packet: SS_NONE
+      size: -1
+    0x18e:
+      packet: producemix
+      size: 10
+    0x18f:
+      packet: SS_NONE
+      size: 6
+    0x190:
+      packet: actionrequest
+      size: 23
+    0x191:
+      packet: SS_NONE
+      size: 86
+    0x192:
+      packet: SS_NONE
+      size: 24
+    0x193:
+      packet: closekafra
+      size: 2
+    0x194:
+      packet: SS_NONE
+      size: 30
+    0x195:
+      packet: SS_NONE
+      size: 102
+    0x196:
+      packet: SS_NONE
+      size: 9
+    0x197:
+      packet: resetchar
+      size: 4
+    0x198:
+      packet: changemaptype
+      size: 8
+    0x199:
+      packet: SS_NONE
+      size: 4
+    0x19a:
+      packet: SS_NONE
+      size: 14
+    0x19b:
+      packet: SS_NONE
+      size: 10
+    0x19c:
+      packet: localbroadcast
+      size: -1
+    0x19d:
+      packet: gmhide
+      size: 6
+    0x19e:
+      packet: SS_NONE
+      size: 2
+    0x19f:
+      packet: catchpet
+      size: 6
+    0x1a0:
+      packet: SS_NONE
+      size: 3
+    0x1a1:
+      packet: petmenu
+      size: 3
+    0x1a2:
+      packet: SS_NONE
+      size: 37
+    0x1a3:
+      packet: SS_NONE
+      size: 5
+    0x1a4:
+      packet: SS_NONE
+      size: 11
+    0x1a5:
+      packet: changepetname
+      size: 26
+    0x1a6:
+      packet: SS_NONE
+      size: -1
+    0x1a7:
+      packet: selectegg
+      size: 4
+    0x1a8:
+      packet: SS_NONE
+      size: 4
+    0x1a9:
+      packet: sendemotion
+      size: 6
+    0x1aa:
+      packet: SS_NONE
+      size: 10
+    0x1ab:
+      packet: SS_NONE
+      size: 12
+    0x1ac:
+      packet: SS_NONE
+      size: 6
+    0x1ad:
+      packet: SS_NONE
+      size: -1
+    0x1ae:
+      packet: selectarrow
+      size: 4
+    0x1af:
+      packet: changecart
+      size: 4
+    0x1b0:
+      packet: SS_NONE
+      size: 11
+    0x1b1:
+      packet: SS_NONE
+      size: 7
+    0x1b2:
+      packet: openvending
+      size: -1
+    0x1b3:
+      packet: SS_NONE
+      size: 67
+    0x1b4:
+      packet: SS_NONE
+      size: 12
+    0x1b5:
+      packet: SS_NONE
+      size: 18
+    0x1b6:
+      packet: SS_NONE
+      size: 114
+    0x1b7:
+      packet: SS_NONE
+      size: 6
+    0x1b8:
+      packet: SS_NONE
+      size: 3
+    0x1b9:
+      packet: SS_NONE
+      size: 6
+    0x1ba:
+      packet: remove
+      size: 26
+    0x1bb:
+      packet: shift
+      size: 26
+    0x1bc:
+      packet: recall
+      size: 26
+    0x1bd:
+      packet: summon
+      size: 26
+    0x1be:
+      packet: SS_NONE
+      size: 2
+    0x1bf:
+      packet: SS_NONE
+      size: 3
+    0x1c0:
+      packet: SS_NONE
+      size: 2
+    0x1c1:
+      packet: SS_NONE
+      size: 14
+    0x1c2:
+      packet: SS_NONE
+      size: 10
+    0x1c3:
+      packet: SS_NONE
+      size: -1
+    0x1c4:
+      packet: SS_NONE
+      size: 22
+    0x1c5:
+      packet: SS_NONE
+      size: 22
+    0x1c6:
+      packet: SS_NONE
+      size: 4
+    0x1c7:
+      packet: SS_NONE
+      size: 2
+    0x1c8:
+      packet: SS_NONE
+      size: 13
+    0x1c9:
+      packet: SS_NONE
+      size: 97
+    0x1ca:
+      packet: SS_NONE
+      size: 3
+    0x1cb:
+      packet: SS_NONE
+      size: 9
+    0x1cc:
+      packet: SS_NONE
+      size: 9
+    0x1cd:
+      packet: SS_NONE
+      size: 30
+    0x1ce:
+      packet: autospell
+      size: 6
+    0x1cf:
+      packet: SS_NONE
+      size: 28
+    0x1d0:
+      packet: SS_NONE
+      size: 8
+    0x1d1:
+      packet: SS_NONE
+      size: 14
+    0x1d2:
+      packet: SS_NONE
+      size: 10
+    0x1d3:
+      packet: SS_NONE
+      size: 35
+    0x1d4:
+      packet: SS_NONE
+      size: 6
+    0x1d5:
+      packet: npcstringinput
+      size: -1
+    0x1d6:
+      packet: SS_NONE
+      size: 4
+    0x1d7:
+      packet: SS_NONE
+      size: 11
+    0x1d8:
+      packet: SS_NONE
+      size: 54
+    0x1d9:
+      packet: SS_NONE
+      size: 53
+    0x1da:
+      packet: SS_NONE
+      size: 60
+    0x1db:
+      packet: SS_NONE
+      size: 2
+    0x1dc:
+      packet: SS_NONE
+      size: -1
+    0x1dd:
+      packet: SS_NONE
+      size: 47
+    0x1de:
+      packet: SS_NONE
+      size: 33
+    0x1df:
+      packet: gmreqaccname
+      size: 6
+    0x1e0:
+      packet: SS_NONE
+      size: 30
+    0x1e1:
+      packet: SS_NONE
+      size: 8
+    0x1e2:
+      packet: SS_NONE
+      size: 34
+    0x1e3:
+      packet: SS_NONE
+      size: 14
+    0x1e4:
+      packet: SS_NONE
+      size: 2
+    0x1e5:
+      packet: SS_NONE
+      size: 6
+    0x1e6:
+      packet: SS_NONE
+      size: 26
+    0x1e7:
+      packet: sndoridori
+      size: 2
+    0x1e8:
+      packet: createparty2
+      size: 28
+    0x1e9:
+      packet: SS_NONE
+      size: 81
+    0x1ea:
+      packet: SS_NONE
+      size: 6
+    0x1eb:
+      packet: SS_NONE
+      size: 10
+    0x1ec:
+      packet: SS_NONE
+      size: 26
+    0x1ed:
+      packet: snexplosionspirits
+      size: 2
+    0x1ee:
+      packet: SS_NONE
+      size: -1
+    0x1ef:
+      packet: SS_NONE
+      size: -1
+    0x1f0:
+      packet: SS_NONE
+      size: -1
+    0x1f1:
+      packet: SS_NONE
+      size: -1
+    0x1f2:
+      packet: SS_NONE
+      size: 20
+    0x1f3:
+      packet: SS_NONE
+      size: 10
+    0x1f4:
+      packet: SS_NONE
+      size: 32
+    0x1f5:
+      packet: SS_NONE
+      size: 9
+    0x1f6:
+      packet: SS_NONE
+      size: 34
+    0x1f7:
+      packet: adoptreply
+      size: 14
+    0x1f8:
+      packet: SS_NONE
+      size: 2
+    0x1f9:
+      packet: adoptrequest
+      size: 6
+    0x1fa:
+      packet: SS_NONE
+      size: 48
+    0x1fb:
+      packet: SS_NONE
+      size: 56
+    0x1fc:
+      packet: SS_NONE
+      size: -1
+    0x1fd:
+      packet: repairitem
+      size: 15
+    0x1fe:
+      packet: SS_NONE
+      size: 5
+    0x1ff:
+      packet: SS_NONE
+      size: 10
+    0x200:
+      packet: SS_NONE
+      size: 26
+    0x201:
+      packet: SS_NONE
+      size: -1
+    0x202:
+      packet: changedir
+      size: 5
+    0x203:
+      packet: friendslistremove
+      size: 10
+    0x204:
+      packet: SS_NONE
+      size: 18
+    0x205:
+      packet: SS_NONE
+      size: 26
+    0x206:
+      packet: SS_NONE
+      size: 11
+    0x207:
+      packet: SS_NONE
+      size: 34
+    0x208:
+      packet: friendslistreply
+      size: 14
+    0x209:
+      packet: SS_NONE
+      size: 36
+    0x20a:
+      packet: SS_NONE
+      size: 10
+    0x20e:
+      packet: SS_NONE
+      size: 32
+    0x20f:
+      packet: pvpinfo
+      size: 10
+    0x210:
+      packet: SS_NONE
+      size: 22
+    0x212:
+      packet: rc
+      size: 26
+    0x213:
+      packet: check
+      size: 26
+    0x214:
+      packet: SS_NONE
+      size: 42
+    0x215:
+      packet: SS_NONE
+      size: 6
+    0x216:
+      packet: SS_NONE
+      size: 6
+    0x217:
+      packet: blacksmith
+      size: 2
+    0x218:
+      packet: alchemist
+      size: 2
+    0x219:
+      packet: SS_NONE
+      size: 282
+    0x21a:
+      packet: SS_NONE
+      size: 282
+    0x21b:
+      packet: SS_NONE
+      size: 10
+    0x21c:
+      packet: SS_NONE
+      size: 10
+    0x21d:
+      packet: lesseffect
+      size: 6
+    0x21e:
+      packet: SS_NONE
+      size: 6
+    0x21f:
+      packet: SS_NONE
+      size: 66
+    0x220:
+      packet: SS_NONE
+      size: 10
+    0x221:
+      packet: SS_NONE
+      size: -1
+    0x222:
+      packet: weaponrefine
+      size: 6
+    0x223:
+      packet: SS_NONE
+      size: 8
+    0x224:
+      packet: SS_NONE
+      size: 10
+    0x225:
+      packet: taekwon
+      size: 2
+    0x226:
+      packet: SS_NONE
+      size: 282
+    0x227:
+      packet: SS_NONE
+      size: 18
+    0x228:
+      packet: SS_NONE
+      size: 18
+    0x229:
+      packet: SS_NONE
+      size: 15
+    0x22a:
+      packet: SS_NONE
+      size: 58
+    0x22b:
+      packet: SS_NONE
+      size: 57
+    0x22c:
+      packet: SS_NONE
+      size: 65
+    0x22d:
+      packet: wanttoconnection
+      size: 19
+    0x22e:
+      packet: SS_NONE
+      size: 71
+    0x22f:
+      packet: SS_NONE
+      size: 5
+    0x230:
+      packet: SS_NONE
+      size: 12
+    0x231:
+      packet: changehomunculusname
+      size: 26
+    0x232:
+      packet: hommoveto
+      size: 9
+    0x233:
+      packet: homattack
+      size: 11
+    0x234:
+      packet: hommovetomaster
+      size: 6
+    0x235:
+      packet: SS_NONE
+      size: -1
+    0x236:
+      packet: SS_NONE
+      size: 10
+    0x237:
+      packet: rankingpk
+      size: 2
+    0x238:
+      packet: SS_NONE
+      size: 282
+    0x239:
+      packet: SS_NONE
+      size: 11
+    0x23a:
+      packet: SS_NONE
+      size: 4
+    0x23b:
+      packet: reqopenbuyingstore
+      size: -1
+    0x23c:
+      packet: SS_NONE
+      size: 6
+    0x23d:
+      packet: SS_NONE
+      size: -1
+    0x23e:
+      packet: SS_NONE
+      size: 8
+    0x23f:
+      packet: mailrefresh
+      size: 2
+    0x240:
+      packet: SS_NONE
+      size: -1
+    0x241:
+      packet: mailread
+      size: 6
+    0x242:
+      packet: SS_NONE
+      size: -1
+    0x243:
+      packet: maildelete
+      size: 6
+    0x244:
+      packet: mailgetattach
+      size: 6
+    0x245:
+      packet: SS_NONE
+      size: 3
+    0x246:
+      packet: mailwinopen
+      size: 4
+    0x247:
+      packet: mailsetattach
+      size: 8
+    0x248:
+      packet: mailsend
+      size: -1
+    0x249:
+      packet: SS_NONE
+      size: 3
+    0x24a:
+      packet: SS_NONE
+      size: 70
+    0x24b:
+      packet: auctioncancelreg
+      size: 4
+    0x24c:
+      packet: auctionsetitem
+      size: 8
+    0x24d:
+      packet: auctionregister
+      size: 12
+    0x24e:
+      packet: auctioncancel
+      size: 6
+    0x24f:
+      packet: auctionbid
+      size: 10
+    0x250:
+      packet: SS_NONE
+      size: 3
+    0x251:
+      packet: auctionsearch
+      size: 34
+    0x252:
+      packet: SS_NONE
+      size: -1
+    0x253:
+      packet: SS_NONE
+      size: 3
+    0x254:
+      packet: feelsaveok
+      size: 3
+    0x255:
+      packet: SS_NONE
+      size: 5
+    0x256:
+      packet: SS_NONE
+      size: 5
+    0x257:
+      packet: SS_NONE
+      size: 8
+    0x258:
+      packet: SS_NONE
+      size: 2
+    0x259:
+      packet: SS_NONE
+      size: 3
+    0x25a:
+      packet: SS_NONE
+      size: -1
+    0x25b:
+      packet: cooking
+      size: 6
+    0x25c:
+      packet: auctionbuysell
+      size: 4
+    0x25d:
+      packet: auctionclose
+      size: 6
+    0x25e:
+      packet: SS_NONE
+      size: 4
+    0x25f:
+      packet: SS_NONE
+      size: 6
+    0x260:
+      packet: SS_NONE
+      size: 6
+    0x261:
+      packet: SS_NONE
+      size: 11
+    0x262:
+      packet: SS_NONE
+      size: 11
+    0x263:
+      packet: SS_NONE
+      size: 11
+    0x264:
+      packet: SS_NONE
+      size: 20
+    0x265:
+      packet: SS_NONE
+      size: 20
+    0x266:
+      packet: SS_NONE
+      size: 30
+    0x267:
+      packet: SS_NONE
+      size: 4
+    0x268:
+      packet: SS_NONE
+      size: 4
+    0x269:
+      packet: SS_NONE
+      size: 4
+    0x26a:
+      packet: SS_NONE
+      size: 4
+    0x26b:
+      packet: SS_NONE
+      size: 4
+    0x26c:
+      packet: SS_NONE
+      size: 4
+    0x26d:
+      packet: SS_NONE
+      size: 4
+    0x26f:
+      packet: SS_NONE
+      size: 2
+    0x270:
+      packet: SS_NONE
+      size: 2
+    0x271:
+      packet: SS_NONE
+      size: 40
+    0x272:
+      packet: SS_NONE
+      size: 44
+    0x273:
+      packet: mailreturn
+      size: 30
+    0x274:
+      packet: SS_NONE
+      size: 8
+    0x277:
+      packet: SS_NONE
+      size: 84
+    0x278:
+      packet: SS_NONE
+      size: 2
+    0x279:
+      packet: SS_NONE
+      size: 2
+    0x27a:
+      packet: SS_NONE
+      size: -1
+    0x27b:
+      packet: SS_NONE
+      size: 14
+    0x27c:
+      packet: SS_NONE
+      size: 60
+    0x27d:
+      packet: SS_NONE
+      size: 62
+    0x27e:
+      packet: SS_NONE
+      size: -1
+    0x27f:
+      packet: SS_NONE
+      size: 8
+    0x280:
+      packet: SS_NONE
+      size: 12
+    0x281:
+      packet: itemlistwindowselected
+      size: -1
+    0x282:
+      packet: SS_NONE
+      size: 284
+    0x284:
+      packet: SS_NONE
+      size: 14
+    0x285:
+      packet: SS_NONE
+      size: 6
+    0x286:
+      packet: SS_NONE
+      size: 4
+    0x287:
+      packet: SS_NONE
+      size: -1
+    0x288:
+      packet: cashshopbuy
+      size: -1
+    0x289:
+      packet: SS_NONE
+      size: 12
+    0x28a:
+      packet: SS_NONE
+      size: 18
+    0x28b:
+      packet: SS_NONE
+      size: -1
+    0x28c:
+      packet: SS_NONE
+      size: 46
+    0x28d:
+      packet: SS_NONE
+      size: 34
+    0x28e:
+      packet: SS_NONE
+      size: 4
+    0x28f:
+      packet: SS_NONE
+      size: 6
+    0x290:
+      packet: SS_NONE
+      size: 4
+    0x291:
+      packet: SS_NONE
+      size: 4
+    0x292:
+      packet: autorevive
+      size: 2
+    0x293:
+      packet: SS_NONE
+      size: 70
+    0x294:
+      packet: SS_NONE
+      size: 10
+    0x295:
+      packet: SS_NONE
+      size: -1
+    0x296:
+      packet: SS_NONE
+      size: -1
+    0x297:
+      packet: SS_NONE
+      size: -1
+    0x298:
+      packet: SS_NONE
+      size: 8
+    0x299:
+      packet: SS_NONE
+      size: 6
+    0x29a:
+      packet: SS_NONE
+      size: 27
+    0x29b:
+      packet: SS_NONE
+      size: 80
+    0x29c:
+      packet: SS_NONE
+      size: 66
+    0x29d:
+      packet: SS_NONE
+      size: -1
+    0x29e:
+      packet: SS_NONE
+      size: 11
+    0x29f:
+      packet: mermenu
+      size: 3
+    0x2a0:
+      packet: SS_NONE
+      size: -1
+    0x2a1:
+      packet: SS_NONE
+      size: -1
+    0x2a2:
+      packet: SS_NONE
+      size: 8
+    0x2a3:
+      packet: SS_NONE
+      size: -1
+    0x2a4:
+      packet: SS_NONE
+      size: -1
+    0x2a5:
+      packet: SS_NONE
+      size: 8
+    0x2a6:
+      packet: SS_NONE
+      size: -1
+    0x2a7:
+      packet: SS_NONE
+      size: -1
+    0x2a8:
+      packet: SS_NONE
+      size: 162
+    0x2a9:
+      packet: SS_NONE
+      size: 58
+    0x2aa:
+      packet: SS_NONE
+      size: 4
+    0x2ab:
+      packet: SS_NONE
+      size: 36
+    0x2ac:
+      packet: SS_NONE
+      size: 6
+    0x2ad:
+      packet: SS_NONE
+      size: 8
+    0x2b0:
+      packet: SS_NONE
+      size: 85
+    0x2b1:
+      packet: SS_NONE
+      size: -1
+    0x2b2:
+      packet: SS_NONE
+      size: -1
+    0x2b3:
+      packet: SS_NONE
+      size: 107
+    0x2b4:
+      packet: SS_NONE
+      size: 6
+    0x2b5:
+      packet: SS_NONE
+      size: -1
+    0x2b6:
+      packet: queststate
+      size: 7
+    0x2b7:
+      packet: SS_NONE
+      size: 7
+    0x2b8:
+      packet: SS_NONE
+      size: 22
+    0x2b9:
+      packet: SS_NONE
+      size: 191
+    0x2ba:
+      packet: hotkey
+      size: 11
+    0x2bb:
+      packet: SS_NONE
+      size: 8
+    0x2bc:
+      packet: SS_NONE
+      size: 6
+    0x2bf:
+      packet: SS_NONE
+      size: -1
+    0x2c0:
+      packet: SS_NONE
+      size: -1
+    0x2c1:
+      packet: SS_NONE
+      size: -1
+    0x2c2:
+      packet: SS_NONE
+      size: -1
+    0x2c4:
+      packet: ticksend
+      size: 6
+    0x2c5:
+      packet: SS_NONE
+      size: 30
+    0x2c6:
+      packet: SS_NONE
+      size: 30
+    0x2c7:
+      packet: replypartyinvite2
+      size: 7
+    0x2c8:
+      packet: partytick
+      size: 3
+    0x2c9:
+      packet: SS_NONE
+      size: 3
+    0x2ca:
+      packet: SS_NONE
+      size: 3
+    0x2cb:
+      packet: SS_NONE
+      size: 65
+    0x2cc:
+      packet: SS_NONE
+      size: 4
+    0x2cd:
+      packet: SS_NONE
+      size: 71
+    0x2ce:
+      packet: SS_NONE
+      size: 10
+    0x2cf:
+      packet: SS_NONE
+      size: 6
+    0x2d0:
+      packet: SS_NONE
+      size: -1
+    0x2d1:
+      packet: SS_NONE
+      size: -1
+    0x2d2:
+      packet: SS_NONE
+      size: -1
+    0x2d3:
+      packet: ZC_NOTIFY_BIND_ON_EQUIP
+      size: 4
+    0x2d4:
+      packet: SS_NONE
+      size: 29
+    0x2d5:
+      packet: SS_NONE
+      size: 2
+    0x2d6:
+      packet: viewplayerequip
+      size: 6
+    0x2d7:
+      packet: SS_NONE
+      size: -1
+    0x2d8:
+      packet: equiptickbox
+      size: 10
+    0x2d9:
+      packet: SS_NONE
+      size: 10
+    0x2da:
+      packet: SS_NONE
+      size: 3
+    0x2db:
+      packet: battlechat
+      size: -1
+    0x2dc:
+      packet: SS_NONE
+      size: -1
+    0x2dd:
+      packet: SS_NONE
+      size: 32
+    0x2de:
+      packet: SS_NONE
+      size: 6
+    0x2df:
+      packet: SS_NONE
+      size: 36
+    0x2e0:
+      packet: SS_NONE
+      size: 34
+    0x2e1:
+      packet: SS_NONE
+      size: 33
+    0x2e2:
+      packet: SS_NONE
+      size: 20
+    0x2e3:
+      packet: SS_NONE
+      size: 22
+    0x2e4:
+      packet: SS_NONE
+      size: 11
+    0x2e5:
+      packet: SS_NONE
+      size: 9
+    0x2e6:
+      packet: SS_NONE
+      size: 6
+    0x2e7:
+      packet: SS_NONE
+      size: -1
+    0x2e8:
+      packet: SS_NONE
+      size: -1
+    0x2e9:
+      packet: SS_NONE
+      size: -1
+    0x2ea:
+      packet: SS_NONE
+      size: -1
+    0x2eb:
+      packet: SS_NONE
+      size: 13
+    0x2ec:
+      packet: SS_NONE
+      size: 67
+    0x2ed:
+      packet: SS_NONE
+      size: 59
+    0x2ee:
+      packet: SS_NONE
+      size: 60
+    0x2ef:
+      packet: SS_NONE
+      size: 8
+    0x2f0:
+      packet: SS_NONE
+      size: 10
+    0x2f1:
+      packet: progressbar
+      size: 2
+    0x2f2:
+      packet: SS_NONE
+      size: 2
+    0x2f3:
+      packet: SS_NONE
+      size: -1
+    0x2f4:
+      packet: SS_NONE
+      size: -1
+    0x2f5:
+      packet: SS_NONE
+      size: -1
+    0x2f6:
+      packet: SS_NONE
+      size: -1
+    0x2f7:
+      packet: SS_NONE
+      size: -1
+    0x2f8:
+      packet: SS_NONE
+      size: -1
+    0x2f9:
+      packet: SS_NONE
+      size: -1
+    0x2fa:
+      packet: SS_NONE
+      size: -1
+    0x2fb:
+      packet: SS_NONE
+      size: -1
+    0x2fc:
+      packet: SS_NONE
+      size: -1
+    0x2fd:
+      packet: SS_NONE
+      size: -1
+    0x2fe:
+      packet: SS_NONE
+      size: -1
+    0x2ff:
+      packet: SS_NONE
+      size: -1
+    0x300:
+      packet: SS_NONE
+      size: -1
+    0x301:
+      packet: SS_NONE
+      size: -1
+    0x302:
+      packet: SS_NONE
+      size: -1
+    0x303:
+      packet: SS_NONE
+      size: -1
+    0x304:
+      packet: SS_NONE
+      size: -1
+    0x305:
+      packet: SS_NONE
+      size: -1
+    0x306:
+      packet: SS_NONE
+      size: -1
+    0x307:
+      packet: SS_NONE
+      size: -1
+    0x308:
+      packet: SS_NONE
+      size: -1
+    0x309:
+      packet: SS_NONE
+      size: -1
+    0x30a:
+      packet: SS_NONE
+      size: -1
+    0x30b:
+      packet: SS_NONE
+      size: -1
+    0x30c:
+      packet: SS_NONE
+      size: -1
+    0x30d:
+      packet: SS_NONE
+      size: -1
+    0x30e:
+      packet: SS_NONE
+      size: -1
+    0x30f:
+      packet: SS_NONE
+      size: -1
+    0x310:
+      packet: SS_NONE
+      size: -1
+    0x311:
+      packet: SS_NONE
+      size: -1
+    0x312:
+      packet: SS_NONE
+      size: -1
+    0x313:
+      packet: SS_NONE
+      size: -1
+    0x314:
+      packet: SS_NONE
+      size: -1
+    0x315:
+      packet: SS_NONE
+      size: -1
+    0x316:
+      packet: SS_NONE
+      size: -1
+    0x317:
+      packet: SS_NONE
+      size: -1
+    0x318:
+      packet: SS_NONE
+      size: -1
+    0x319:
+      packet: SS_NONE
+      size: -1
+    0x31a:
+      packet: SS_NONE
+      size: -1
+    0x31b:
+      packet: SS_NONE
+      size: -1
+    0x31c:
+      packet: SS_NONE
+      size: -1
+    0x31d:
+      packet: SS_NONE
+      size: -1
+    0x31e:
+      packet: SS_NONE
+      size: -1
+    0x31f:
+      packet: SS_NONE
+      size: -1
+    0x320:
+      packet: SS_NONE
+      size: -1
+    0x321:
+      packet: SS_NONE
+      size: -1
+    0x322:
+      packet: SS_NONE
+      size: -1
+    0x323:
+      packet: SS_NONE
+      size: -1
+    0x324:
+      packet: SS_NONE
+      size: -1
+    0x325:
+      packet: SS_NONE
+      size: -1
+    0x326:
+      packet: SS_NONE
+      size: -1
+    0x327:
+      packet: SS_NONE
+      size: -1
+    0x328:
+      packet: SS_NONE
+      size: -1
+    0x329:
+      packet: SS_NONE
+      size: -1
+    0x32a:
+      packet: SS_NONE
+      size: -1
+    0x32b:
+      packet: SS_NONE
+      size: -1
+    0x32c:
+      packet: SS_NONE
+      size: -1
+    0x32d:
+      packet: SS_NONE
+      size: -1
+    0x32e:
+      packet: SS_NONE
+      size: -1
+    0x32f:
+      packet: SS_NONE
+      size: -1
+    0x330:
+      packet: SS_NONE
+      size: -1
+    0x331:
+      packet: SS_NONE
+      size: -1
+    0x332:
+      packet: SS_NONE
+      size: -1
+    0x333:
+      packet: SS_NONE
+      size: -1
+    0x334:
+      packet: SS_NONE
+      size: -1
+    0x335:
+      packet: SS_NONE
+      size: -1
+    0x336:
+      packet: SS_NONE
+      size: -1
+    0x337:
+      packet: SS_NONE
+      size: -1
+    0x338:
+      packet: SS_NONE
+      size: -1
+    0x339:
+      packet: SS_NONE
+      size: -1
+    0x33a:
+      packet: SS_NONE
+      size: -1
+    0x33b:
+      packet: SS_NONE
+      size: -1
+    0x33c:
+      packet: SS_NONE
+      size: -1
+    0x33d:
+      packet: SS_NONE
+      size: -1
+    0x33e:
+      packet: SS_NONE
+      size: -1
+    0x33f:
+      packet: SS_NONE
+      size: -1
+    0x340:
+      packet: SS_NONE
+      size: -1
+    0x341:
+      packet: SS_NONE
+      size: -1
+    0x342:
+      packet: SS_NONE
+      size: -1
+    0x343:
+      packet: SS_NONE
+      size: -1
+    0x344:
+      packet: SS_NONE
+      size: -1
+    0x345:
+      packet: SS_NONE
+      size: -1
+    0x346:
+      packet: SS_NONE
+      size: -1
+    0x347:
+      packet: SS_NONE
+      size: -1
+    0x348:
+      packet: SS_NONE
+      size: -1
+    0x349:
+      packet: SS_NONE
+      size: -1
+    0x34a:
+      packet: SS_NONE
+      size: -1
+    0x34b:
+      packet: SS_NONE
+      size: -1
+    0x34c:
+      packet: SS_NONE
+      size: -1
+    0x34d:
+      packet: SS_NONE
+      size: -1
+    0x34e:
+      packet: SS_NONE
+      size: -1
+    0x34f:
+      packet: SS_NONE
+      size: -1
+    0x350:
+      packet: SS_NONE
+      size: -1
+    0x351:
+      packet: SS_NONE
+      size: -1
+    0x352:
+      packet: SS_NONE
+      size: -1
+    0x353:
+      packet: SS_NONE
+      size: -1
+    0x354:
+      packet: SS_NONE
+      size: -1
+    0x355:
+      packet: SS_NONE
+      size: -1
+    0x356:
+      packet: SS_NONE
+      size: -1
+    0x357:
+      packet: SS_NONE
+      size: -1
+    0x358:
+      packet: SS_NONE
+      size: -1
+    0x359:
+      packet: SS_NONE
+      size: -1
+    0x35a:
+      packet: SS_NONE
+      size: -1
+    0x35b:
+      packet: SS_NONE
+      size: -1
+    0x35c:
+      packet: SS_NONE
+      size: 2
+    0x35d:
+      packet: SS_NONE
+      size: -1
+    0x35e:
+      packet: SS_NONE
+      size: 2
+    0x35f:
+      packet: ticksend
+      size: 6
+    0x361:
+      packet: hommenu
+      size: 5
+    0x362:
+      packet: dropitem
+      size: 6
+    0x363:
+      packet: walktoxy
+      size: 5
+    0x364:
+      packet: movefromkafra
+      size: 8
+    0x365:
+      packet: partybookingregisterreq
+      size: 18
+    0x366:
+      packet: useskilltoposinfo
+      size: 90
+    0x367:
+      packet: useskilltoposinfo
+      size: 90
+    0x368:
+      packet: solvecharname
+      size: 6
+    0x369:
+      packet: actionrequest
+      size: 7
+    0x389:
+      packet: SS_NONE
+      size: -1
+    0x40c:
+      packet: SS_NONE
+      size: -1
+    0x40d:
+      packet: SS_NONE
+      size: -1
+    0x40e:
+      packet: SS_NONE
+      size: -1
+    0x40f:
+      packet: SS_NONE
+      size: -1
+    0x410:
+      packet: SS_NONE
+      size: -1
+    0x411:
+      packet: SS_NONE
+      size: -1
+    0x412:
+      packet: SS_NONE
+      size: -1
+    0x413:
+      packet: SS_NONE
+      size: -1
+    0x414:
+      packet: SS_NONE
+      size: -1
+    0x415:
+      packet: SS_NONE
+      size: -1
+    0x416:
+      packet: SS_NONE
+      size: -1
+    0x417:
+      packet: SS_NONE
+      size: -1
+    0x418:
+      packet: SS_NONE
+      size: -1
+    0x419:
+      packet: SS_NONE
+      size: -1
+    0x41a:
+      packet: SS_NONE
+      size: -1
+    0x41b:
+      packet: SS_NONE
+      size: -1
+    0x41c:
+      packet: SS_NONE
+      size: -1
+    0x41d:
+      packet: SS_NONE
+      size: -1
+    0x41e:
+      packet: SS_NONE
+      size: -1
+    0x41f:
+      packet: SS_NONE
+      size: -1
+    0x420:
+      packet: SS_NONE
+      size: -1
+    0x421:
+      packet: SS_NONE
+      size: -1
+    0x422:
+      packet: SS_NONE
+      size: -1
+    0x423:
+      packet: SS_NONE
+      size: -1
+    0x424:
+      packet: SS_NONE
+      size: -1
+    0x425:
+      packet: SS_NONE
+      size: -1
+    0x426:
+      packet: SS_NONE
+      size: -1
+    0x427:
+      packet: SS_NONE
+      size: -1
+    0x428:
+      packet: SS_NONE
+      size: -1
+    0x429:
+      packet: SS_NONE
+      size: -1
+    0x42a:
+      packet: SS_NONE
+      size: -1
+    0x42b:
+      packet: SS_NONE
+      size: -1
+    0x42c:
+      packet: SS_NONE
+      size: -1
+    0x42d:
+      packet: SS_NONE
+      size: -1
+    0x42e:
+      packet: SS_NONE
+      size: -1
+    0x42f:
+      packet: SS_NONE
+      size: -1
+    0x430:
+      packet: SS_NONE
+      size: -1
+    0x431:
+      packet: SS_NONE
+      size: -1
+    0x432:
+      packet: SS_NONE
+      size: -1
+    0x433:
+      packet: SS_NONE
+      size: -1
+    0x434:
+      packet: SS_NONE
+      size: -1
+    0x435:
+      packet: SS_NONE
+      size: -1
+    0x436:
+      packet: reqclickbuyingstore
+      size: 6
+    0x437:
+      packet: dropitem
+      size: 6
+    0x438:
+      packet: useskilltopos
+      size: 10
+    0x439:
+      packet: useitem
+      size: 8
+    0x43d:
+      packet: SS_NONE
+      size: 8
+    0x43e:
+      packet: SS_NONE
+      size: -1
+    0x43f:
+      packet: SS_NONE
+      size: 25
+    0x440:
+      packet: SS_NONE
+      size: 10
+    0x441:
+      packet: SS_NONE
+      size: 4
+    0x442:
+      packet: SS_NONE
+      size: -1
+    0x443:
+      packet: skillselectmenu
+      size: 8
+    0x444:
+      packet: SS_NONE
+      size: -1
+    0x445:
+      packet: SS_NONE
+      size: 10
+    0x446:
+      packet: SS_NONE
+      size: 14
+    0x447:
+      packet: booking_playcancel
+      size: 2
+    0x448:
+      packet: SS_NONE
+      size: -1
+    0x449:
+      packet: SS_NONE
+      size: 4
+    0x44a:
+      packet: clientversion
+      size: 6
+    0x7d7:
+      packet: partychangeoption
+      size: 8
+    0x7d8:
+      packet: SS_NONE
+      size: 8
+    0x7d9:
+      packet: SS_NONE
+      size: 268
+    0x7da:
+      packet: partychangeleader
+      size: 6
+    0x7e1:
+      packet: SS_NONE
+      size: 15
+    0x7e2:
+      packet: SS_NONE
+      size: 8
+    0x7e3:
+      packet: SS_NONE
+      size: 6
+    0x7e4:
+      packet: takeitem
+      size: 6
+    0x7e5:
+      packet: SS_NONE
+      size: 8
+    0x7e6:
+      packet: SS_NONE
+      size: 8
+    0x7e7:
+      packet: SS_NONE
+      size: 32
+    0x7e8:
+      packet: SS_NONE
+      size: -1
+    0x7e9:
+      packet: SS_NONE
+      size: 5
+    0x7ec:
+      packet: friendslistadd
+      size: 26
+    0x7f5:
+      packet: gmfullstrip
+      size: 6
+    0x7f6:
+      packet: SS_NONE
+      size: 14
+    0x7f7:
+      packet: SS_NONE
+      size: -1
+    0x7f8:
+      packet: SS_NONE
+      size: -1
+    0x7f9:
+      packet: SS_NONE
+      size: -1
+    0x7fa:
+      packet: SS_NONE
+      size: 8
+    0x7fb:
+      packet: SS_NONE
+      size: 25
+    0x7fc:
+      packet: SS_NONE
+      size: 10
+    0x7fd:
+      packet: ZC_BROADCASTING_SPECIAL_ITEM_OBTAIN
+      size: -1
+    0x7fe:
+      packet: SS_NONE
+      size: 26
+    0x800:
+      packet: SS_NONE
+      size: -1
+    0x801:
+      packet: purchasereq2
+      size: -1
+    0x802:
+      packet: partyinvite2
+      size: 26
+    0x803:
+      packet: SS_NONE
+      size: 4
+    0x804:
+      packet: bookingsearchreq
+      size: 14
+    0x805:
+      packet: SS_NONE
+      size: -1
+    0x806:
+      packet: bookingdelreq
+      size: 2
+    0x807:
+      packet: SS_NONE
+      size: 4
+    0x808:
+      packet: bookingupdatereq
+      size: 14
+    0x809:
+      packet: SS_NONE
+      size: 50
+    0x80a:
+      packet: SS_NONE
+      size: 18
+    0x80b:
+      packet: SS_NONE
+      size: 6
+    0x80e:
+      packet: SS_NONE
+      size: 14
+    0x80f:
+      packet: SS_NONE
+      size: 20
+    0x810:
+      packet: SS_NONE
+      size: 3
+    0x811:
+      packet: bookingregreq
+      size: 18
+    0x812:
+      packet: SS_NONE
+      size: 8
+    0x813:
+      packet: SS_NONE
+      size: -1
+    0x814:
+      packet: SS_NONE
+      size: 86
+    0x815:
+      packet: reqtradebuyingstore
+      size: -1
+    0x816:
+      packet: SS_NONE
+      size: 6
+    0x817:
+      packet: reqclosebuyingstore
+      size: 2
+    0x818:
+      packet: SS_NONE
+      size: -1
+    0x819:
+      packet: searchstoreinfo
+      size: -1
+    0x81a:
+      packet: SS_NONE
+      size: 4
+    0x81b:
+      packet: SS_NONE
+      size: 10
+    0x81c:
+      packet: SS_NONE
+      size: 10
+    0x81d:
+      packet: SS_NONE
+      size: 22
+    0x81e:
+      packet: SS_NONE
+      size: 8
+    0x820:
+      packet: SS_NONE
+      size: 11
+    0x824:
+      packet: SS_NONE
+      size: 6
+    0x835:
+      packet: searchstoreinfonextpage
+      size: 2
+    0x836:
+      packet: SS_NONE
+      size: -1
+    0x837:
+      packet: SS_NONE
+      size: 3
+    0x838:
+      packet: searchstoreinfolistitemclick
+      size: 12
+    0x839:
+      packet: SS_NONE
+      size: 66
+    0x83a:
+      packet: SS_NONE
+      size: 5
+    0x83b:
+      packet: closesearchstoreinfo
+      size: 2
+    0x83c:
+      packet: useskilltoid
+      size: 10
+    0x83d:
+      packet: SS_NONE
+      size: 6
+    0x842:
+      packet: recall2
+      size: 6
+    0x843:
+      packet: remove2
+      size: 6
+    0x844:
+      packet: cashshopopen
+      size: 2
+    0x846:
+      packet: cashshopreqtab
+      size: 4
+    0x848:
+      packet: cashshopbuy
+      size: -1
+    0x849:
+      packet: SS_NONE
+      size: 16
+    0x84a:
+      packet: cashshopclose
+      size: 2
+    0x84b:
+      packet: SS_NONE
+      size: 19
+    0x856:
+      packet: SS_NONE
+      size: -1
+    0x857:
+      packet: SS_NONE
+      size: -1
+    0x858:
+      packet: SS_NONE
+      size: -1
+    0x859:
+      packet: SS_NONE
+      size: -1
+    0x85a:
+      packet: reqclosebuyingstore
+      size: 2
+    0x85d:
+      packet: bookingregreq
+      size: 18
+    0x85e:
+      packet: movefromkafra
+      size: 8
+    0x860:
+      packet: storagepassword
+      size: 36
+    0x861:
+      packet: movefromkafra
+      size: 8
+    0x862:
+      packet: bookingregreq
+      size: 18
+    0x863:
+      packet: friendslistadd
+      size: 26
+    0x864:
+      packet: movefromkafra
+      size: 8
+    0x865:
+      packet: takeitem
+      size: 6
+    0x868:
+      packet: itemlistwindowselected
+      size: -1
+    0x869:
+      packet: actionrequest
+      size: 7
+    0x86a:
+      packet: itemlistwindowselected
+      size: -1
+    0x86b:
+      packet: searchstoreinfo
+      size: -1
+    0x86c:
+      packet: movetokafra
+      size: 8
+    0x86d:
+      packet: partyinvite2
+      size: 26
+    0x86e:
+      packet: wanttoconnection
+      size: 19
+    0x86f:
+      packet: friendslistadd
+      size: 26
+    0x870:
+      packet: itemlistwindowselected
+      size: -1
+    0x871:
+      packet: changedir
+      size: 5
+    0x873:
+      packet: useskilltoposinfo
+      size: 90
+    0x874:
+      packet: bookingregreq
+      size: 18
+    0x876:
+      packet: walktoxy
+      size: 5
+    0x877:
+      packet: walktoxy
+      size: 5
+    0x878:
+      packet: movetokafra
+      size: 8
+    0x879:
+      packet: movetokafra
+      size: 8
+    0x87d:
+      packet: dropitem
+      size: 6
+    0x87e:
+      packet: changedir
+      size: 5
+    0x87f:
+      packet: searchstoreinfolistitemclick
+      size: 12
+    0x880:
+      packet: storagepassword
+      size: 36
+    0x881:
+      packet: reqtradebuyingstore
+      size: -1
+    0x882:
+      packet: useskilltopos
+      size: 10
+    0x883:
+      packet: bookingregreq
+      size: 18
+    0x884:
+      packet: solvecharname
+      size: 6
+    0x885:
+      packet: dropitem
+      size: 6
+    0x886:
+      packet: ticksend
+      size: 6
+    0x887:
+      packet: getcharnamerequest
+      size: 6
+    0x888:
+      packet: wanttoconnection
+      size: 19
+    0x889:
+      packet: actionrequest
+      size: 7
+    0x88a:
+      packet: hommenu
+      size: 5
+    0x88b:
+      packet: movetokafra
+      size: 8
+    0x88c:
+      packet: changedir
+      size: 5
+    0x88d:
+      packet: hommenu
+      size: 5
+    0x88e:
+      packet: walktoxy
+      size: 5
+    0x890:
+      packet: searchstoreinfolistitemclick
+      size: 12
+    0x891:
+      packet: reqtradebuyingstore
+      size: -1
+    0x892:
+      packet: reqclickbuyingstore
+      size: 6
+    0x893:
+      packet: movetokafra
+      size: 8
+    0x894:
+      packet: bookingregreq
+      size: 18
+    0x895:
+      packet: partyinvite2
+      size: 26
+    0x896:
+      packet: partyinvite2
+      size: 26
+    0x897:
+      packet: itemlistwindowselected
+      size: -1
+    0x898:
+      packet: reqclickbuyingstore
+      size: 6
+    0x899:
+      packet: hommenu
+      size: 5
+    0x89b:
+      packet: bookingregreq
+      size: 18
+    0x89c:
+      packet: takeitem
+      size: 6
+    0x89e:
+      packet: friendslistadd
+      size: 26
+    0x89f:
+      packet: takeitem
+      size: 6
+    0x8a0:
+      packet: movetokafra
+      size: 8
+    0x8a1:
+      packet: takeitem
+      size: 6
+    0x8a2:
+      packet: actionrequest
+      size: 7
+    0x8a3:
+      packet: movetokafra
+      size: 8
+    0x8a4:
+      packet: storagepassword
+      size: 36
+    0x8a5:
+      packet: partyinvite2
+      size: 26
+    0x8a6:
+      packet: changedir
+      size: 5
+    0x8a7:
+      packet: bookingregreq
+      size: 18
+    0x8a8:
+      packet: friendslistadd
+      size: 26
+    0x8a9:
+      packet: takeitem
+      size: 6
+    0x8aa:
+      packet: movefromkafra
+      size: 8
+    0x8ab:
+      packet: friendslistadd
+      size: 26
+    0x8ac:
+      packet: ticksend
+      size: 6
+    0x8ad:
+      packet: changedir
+      size: 5
+    0x8b3:
+      packet: SS_NONE
+      size: -1
+    0x8c8:
+      packet: SS_NONE
+      size: 34
+    0x8c9:
+      packet: cashshopitemlist
+      size: 2
+    0x8cb:
+      packet: ZC_PERSONAL_INFOMATION
+      size: 10
+    0x8cf:
+      packet: SS_NONE
+      size: 10
+    0x8d0:
+      packet: ZC_WEAR_EQUIP_ACK
+      size: 9
+    0x8d1:
+      packet: SS_NONE
+      size: 7
+    0x8d2:
+      packet: SS_NONE
+      size: 10
+    0x8d6:
+      packet: ZC_CLEAR_DIALOG
+      size: 6
+    0x8d7:
+      packet: battlegroundreg
+      size: 28
+    0x8e3:
+      packet: SS_NONE
+      size: 149
+    0x8e5:
+      packet: bookingregreq
+      size: 41
+    0x8e6:
+      packet: SS_NONE
+      size: 4
+    0x8e7:
+      packet: bookingsearchreq
+      size: 10
+    0x8e8:
+      packet: SS_NONE
+      size: -1
+    0x8e9:
+      packet: bookingdelreq
+      size: 2
+    0x8ea:
+      packet: SS_NONE
+      size: 4
+    0x8eb:
+      packet: bookingupdatereq
+      size: 39
+    0x8ec:
+      packet: SS_NONE
+      size: 73
+    0x8ed:
+      packet: SS_NONE
+      size: 43
+    0x8ee:
+      packet: SS_NONE
+      size: 6
+    0x8ef:
+      packet: bookingignorereq
+      size: 6
+    0x8f0:
+      packet: SS_NONE
+      size: 6
+    0x8f1:
+      packet: bookingjoinpartyreq
+      size: 6
+    0x8f2:
+      packet: SS_NONE
+      size: 36
+    0x8f3:
+      packet: SS_NONE
+      size: -1
+    0x8f4:
+      packet: SS_NONE
+      size: 6
+    0x8f5:
+      packet: bookingsummonmember
+      size: -1
+    0x8f6:
+      packet: SS_NONE
+      size: 22
+    0x8f7:
+      packet: SS_NONE
+      size: 3
+    0x8f8:
+      packet: SS_NONE
+      size: 7
+    0x8f9:
+      packet: SS_NONE
+      size: 6
+    0x8fa:
+      packet: SS_NONE
+      size: 6
+    0x8fb:
+      packet: bookingcanceljoinparty
+      size: 6
+    0x8ff:
+      packet: SS_NONE
+      size: 24
+    0x907:
+      packet: moveitem
+      size: 5
+    0x908:
+      packet: SS_NONE
+      size: 5
+    0x90f:
+      packet: SS_NONE
+      size: -1
+    0x914:
+      packet: SS_NONE
+      size: -1
+    0x915:
+      packet: SS_NONE
+      size: -1
+    0x916:
+      packet: guildinvite2
+      size: 26
+    0x917:
+      packet: dropitem
+      size: 6
+    0x918:
+      packet: actionrequest
+      size: 7
+    0x919:
+      packet: wanttoconnection
+      size: 19
+    0x91a:
+      packet: friendslistadd
+      size: 26
+    0x91c:
+      packet: partyinvite2
+      size: 26
+    0x91d:
+      packet: wanttoconnection
+      size: 19
+    0x91e:
+      packet: useskilltoid
+      size: 10
+    0x920:
+      packet: searchstoreinfo
+      size: -1
+    0x921:
+      packet: movetokafra
+      size: 8
+    0x922:
+      packet: reqtradebuyingstore
+      size: -1
+    0x923:
+      packet: storagepassword
+      size: 36
+    0x924:
+      packet: partyinvite2
+      size: 26
+    0x925:
+      packet: changedir
+      size: 5
+    0x926:
+      packet: hommenu
+      size: 5
+    0x928:
+      packet: changedir
+      size: 5
+    0x929:
+      packet: partyinvite2
+      size: 26
+    0x92d:
+      packet: bookingregreq
+      size: 18
+    0x92e:
+      packet: reqclosebuyingstore
+      size: 2
+    0x92f:
+      packet: dropitem
+      size: 6
+    0x930:
+      packet: changedir
+      size: 5
+    0x931:
+      packet: hommenu
+      size: 5
+    0x932:
+      packet: reqopenbuyingstore
+      size: -1
+    0x933:
+      packet: takeitem
+      size: 6
+    0x934:
+      packet: movetokafra
+      size: 8
+    0x936:
+      packet: changedir
+      size: 5
+    0x937:
+      packet: solvecharname
+      size: 6
+    0x938:
+      packet: movetokafra
+      size: 8
+    0x93a:
+      packet: itemlistwindowselected
+      size: -1
+    0x93b:
+      packet: wanttoconnection
+      size: 19
+    0x93e:
+      packet: useskilltoid
+      size: 10
+    0x93f:
+      packet: hommenu
+      size: 5
+    0x940:
+      packet: storagepassword
+      size: 36
+    0x941:
+      packet: storagepassword
+      size: 36
+    0x942:
+      packet: solvecharname
+      size: 6
+    0x943:
+      packet: wanttoconnection
+      size: 19
+    0x944:
+      packet: getcharnamerequest
+      size: 6
+    0x945:
+      packet: solvecharname
+      size: 6
+    0x947:
+      packet: partyinvite2
+      size: 26
+    0x948:
+      packet: reqopenbuyingstore
+      size: -1
+    0x94a:
+      packet: partyinvite2
+      size: 26
+    0x94b:
+      packet: friendslistadd
+      size: 26
+    0x94c:
+      packet: solvecharname
+      size: 6
+    0x94d:
+      packet: changedir
+      size: 5
+    0x94e:
+      packet: takeitem
+      size: 6
+    0x94f:
+      packet: useskilltoposinfo
+      size: 90
+    0x950:
+      packet: partyinvite2
+      size: 26
+    0x951:
+      packet: useskilltoid
+      size: 10
+    0x952:
+      packet: useskilltoposinfo
+      size: 90
+    0x953:
+      packet: friendslistadd
+      size: 26
+    0x955:
+      packet: bookingregreq
+      size: 18
+    0x956:
+      packet: movefromkafra
+      size: 8
+    0x957:
+      packet: movefromkafra
+      size: 8
+    0x958:
+      packet: takeitem
+      size: 6
+    0x959:
+      packet: useskilltopos
+      size: 10
+    0x95a:
+      packet: getcharnamerequest
+      size: 6
+    0x95b:
+      packet: storagepassword
+      size: 36
+    0x95c:
+      packet: useskilltoid
+      size: 10
+    0x95e:
+      packet: takeitem
+      size: 6
+    0x960:
+      packet: hommenu
+      size: 5
+    0x961:
+      packet: itemlistwindowselected
+      size: -1
+    0x962:
+      packet: takeitem
+      size: 6
+    0x963:
+      packet: itemlistwindowselected
+      size: -1
+    0x964:
+      packet: takeitem
+      size: 6
+    0x967:
+      packet: changedir
+      size: 5
+    0x969:
+      packet: wanttoconnection
+      size: 19
+    0x96a:
+      packet: getcharnamerequest
+      size: 6
+    0x96d:
+      packet: ZC_MERGE_ITEM_OPEN
+      size: -1
+    0x96e:
+      packet: mergeitem_req
+      size: -1
+    0x96f:
+      packet: ZC_ACK_MERGE_ITEM
+      size: 7
+    0x974:
+      packet: mergeitem_cancel
+      size: 2
+    0x977:
+      packet: SS_NONE
+      size: 14
+    0x978:
+      packet: reqworldinfo
+      size: 6
+    0x979:
+      packet: SS_NONE
+      size: 50
+    0x97a:
+      packet: SS_NONE
+      size: -1
+    0x97b:
+      packet: ZC_PERSONAL_INFOMATION
+      size: 16
+    0x97c:
+      packet: ranklist
+      size: 4
+    0x97d:
+      packet: SS_NONE
+      size: 288
+    0x97f:
+      packet: SS_NONE
+      size: -1
+    0x980:
+      packet: selectcart
+      size: 7
+    0x983:
+      packet: SS_NONE
+      size: 29
+    0x984:
+      packet: SS_NONE
+      size: 28
+    0x988:
+      packet: SS_NONE
+      size: 6
+    0x989:
+      packet: SS_NONE
+      size: 2
+    0x98a:
+      packet: SS_NONE
+      size: -1
+    0x98d:
+      packet: clanchat
+      size: -1
+    0x98e:
+      packet: SS_NONE
+      size: -1
+    0x990:
+      packet: SS_NONE
+      size: 31
+    0x991:
+      packet: SS_NONE
+      size: -1
+    0x992:
+      packet: SS_NONE
+      size: -1
+    0x993:
+      packet: SS_NONE
+      size: -1
+    0x994:
+      packet: SS_NONE
+      size: -1
+    0x995:
+      packet: SS_NONE
+      size: -1
+    0x996:
+      packet: SS_NONE
+      size: -1
+    0x997:
+      packet: SS_NONE
+      size: -1
+    0x998:
+      packet: equipitem
+      size: 8
+    0x999:
+      packet: ZC_WEAR_EQUIP_ACK
+      size: 11
+    0x99a:
+      packet: SS_NONE
+      size: 9
+    0x99b:
+      packet: SS_NONE
+      size: 8
+    0x99f:
+      packet: SS_NONE
+      size: 22
+    0x9a6:
+      packet: ZC_BANKING_CHECK
+      size: 12
+    0x9a7:
+      packet: bankdeposit
+      size: 10
+    0x9a8:
+      packet: ZC_ACK_BANKING_DEPOSIT
+      size: 16
+    0x9a9:
+      packet: bankwithdrawal
+      size: 10
+    0x9aa:
+      packet: ZC_ACK_BANKING_WITHDRAW
+      size: 16
+    0x9ab:
+      packet: bankcheck
+      size: 6
+    0x9b4:
+      packet: dull
+      size: 6
+    0x9b6:
+      packet: bankopen
+      size: 6
+    0x9b7:
+      packet: ZC_ACK_OPEN_BANKING
+      size: 4
+    0x9b8:
+      packet: bankclose
+      size: 6
+    0x9b9:
+      packet: ZC_ACK_CLOSE_BANKING
+      size: 4
+    0x9c1:
+      packet: ZC_C_MARKERINFO
+      size: 10
+    0x9ca:
+      packet: SS_NONE
+      size: 23
+    0x9cb:
+      packet: SS_NONE
+      size: 17
+    0x9ce:
+      packet: itemmonster
+      size: 102
+    0x9d4:
+      packet: npcshopclosed
+      size: 2
+    0x9d5:
+      packet: SS_NONE
+      size: -1
+    0x9d6:
+      packet: npcmarketpurchase
+      size: -1
+    0x9d7:
+      packet: SS_NONE
+      size: -1
+    0x9d8:
+      packet: npcmarketclosed
+      size: 2
+    0x9db:
+      packet: SS_NONE
+      size: -1
+    0x9dc:
+      packet: SS_NONE
+      size: -1
+    0x9dd:
+      packet: SS_NONE
+      size: -1
+    0x9df:
+      packet: SS_NONE
+      size: 7
+    0x9e5:
+      packet: SS_NONE
+      size: 18
+    0x9e6:
+      packet: SS_NONE
+      size: 22
+    0x9e7:
+      packet: SS_NONE
+      size: 3
+    0x9e8:
+      packet: dull
+      size: 11
+    0x9e9:
+      packet: dull
+      size: 2
+    0x9ea:
+      packet: dull
+      size: 11
+    0x9eb:
+      packet: SS_NONE
+      size: -1
+    0x9ec:
+      packet: dull
+      size: -1
+    0x9ed:
+      packet: SS_NONE
+      size: 3
+    0x9ee:
+      packet: dull
+      size: 11
+    0x9ef:
+      packet: dull
+      size: 11
+    0x9f0:
+      packet: SS_NONE
+      size: -1
+    0x9f1:
+      packet: dull
+      size: 11
+    0x9f2:
+      packet: SS_NONE
+      size: 12
+    0x9f3:
+      packet: dull
+      size: 11
+    0x9f4:
+      packet: SS_NONE
+      size: 12
+    0x9f5:
+      packet: dull
+      size: 11
+    0x9f6:
+      packet: SS_NONE
+      size: 11
+    0x9f7:
+      packet: SS_NONE
+      size: 75
+    0x9fb:
+      packet: dull
+      size: -1
+    0x9fc:
+      packet: SS_NONE
+      size: 6
+    0x9fd:
+      packet: SS_NONE
+      size: -1
+    0x9fe:
+      packet: SS_NONE
+      size: -1
+    0x9ff:
+      packet: SS_NONE
+      size: -1
+    0xa00:
+      packet: SS_NONE
+      size: 269
+    0xa01:
+      packet: hotkeyrowshift
+      size: 3
+    0xa02:
+      packet: SS_NONE
+      size: 4
+    0xa03:
+      packet: dull
+      size: 2
+    0xa04:
+      packet: dull
+      size: 6
+    0xa05:
+      packet: SS_NONE
+      size: 53
+    0xa06:
+      packet: dull
+      size: 6
+    0xa07:
+      packet: SS_NONE
+      size: 9
+    0xa08:
+      packet: dull
+      size: 26
+    0xa09:
+      packet: SS_NONE
+      size: 45
+    0xa0a:
+      packet: SS_NONE
+      size: 47
+    0xa0b:
+      packet: SS_NONE
+      size: 47
+    0xa0c:
+      packet: SS_NONE
+      size: 56
+    0xa0d:
+      packet: SS_NONE
+      size: -1
+    0xa0f:
+      packet: SS_NONE
+      size: -1
+    0xa10:
+      packet: SS_NONE
+      size: -1
+    0xa12:
+      packet: SS_NONE
+      size: 27
+    0xa13:
+      packet: dull
+      size: 26
+    0xa14:
+      packet: SS_NONE
+      size: 10
+    0xa19:
+      packet: rouletteopen
+      size: 2
+    0xa1a:
+      packet: SS_NONE
+      size: 23
+    0xa1b:
+      packet: rouletteinfo
+      size: 2
+    0xa1c:
+      packet: SS_NONE
+      size: -1
+    0xa1d:
+      packet: rouletteclose
+      size: 2
+    0xa1e:
+      packet: SS_NONE
+      size: 3
+    0xa1f:
+      packet: roulettegenerate
+      size: 2
+    0xa20:
+      packet: SS_NONE
+      size: 21
+    0xa21:
+      packet: rouletterecvitem
+      size: 3
+    0xa22:
+      packet: SS_NONE
+      size: 5
+    0xa23:
+      packet: SS_NONE
+      size: -1
+    0xa24:
+      packet: SS_NONE
+      size: 66
+    0xa25:
+      packet: dull
+      size: 6
+    0xa26:
+      packet: SS_NONE
+      size: 7
+    0xa28:
+      packet: SS_NONE
+      size: 3
+    0xa2d:
+      packet: SS_NONE
+      size: -1
+    0xa2e:
+      packet: dull
+      size: 6
+    0xa2f:
+      packet: SS_NONE
+      size: 7
+    0xa30:
+      packet: SS_NONE
+      size: 106
+    0xa32:
+      packet: SS_NONE
+      size: 2
+    0xa35:
+      packet: oneclick_itemidentify
+      size: 4
+    0xa3b:
+      packet: SS_NONE
+      size: -1
