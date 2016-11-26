@@ -14,7 +14,8 @@ type Client struct {
 	server *Server
 	log    *logrus.Entry
 
-	accountId uint32
+	accountId  uint32
+	clientTick uint32
 }
 
 func NewClient(conn gonet.Conn, server *Server) *Client {
@@ -49,6 +50,14 @@ func (c *Client) Enter(p *packets.ZoneEnter) {
 	})
 }
 
+func (c *Client) SyncTime(tick uint32) {
+	c.clientTick = tick
+
+	c.Send(&packets.ZoneNotifyTime{
+		Tick: tick,
+	})
+}
+
 func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	c.log.WithFields(logrus.Fields{
 		"packet": d.Name,
@@ -59,6 +68,8 @@ func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	switch p := p.(type) {
 	case *packets.ZoneEnter:
 		c.Enter(p)
+	case *packets.ZoneRequestTime:
+		c.SyncTime(p.Tick)
 	case *packets.Ping:
 	case *packets.NullPacket:
 		c.log.WithFields(logrus.Fields{

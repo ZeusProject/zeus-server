@@ -55,6 +55,9 @@
       size: 12
 
     # Zone
+    0x7f:
+      packet: ZC_NOTIFY_TIME
+      size: 6
     0x0283:
       packet: ZC_AID
       size: 6
@@ -64,6 +67,9 @@
     0x0a18:
       packet: ZC_ACCEPT_ENTER
       size: 14
+    0x886:
+      packet: CZ_REQUEST_TIME
+      size: 6
 
     # Other packets
     0x72:
@@ -105,9 +111,6 @@
     0x7e:
       packet: useskilltoposinfo
       size: 105
-    0x7f:
-      packet: SS_NONE
-      size: 6
     0x80:
       packet: SS_NONE
       size: 7
@@ -136,7 +139,7 @@
       packet: SS_NONE
       size: 10
     0x89:
-      packet: ticksend
+      packet: CZ_REQUEST_TIME
       size: 11
     0x8a:
       packet: SS_NONE
@@ -1801,7 +1804,7 @@
       packet: SS_NONE
       size: -1
     0x2c4:
-      packet: ticksend
+      packet: CZ_REQUEST_TIME
       size: 6
     0x2c5:
       packet: SS_NONE
@@ -2266,7 +2269,7 @@
       packet: SS_NONE
       size: 2
     0x35f:
-      packet: ticksend
+      packet: CZ_REQUEST_TIME
       size: 6
     0x361:
       packet: hommenu
@@ -2808,9 +2811,6 @@
     0x885:
       packet: dropitem
       size: 6
-    0x886:
-      packet: ticksend
-      size: 6
     0x887:
       packet: getcharnamerequest
       size: 6
@@ -2914,7 +2914,7 @@
       packet: friendslistadd
       size: 26
     0x8ac:
-      packet: ticksend
+      packet: CZ_REQUEST_TIME
       size: 6
     0x8ad:
       packet: changedir
