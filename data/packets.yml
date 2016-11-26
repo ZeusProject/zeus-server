@@ -48,7 +48,7 @@
       packet: HC_BLOCK_CHARACTER
       size: -1
     0x082d:
-      packet: HC_ACCEPT2
+      packet: HC_SLOT_INFO
       size: -1
     0x08b9:
       packet: HC_SECOND_PASSWD_LOGIN

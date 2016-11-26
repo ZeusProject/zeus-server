@@ -4,10 +4,10 @@ var incomingTypeMap = map[string]IncomingPacket{
 	"SS_NULL": &NullPacket{},
 	"SS_PING": &Ping{},
 
-	"CA_LOGIN": &LoginRequest{},
+	"CA_LOGIN": &AccountLogin{},
 
 	"CH_ENTER":       &CharEnter{},
-	"CH_SELECT_CHAR": &SelectChar{},
+	"CH_SELECT_CHAR": &CharSelectChar{},
 
 	"CZ_ENTER": &ZoneEnter{},
 }
@@ -15,14 +15,14 @@ var incomingTypeMap = map[string]IncomingPacket{
 var outgoingTypeMap = map[string]OutgoingPacket{
 	"SS_NULL": &NullPacket{},
 
-	"AC_ACCEPT_LOGIN": &AcceptLoginResponse{},
+	"AC_ACCEPT_LOGIN": &AccountAcceptLogin{},
 
-	"HC_ACCEPT_ENTER":        &AcceptCharEnter{},
-	"HC_REFUSE_ENTER":        &RefuseCharEnter{},
-	"HC_ACCEPT2":             &AcceptCharEnter2{},
-	"HC_BLOCK_CHARACTER":     &BlockCharacter{},
-	"HC_SECOND_PASSWD_LOGIN": &SecondPasswordLogin{},
-	"HC_NOTIFY_ZONESVR":      &NotifyZoneServer{},
+	"HC_ACCEPT_ENTER":        &CharAcceptEnter{},
+	"HC_REFUSE_ENTER":        &CharRefuseEnter{},
+	"HC_SLOT_INFO":           &CharSlotsInfo{},
+	"HC_BLOCK_CHARACTER":     &CharBlockCharacter{},
+	"HC_SECOND_PASSWD_LOGIN": &CharSecondPasswordLogin{},
+	"HC_NOTIFY_ZONESVR":      &CharNotifyZoneServer{},
 
 	"ZC_AID":          &ZoneAid{},
 	"ZC_ACCEPT_ENTER": &ZoneAcceptEnter{},

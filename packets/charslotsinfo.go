@@ -1,6 +1,6 @@
 package packets
 
-type AcceptCharEnter2 struct {
+type CharSlotsInfo struct {
 	NormalSlots     byte
 	PremiumSlots    byte
 	BillingSlots    byte
@@ -9,7 +9,7 @@ type AcceptCharEnter2 struct {
 	Chars           []*CharacterInfo
 }
 
-func (r *AcceptCharEnter2) Write(db *PacketDatabase, d *Definition, p *RawPacket) error {
+func (r *CharSlotsInfo) Write(db *PacketDatabase, d *Definition, p *RawPacket) error {
 	p.Grow(25)
 
 	p.Write(r.NormalSlots)

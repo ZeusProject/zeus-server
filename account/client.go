@@ -34,8 +34,8 @@ func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	}).Debug("packet arrived")
 
 	switch p.(type) {
-	case *packets.LoginRequest:
-		res := &packets.AcceptLoginResponse{
+	case *packets.AccountLogin:
+		res := &packets.AccountAcceptLogin{
 			AuthenticationCode: 0xDEADBEEF,
 			AccountID:          2000000,
 			AccountLevel:       0xBAADCAFE,

@@ -1,13 +1,13 @@
 package packets
 
-type AcceptCharEnter struct {
+type CharAcceptEnter struct {
 	TotalSlotCount   byte
 	PremiumSlotStart byte
 	PremiumSlotEnd   byte
 	Chars            []*CharacterInfo
 }
 
-func (r *AcceptCharEnter) Write(db *PacketDatabase, d *Definition, p *RawPacket) error {
+func (r *CharAcceptEnter) Write(db *PacketDatabase, d *Definition, p *RawPacket) error {
 	p.Grow(23)
 
 	p.Write(r.TotalSlotCount)

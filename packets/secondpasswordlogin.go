@@ -1,12 +1,12 @@
 package packets
 
-type SecondPasswordLogin struct {
+type CharSecondPasswordLogin struct {
 	Seed      uint32
 	AccountID uint32
 	Result    uint16
 }
 
-func (r *SecondPasswordLogin) Write(db *PacketDatabase, d *Definition, p *RawPacket) error {
+func (r *CharSecondPasswordLogin) Write(db *PacketDatabase, d *Definition, p *RawPacket) error {
 	p.Write(r.Seed)
 	p.Write(r.AccountID)
 	p.Write(r.Result)

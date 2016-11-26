@@ -4,7 +4,7 @@ import (
 	"net"
 )
 
-type AcceptLoginResponse struct {
+type AccountAcceptLogin struct {
 	AuthenticationCode uint32
 	AccountID          uint32
 	AccountLevel       uint32
@@ -21,7 +21,7 @@ type CharServer struct {
 	Property uint16
 }
 
-func (r *AcceptLoginResponse) Write(db *PacketDatabase, d *Definition, p *RawPacket) error {
+func (r *AccountAcceptLogin) Write(db *PacketDatabase, d *Definition, p *RawPacket) error {
 	p.Grow(43 + len(r.Servers)*32)
 
 	p.Write(r.AuthenticationCode)
