@@ -10,11 +10,11 @@ type RawPacket struct {
 	*bytes.Buffer
 
 	ID   uint16
-	Size uint16
+	Size int
 }
 
 func (p *RawPacket) Grow(n int) {
-	p.Size += uint16(n)
+	p.Size += n
 	p.Buffer.Grow(n)
 }
 

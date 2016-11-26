@@ -27,13 +27,7 @@ func New(version uint32) (*PacketDatabase, error) {
 	}
 
 	for id, d := range pv.Packets {
-		headerSize := 2
-
-		if d.Size == -1 {
-			headerSize = 0
-		}
-
-		db.Register(d.Packet, id, d.Size-headerSize)
+		db.Register(d.Packet, id, d.Size)
 	}
 
 	return db, nil
@@ -111,11 +105,13 @@ func (db *PacketDatabase) Write(p OutgoingPacket) (*Definition, *RawPacket, erro
 
 	if len == -1 {
 		len = 0
+	} else {
+		len -= 2
 	}
 
 	raw := &RawPacket{
 		ID:     def.ID,
-		Size:   uint16(len),
+		Size:   len,
 		Buffer: bytes.NewBuffer(make([]byte, len)),
 	}
 

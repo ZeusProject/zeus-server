@@ -874,7 +874,7 @@
       packet: SS_NONE
       size: -1
     0x0187:
-      packet: SS_NONE
+      packet: SS_PING
       size: 6
     0x0188:
       packet: SS_NONE

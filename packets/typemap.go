@@ -1,9 +1,11 @@
 package packets
 
 var incomingTypeMap = map[string]IncomingPacket{
-	"SS_NULL":  &NullPacket{},
-	"CA_LOGIN": &LoginRequest{},
-	"CH_ENTER": &CharEnter{},
+	"SS_NULL":        &NullPacket{},
+	"SS_PING":        &NullPacket{},
+	"CA_LOGIN":       &LoginRequest{},
+	"CH_ENTER":       &CharEnter{},
+	"CH_SELECT_CHAR": &SelectChar{},
 }
 
 var outgoingTypeMap = map[string]OutgoingPacket{
