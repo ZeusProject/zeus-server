@@ -2,7 +2,7 @@ package packets
 
 var incomingTypeMap = map[string]IncomingPacket{
 	"SS_NULL":        &NullPacket{},
-	"SS_PING":        &NullPacket{},
+	"SS_PING":        &Ping{},
 	"CA_LOGIN":       &LoginRequest{},
 	"CH_ENTER":       &CharEnter{},
 	"CH_SELECT_CHAR": &SelectChar{},
@@ -16,4 +16,5 @@ var outgoingTypeMap = map[string]OutgoingPacket{
 	"HC_ACCEPT2":             &AcceptCharEnter2{},
 	"HC_BLOCK_CHARACTER":     &BlockCharacter{},
 	"HC_SECOND_PASSWD_LOGIN": &SecondPasswordLogin{},
+	"HC_NOTIFY_ZONESVR":      &NotifyZoneServer{},
 }

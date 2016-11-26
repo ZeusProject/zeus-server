@@ -31,7 +31,7 @@ func (r *AcceptLoginResponse) Write(db *PacketDatabase, d *Definition, p *RawPac
 	p.Write(r.Sex)
 
 	for _, s := range r.Servers {
-		p.Write([]byte(s.IP.To4()))
+		p.Write(s.IP.To4())
 		p.Write(s.Port)
 		p.WriteString(20, s.Name)
 		p.Write(s.Users)

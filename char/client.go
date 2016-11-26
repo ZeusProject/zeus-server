@@ -14,6 +14,8 @@ type Client struct {
 	server *Server
 	log    *logrus.Entry
 
+	chars []*packets.CharacterInfo
+
 	accountId uint32
 }
 
@@ -28,8 +30,8 @@ func NewClient(conn gonet.Conn, server *Server) *Client {
 	return c
 }
 
-func (c *Client) Enter(p *packets.CharEnter) {
-	chars := []*packets.CharacterInfo{
+func (c *Client) loadCharacters() {
+	c.chars = []*packets.CharacterInfo{
 		&packets.CharacterInfo{
 			ID:        150000,
 			HP:        10000,
@@ -55,11 +57,15 @@ func (c *Client) Enter(p *packets.CharEnter) {
 			Sex:       true,
 		},
 	}
+}
 
+func (c *Client) Enter(p *packets.CharEnter) {
 	c.accountId = p.AccountID
 
 	// Send the AID to the client
 	c.SendRaw(p.AccountID)
+
+	c.loadCharacters()
 
 	c.Send(&packets.AcceptCharEnter2{
 		NormalSlots:     9,
@@ -74,7 +80,7 @@ func (c *Client) Enter(p *packets.CharEnter) {
 		TotalSlotCount:   9,
 		PremiumSlotStart: 9,
 		PremiumSlotEnd:   9,
-		Chars:            chars,
+		Chars:            c.chars,
 	})
 
 	// Banned characters
@@ -88,6 +94,15 @@ func (c *Client) Enter(p *packets.CharEnter) {
 	})
 }
 
+func (c *Client) SelectChar(slot byte) {
+	c.Send(&packets.NotifyZoneServer{
+		CharID:  150000,
+		MapName: "prontera.gat",
+		Address: gonet.ParseIP("127.0.0.1"),
+		Port:    5121,
+	})
+}
+
 func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	c.log.WithFields(logrus.Fields{
 		"packet": d.Name,
@@ -98,6 +113,9 @@ func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	switch p := p.(type) {
 	case *packets.CharEnter:
 		c.Enter(p)
+	case *packets.SelectChar:
+		c.SelectChar(p.Slot)
+	case *packets.Ping:
 	case *packets.NullPacket:
 		c.log.WithFields(logrus.Fields{
 			"packet": d.Name,

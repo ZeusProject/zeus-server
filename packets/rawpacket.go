@@ -13,6 +13,18 @@ type RawPacket struct {
 	Size int
 }
 
+func NewRawPacket(id uint16, size int) *RawPacket {
+	return NewRawPacketFromBuffer(id, size, make([]byte, 0, size))
+}
+
+func NewRawPacketFromBuffer(id uint16, size int, buffer []byte) *RawPacket {
+	return &RawPacket{
+		Buffer: bytes.NewBuffer(buffer),
+		ID:     id,
+		Size:   size,
+	}
+}
+
 func (p *RawPacket) Grow(n int) {
 	p.Size += n
 	p.Buffer.Grow(n)

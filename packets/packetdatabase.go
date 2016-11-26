@@ -1,7 +1,7 @@
 package packets
 
 import (
-	"bytes"
+	"encoding/binary"
 	"errors"
 	"reflect"
 )
@@ -101,24 +101,33 @@ func (db *PacketDatabase) Write(p OutgoingPacket) (*Definition, *RawPacket, erro
 		return nil, nil, errors.New("invalid packet")
 	}
 
-	len := def.Size
+	len := 0
+	variable := def.Size == -1
 
-	if len == -1 {
-		len = 0
+	if variable {
+		len = 4
 	} else {
-		len -= 2
+		len = def.Size
 	}
 
-	raw := &RawPacket{
-		ID:     def.ID,
-		Size:   len,
-		Buffer: bytes.NewBuffer(make([]byte, len)),
+	raw := NewRawPacket(def.ID, len)
+
+	raw.Write(uint16(def.ID))
+
+	if def.Size == -1 {
+		raw.Write(uint16(0))
 	}
 
 	err := p.Write(db, def, raw)
 
 	if err != nil {
 		return nil, nil, err
+	}
+
+	if def.Size == -1 {
+		data := raw.Bytes()
+
+		binary.LittleEndian.PutUint16(data[2:4], uint16(raw.Size))
 	}
 
 	return def, raw, nil
