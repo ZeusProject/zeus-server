@@ -1,21 +1,5 @@
 package packets
 
-var incomingTypeMap = map[string]IncomingPacket{
-	"SS_NULL": &NullPacket{},
-	"SS_PING": &Ping{},
-
-	"CA_LOGIN": &AccountLogin{},
-
-	"CH_ENTER":       &CharEnter{},
-	"CH_SELECT_CHAR": &CharSelectChar{},
-
-	"CZ_ENTER":            &ZoneEnter{},
-	"CZ_REQUEST_TIME":     &ZoneRequestTime{},
-	"CZ_NOTIFY_ACTORINIT": &ZoneNotifyActorInit{},
-	"CZ_REQNAME":          &ZoneNameRequest{},
-	"CZ_REQUEST_MOVE":     &ZoneRequestMove{},
-}
-
 var outgoingTypeMap = map[string]OutgoingPacket{
 	"SS_NULL": &NullPacket{},
 
@@ -33,4 +17,5 @@ var outgoingTypeMap = map[string]OutgoingPacket{
 	"ZC_NOTIFY_TIME":       &ZoneNotifyTime{},
 	"ZC_ACK_REQNAME":       &ZoneAckNameRequest{},
 	"ZC_NOTIFY_PLAYERMOVE": &ZoneNotifyPlayerMove{},
+	"ZC_REFUSE_ENTER":      &ZoneRefuseEnter{},
 }

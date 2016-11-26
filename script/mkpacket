@@ -1,0 +1,78 @@
+#!/bin/bash
+
+set -e
+
+name=$1
+dbname=$2
+sedcmd=sed
+taccmd=tac
+
+if type gsed > /dev/null 2>&1; then
+	sedcmd=gsed
+fi
+
+if type gtac > /dev/null 2>&1; then
+	taccmd=gtac
+fi
+
+case "$dbname" in
+	SS*)
+		kind="rw"
+		;;
+	CA*|CH*|CZ*)
+		kind="r"
+		;;
+	AC*|HC*|ZC*)
+		kind="w"
+		;;
+	*)
+		echo "Malformed packet type"
+		exit 1
+esac
+
+append_typemap() {
+	dbname=$1
+	name=$2
+	file=$3
+	prefix=${dbname:0:3}
+
+	result=$($taccmd $file | $sedcmd "0,/.*$prefix.*/s//\"$dbname\": \\&$name{},\n\0/" | $taccmd | gofmt)
+	echo "$result" > $file
+}
+
+gen() {
+
+	cat <<EOF
+	package packets
+
+	type $name struct {
+}
+EOF
+
+if [[ "$kind" =~ w ]]; then
+	cat <<EOF
+
+	func (r *$name) Write(db *PacketDatabase, d *Definition, p *RawPacket) error {
+	return nil
+}
+EOF
+fi
+
+if [[ "$kind" =~ r ]]; then
+	cat <<EOF
+
+	func (r *$name) Parse(db *PacketDatabase, d *Definition, p *RawPacket) error {
+	return nil
+}
+EOF
+	fi
+}
+
+gen | gofmt > packets/$(echo $name | tr '[:upper:]' '[:lower:]').go
+
+if [[ "$kind" =~ w ]]; then
+	append_typemap $dbname $name packets/outgoingtypemap.go
+fi
+if [[ "$kind" =~ r ]]; then
+	append_typemap $dbname $name packets/incomingtypemap.go
+fi

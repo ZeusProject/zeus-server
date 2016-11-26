@@ -84,6 +84,9 @@ func (c *Client) Move(x, y, direction int) {
 			SY: 8,
 		},
 	})
+
+	c.x = x
+	c.y = y
 }
 
 func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {

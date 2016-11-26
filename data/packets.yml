@@ -58,6 +58,9 @@
       size: 12
 
     # Zone
+    0x74:
+      packet: ZC_REFUSE_ENTER
+      size: 3
     0x7d:
       packet: ZC_NOTIFY_ACTORINIT
       size: 2
@@ -93,9 +96,6 @@
     0x73:
       packet: SS_NONE
       size: 11
-    0x74:
-      packet: SS_NONE
-      size: 3
     0x75:
       packet: SS_NONE
       size: -1
