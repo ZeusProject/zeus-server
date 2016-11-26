@@ -12,11 +12,14 @@ type Server struct {
 	server         *net.Server
 	packetDatabase *packets.PacketDatabase
 	log            *logrus.Entry
+
+	Time *TimeManager
 }
 
 func NewServer() *Server {
 	l := &Server{
-		log: logrus.WithField("component", "zoneserver"),
+		log:  logrus.WithField("component", "zoneserver"),
+		Time: NewTimeManager(),
 	}
 
 	l.server = net.NewServer(net.HandlerFn{l.acceptClient})

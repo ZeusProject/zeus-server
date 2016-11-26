@@ -13,6 +13,7 @@ var incomingTypeMap = map[string]IncomingPacket{
 	"CZ_REQUEST_TIME":     &ZoneRequestTime{},
 	"CZ_NOTIFY_ACTORINIT": &ZoneNotifyActorInit{},
 	"CZ_REQNAME":          &ZoneNameRequest{},
+	"CZ_REQUEST_MOVE":     &ZoneRequestMove{},
 }
 
 var outgoingTypeMap = map[string]OutgoingPacket{
@@ -27,8 +28,9 @@ var outgoingTypeMap = map[string]OutgoingPacket{
 	"HC_SECOND_PASSWD_LOGIN": &CharSecondPasswordLogin{},
 	"HC_NOTIFY_ZONESVR":      &CharNotifyZoneServer{},
 
-	"ZC_AID":          &ZoneAid{},
-	"ZC_ACCEPT_ENTER": &ZoneAcceptEnter{},
-	"ZC_NOTIFY_TIME":  &ZoneNotifyTime{},
-	"ZC_ACK_REQNAME":  &ZoneAckNameRequest{},
+	"ZC_AID":               &ZoneAid{},
+	"ZC_ACCEPT_ENTER":      &ZoneAcceptEnter{},
+	"ZC_NOTIFY_TIME":       &ZoneNotifyTime{},
+	"ZC_ACK_REQNAME":       &ZoneAckNameRequest{},
+	"ZC_NOTIFY_PLAYERMOVE": &ZoneNotifyPlayerMove{},
 }

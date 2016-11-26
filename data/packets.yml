@@ -47,6 +47,9 @@
     0x020d:
       packet: HC_BLOCK_CHARACTER
       size: -1
+    0x363:
+      packet: CZ_REQUEST_MOVE
+      size: 5
     0x082d:
       packet: HC_SLOT_INFO
       size: -1
@@ -61,6 +64,9 @@
     0x7f:
       packet: ZC_NOTIFY_TIME
       size: 6
+    0x87:
+      packet: ZC_NOTIFY_PLAYERMOVE
+      size: 12
     0x95:
       packet: ZC_ACK_REQNAME
       size: 30
@@ -138,9 +144,6 @@
     0x86:
       packet: SS_NONE
       size: 16
-    0x87:
-      packet: SS_NONE
-      size: 12
     0x88:
       packet: SS_NONE
       size: 10
@@ -229,7 +232,7 @@
       packet: SS_NONE
       size: -1
     0xa7:
-      packet: walktoxy
+      packet: CZ_REQUEST_MOVE
       size: 9
     0xa8:
       packet: SS_NONE
@@ -2280,9 +2283,6 @@
     0x362:
       packet: dropitem
       size: 6
-    0x363:
-      packet: walktoxy
-      size: 5
     0x364:
       packet: movefromkafra
       size: 8
@@ -2776,10 +2776,10 @@
       packet: bookingregreq
       size: 18
     0x876:
-      packet: walktoxy
+      packet: CZ_REQUEST_MOVE
       size: 5
     0x877:
-      packet: walktoxy
+      packet: CZ_REQUEST_MOVE
       size: 5
     0x878:
       packet: movetokafra
@@ -2833,7 +2833,7 @@
       packet: hommenu
       size: 5
     0x88e:
-      packet: walktoxy
+      packet: CZ_REQUEST_MOVE
       size: 5
     0x890:
       packet: searchstoreinfolistitemclick

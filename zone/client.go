@@ -16,6 +16,8 @@ type Client struct {
 
 	accountId  uint32
 	clientTick uint32
+
+	x, y int
 }
 
 func NewClient(conn gonet.Conn, server *Server) *Client {
@@ -30,6 +32,8 @@ func NewClient(conn gonet.Conn, server *Server) *Client {
 }
 
 func (c *Client) Enter(p *packets.ZoneEnter) {
+	c.x = 150
+	c.y = 150
 	c.accountId = p.AccountID
 
 	c.Send(&packets.ZoneAid{
@@ -37,11 +41,11 @@ func (c *Client) Enter(p *packets.ZoneEnter) {
 	})
 
 	c.Send(&packets.ZoneAcceptEnter{
-		Tick: p.Tick,
+		Tick: c.server.Time.GetTick(),
 		Position: packets.Position{
-			X:         150,
-			Y:         150,
-			Direction: 1,
+			X:         uint16(c.x),
+			Y:         uint16(c.y),
+			Direction: 6,
 		},
 		XSize: 5,
 		YSize: 5,
@@ -54,7 +58,7 @@ func (c *Client) SyncTime(tick uint32) {
 	c.clientTick = tick
 
 	c.Send(&packets.ZoneNotifyTime{
-		Tick: tick,
+		Tick: c.server.Time.GetTick(),
 	})
 }
 
@@ -65,6 +69,20 @@ func (c *Client) NotifyName(id uint32) {
 	c.Send(&packets.ZoneAckNameRequest{
 		ID:   id,
 		Name: "espadahabil",
+	})
+}
+
+func (c *Client) Move(x, y, direction int) {
+	c.Send(&packets.ZoneNotifyPlayerMove{
+		Tick: c.clientTick,
+		Position: packets.Position2{
+			X0: uint16(c.x),
+			Y0: uint16(c.y),
+			X1: uint16(x),
+			Y1: uint16(y),
+			SX: 8,
+			SY: 8,
+		},
 	})
 }
 
@@ -84,6 +102,8 @@ func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 		c.SyncTime(p.Tick)
 	case *packets.ZoneNameRequest:
 		c.NotifyName(p.ID)
+	case *packets.ZoneRequestMove:
+		c.Move(int(p.Position.X), int(p.Position.Y), int(p.Position.Direction))
 	case *packets.Ping:
 	case *packets.NullPacket:
 		c.log.WithFields(logrus.Fields{
