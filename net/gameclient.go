@@ -107,7 +107,7 @@ func (c *GameClient) run() {
 			continue
 		}
 
-		raw := packets.NewRawPacketFromBuffer(packet, size, buffer[:size])
+		raw := packets.NewRawPacketFromBuffer(packet, size, buffer[header:size])
 		def, parsed, err := c.db.Parse(raw)
 
 		if err != nil {

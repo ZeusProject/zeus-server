@@ -3,24 +3,24 @@ package packets
 import "time"
 
 type CharacterInfo struct {
-	ID uint32
+	ID uint
 
-	BaseExp  uint32
-	Zeny     uint32
-	JobExp   uint32
-	JobLevel uint32
+	BaseExp  uint
+	Zeny     uint
+	JobExp   uint
+	JobLevel uint
 
-	BodyState   uint32
-	HealthState uint32
-	EffectState uint32
+	BodyState   uint
+	HealthState uint
+	EffectState uint
 
-	Virtue uint32
-	Honor  uint32
+	Virtue uint
+	Honor  uint
 
 	JobPoints uint16
 
-	HP    uint32
-	MaxHP uint32
+	HP    uint
+	MaxHP uint
 
 	SP    uint16
 	MaxSP uint16
@@ -60,9 +60,9 @@ type CharacterInfo struct {
 
 	DeleteDate *time.Time
 
-	Robe       uint32
-	SlotChange uint32
-	Rename     uint32
+	Robe       uint
+	SlotChange uint
+	Rename     uint
 	Sex        bool
 }
 

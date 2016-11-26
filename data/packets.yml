@@ -1624,7 +1624,7 @@
       packet: SS_NONE
       size: 284
     0x0283:
-      packet: SS_NONE
+      packet: ZC_AID
       size: 6
     0x0284:
       packet: SS_NONE
@@ -2272,8 +2272,8 @@
       packet: TickSend
       size: 6
     0x0360:
-      packet: ReqClickBuyingStore
-      size: 6
+      packet: CZ_ENTER
+      size: 19
     0x0361:
       packet: ChangeDir
       size: 5
@@ -2431,7 +2431,7 @@
       packet: SS_NONE
       size: -1
     0x0436:
-      packet: CZ_ENTER
+      packet: SS_NONE
       size: 19
     0x0437:
       packet: WalkToXY
@@ -3021,6 +3021,9 @@
     0x0a10:
       packet: SS_NONE
       size: -1
+    0x0a18:
+      packet: ZC_ACCEPT_ENTER
+      size: 14
     0x0a28:
       packet: SS_NONE
       size: 3

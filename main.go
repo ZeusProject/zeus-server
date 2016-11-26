@@ -6,6 +6,7 @@ import (
 
 	"github.com/zeusproject/zeus-server/account"
 	"github.com/zeusproject/zeus-server/char"
+	"github.com/zeusproject/zeus-server/zone"
 )
 
 func main() {
@@ -29,6 +30,8 @@ Usage:
 			account.Run(args)
 		} else if mode == "char" {
 			char.Run(args)
+		} else if mode == "zone" {
+			zone.Run(args)
 		} else {
 			fmt.Printf("Invalid server mode: %s\n", mode)
 			return
