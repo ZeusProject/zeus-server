@@ -44,6 +44,12 @@
     0x0071:
       packet: HC_NOTIFY_ZONESVR
       size: 28
+    0x81:
+      packet: ZC_NOTIFY_BAN
+      size: 3
+    0xb3:
+      packet: ZC_RESTART_ACK
+      size: 3
     0x020d:
       packet: HC_BLOCK_CHARACTER
       size: -1
@@ -88,6 +94,9 @@
     0x887:
       packet: CZ_REQNAME
       size: 6
+    0x9f3:
+      packet: ZC_NOTIFY_NEWENTRY
+      size: -1
 
     # Other packets
     0x72:
@@ -126,9 +135,6 @@
     0x80:
       packet: SS_NONE
       size: 7
-    0x81:
-      packet: SS_NONE
-      size: 3
     0x82:
       packet: SS_NONE
       size: 2
@@ -263,9 +269,6 @@
       size: 8
     0xb2:
       packet: restart
-      size: 3
-    0xb3:
-      packet: SS_NONE
       size: 3
     0xb4:
       packet: SS_NONE
@@ -3453,9 +3456,6 @@
     0x9f2:
       packet: SS_NONE
       size: 12
-    0x9f3:
-      packet: dull
-      size: 11
     0x9f4:
       packet: SS_NONE
       size: 12

@@ -18,4 +18,7 @@ var outgoingTypeMap = map[string]OutgoingPacket{
 	"ZC_ACK_REQNAME":       &ZoneAckNameRequest{},
 	"ZC_NOTIFY_PLAYERMOVE": &ZoneNotifyPlayerMove{},
 	"ZC_REFUSE_ENTER":      &ZoneRefuseEnter{},
+	"ZC_RESTART_ACK":       &ZoneRestartAck{},
+	"ZC_NOTIFY_BAN":        &ZoneNotifyBan{},
+	"ZC_NOTIFY_NEWENTRY":   &ZoneNotifyNewEntry{},
 }
