@@ -1,0 +1,14 @@
+hash: 844156b95c1baabe0640b8f4b9e569ed8563d853bbfc0b1e6177b6876d2d1f3a
+updated: 2016-11-26T18:15:19.187707711-02:00
+imports:
+- name: github.com/docopt/docopt-go
+  version: 784ddc588536785e7299f7272f39101f7faccc3f
+- name: github.com/go-yaml/yaml
+  version: a5b47d31c556af34a302ce5d659e6fea44d90de0
+- name: github.com/Sirupsen/logrus
+  version: d26492970760ca5d33129d2d799e34be5c4782eb
+- name: golang.org/x/sys
+  version: 30237cf4eefd639b184d1f2cb77a581ea0be8947
+  subpackages:
+  - unix
+testImports: []

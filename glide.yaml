@@ -1,0 +1,7 @@
+package: github.com/zeusproject/zeus-server
+import:
+- package: github.com/Sirupsen/logrus
+  version: ^0.11.0
+- package: github.com/docopt/docopt-go
+  version: ^0.6.2
+- package: github.com/go-yaml/yaml

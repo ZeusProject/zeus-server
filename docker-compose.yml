@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  base:
+    build: .
+    
+  account:
+    extends: base
+    command: go run main.go server account
+    volumes:
+      - .:/go/src/github.com/zeusproject/zeus-server
+
+  char:
+    extends: base
+    command: go run main.go server char
+    volumes:
+      - .:/go/src/github.com/zeusproject/zeus-server
+
+  inter:
+    extends: base
+    command: go run main.go server inter
+    volumes:
+      - .:/go/src/github.com/zeusproject/zeus-server
+
+  zone:
+    extends: base
+    command: go run main.go server zone
+    volumes:
+      - .:/go/src/github.com/zeusproject/zeus-server
+
+  postgres:
+    image: postgres:9.5
+    environment:
+      POSTGRES_PASSWORD: zeus
+
+  redis:
+    image: redis:3.2
+
