@@ -1,7 +1,6 @@
 package net
 
 import (
-	"bytes"
 	"encoding/binary"
 	"fmt"
 	"net"
@@ -49,27 +48,7 @@ func (c *GameClient) Send(p packets.OutgoingPacket) error {
 		return err
 	}
 
-	totalLen := uint16(2 + raw.Size)
-
-	if def.Size == -1 {
-		totalLen += 2
-	}
-
-	err = binary.Write(c.conn, binary.LittleEndian, raw.ID)
-
-	if err != nil {
-		return err
-	}
-
-	if def.Size == -1 {
-		err = binary.Write(c.conn, binary.LittleEndian, totalLen)
-
-		if err != nil {
-			return err
-		}
-	}
-
-	err = binary.Write(c.conn, binary.LittleEndian, raw.Bytes()[:raw.Size])
+	_, err = c.conn.Write(raw.Bytes()[:raw.Size])
 
 	if err != nil {
 		return err
@@ -78,7 +57,7 @@ func (c *GameClient) Send(p packets.OutgoingPacket) error {
 	c.log.WithFields(logrus.Fields{
 		"packet": def.Name,
 		"id":     def.ID,
-		"length": totalLen,
+		"length": raw.Size,
 		"parsed": p,
 	}).Debug("packet sent")
 
@@ -128,12 +107,7 @@ func (c *GameClient) run() {
 			continue
 		}
 
-		raw := &packets.RawPacket{
-			Buffer: bytes.NewBuffer(buffer[header:size]),
-			ID:     packet,
-			Size:   size,
-		}
-
+		raw := packets.NewRawPacketFromBuffer(packet, size, buffer[:size])
 		def, parsed, err := c.db.Parse(raw)
 
 		if err != nil {
