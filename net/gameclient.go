@@ -71,8 +71,6 @@ func (c *GameClient) Send(p packets.OutgoingPacket) error {
 
 	err = binary.Write(c.conn, binary.LittleEndian, raw.Bytes()[:raw.Size])
 
-	fmt.Printf("%x\n", raw.Bytes()[:raw.Size])
-
 	if err != nil {
 		return err
 	}
@@ -88,16 +86,11 @@ func (c *GameClient) Send(p packets.OutgoingPacket) error {
 }
 
 func (c *GameClient) run() {
-	var packet uint16
-	var size uint16
-
-	raw := make([]byte, MaxPacketSize)
-	buffer := bytes.NewBuffer(raw)
+	buffer := make([]byte, MaxPacketSize)
 	offset := 0
-	state := 0
 
 	for true {
-		read, err := c.conn.Read(raw[offset:])
+		read, err := c.conn.Read(buffer[offset:])
 
 		if err != nil {
 			c.log.WithError(err).Error("error reading from socket")
@@ -107,70 +100,51 @@ func (c *GameClient) run() {
 
 		offset += read
 
-		if state == 0 {
-			if offset >= 2 {
-				err := binary.Read(buffer, binary.LittleEndian, &packet)
-
-				if err != nil {
-					c.log.WithError(err).Error("error reading from socket")
-					c.Disconnect()
-					return
-				}
-
-				state++
-			}
+		header := 2
+		if offset < header {
+			continue
 		}
 
-		if state == 1 {
-			s, ok := c.db.GetSize(packet)
+		packet := binary.LittleEndian.Uint16(buffer[0:2])
+		size, ok := c.db.GetSize(packet)
 
-			if !ok {
-				c.log.WithField("packet", fmt.Sprintf("%04x", packet)).Error("invalid packet")
-				c.Disconnect()
-				return
-			}
-
-			if s == -1 {
-				if offset >= 4 {
-					err := binary.Read(buffer, binary.LittleEndian, &size)
-
-					if err != nil {
-						c.log.WithError(err).Error("error reading from socket")
-						c.Disconnect()
-						return
-					}
-
-					size -= 4
-					state++
-				}
-			} else {
-				size = uint16(s) - 2
-				state++
-			}
+		if !ok {
+			c.log.WithField("packet", fmt.Sprintf("%04x", packet)).Error("invalid packet")
+			c.Disconnect()
+			return
 		}
 
-		if state == 2 {
-			if offset >= int(size) {
-				raw := &packets.RawPacket{
-					Buffer: bytes.NewBuffer(raw[:size]),
-					ID:     packet,
-					Size:   size,
-				}
+		if size == -1 {
+			header += 2
 
-				def, packet, err := c.db.Parse(raw)
-
-				if err != nil {
-					c.log.WithField("packet", fmt.Sprintf("%04x", packet)).Error("invalid packet")
-					c.Disconnect()
-					return
-				}
-
-				c.handler(def, packet)
-
-				state = 0
-				offset = 0
-				buffer.Reset()
+			if offset < 4 {
+				continue
 			}
+
+			size = int(binary.LittleEndian.Uint16(buffer[2:4]))
 		}
+
+		if offset < size {
+			continue
+		}
+
+		raw := &packets.RawPacket{
+			Buffer: bytes.NewBuffer(buffer[header:size]),
+			ID:     packet,
+			Size:   size,
+		}
+
+		def, parsed, err := c.db.Parse(raw)
+
+		if err != nil {
+			c.log.WithField("packet", fmt.Sprintf("%04x", packet)).Error("invalid packet")
+			c.Disconnect()
+			return
+		}
+
+		c.handler(def, parsed)
+
+		copy(buffer, buffer[size:offset])
+		offset = 0
 	}
 }
