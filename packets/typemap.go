@@ -9,8 +9,10 @@ var incomingTypeMap = map[string]IncomingPacket{
 	"CH_ENTER":       &CharEnter{},
 	"CH_SELECT_CHAR": &CharSelectChar{},
 
-	"CZ_ENTER":        &ZoneEnter{},
-	"CZ_REQUEST_TIME": &ZoneRequestTime{},
+	"CZ_ENTER":            &ZoneEnter{},
+	"CZ_REQUEST_TIME":     &ZoneRequestTime{},
+	"CZ_NOTIFY_ACTORINIT": &ZoneNotifyActorInit{},
+	"CZ_REQNAME":          &ZoneNameRequest{},
 }
 
 var outgoingTypeMap = map[string]OutgoingPacket{
@@ -28,4 +30,5 @@ var outgoingTypeMap = map[string]OutgoingPacket{
 	"ZC_AID":          &ZoneAid{},
 	"ZC_ACCEPT_ENTER": &ZoneAcceptEnter{},
 	"ZC_NOTIFY_TIME":  &ZoneNotifyTime{},
+	"ZC_ACK_REQNAME":  &ZoneAckNameRequest{},
 }

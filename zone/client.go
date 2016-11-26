@@ -58,6 +58,16 @@ func (c *Client) SyncTime(tick uint32) {
 	})
 }
 
+func (c *Client) SetCharLoaded() {
+}
+
+func (c *Client) NotifyName(id uint32) {
+	c.Send(&packets.ZoneAckNameRequest{
+		ID:   id,
+		Name: "espadahabil",
+	})
+}
+
 func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	c.log.WithFields(logrus.Fields{
 		"packet": d.Name,
@@ -68,8 +78,12 @@ func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	switch p := p.(type) {
 	case *packets.ZoneEnter:
 		c.Enter(p)
+	case *packets.ZoneNotifyActorInit:
+		c.SetCharLoaded()
 	case *packets.ZoneRequestTime:
 		c.SyncTime(p.Tick)
+	case *packets.ZoneNameRequest:
+		c.NotifyName(p.ID)
 	case *packets.Ping:
 	case *packets.NullPacket:
 		c.log.WithFields(logrus.Fields{

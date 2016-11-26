@@ -55,9 +55,15 @@
       size: 12
 
     # Zone
+    0x7d:
+      packet: ZC_NOTIFY_ACTORINIT
+      size: 2
     0x7f:
       packet: ZC_NOTIFY_TIME
       size: 6
+    0x95:
+      packet: ZC_ACK_REQNAME
+      size: 30
     0x0283:
       packet: ZC_AID
       size: 6
@@ -69,6 +75,9 @@
       size: 14
     0x886:
       packet: CZ_REQUEST_TIME
+      size: 6
+    0x887:
+      packet: CZ_REQNAME
       size: 6
 
     # Other packets
@@ -105,9 +114,6 @@
     0x7c:
       packet: SS_NONE
       size: 44
-    0x7d:
-      packet: loadendack
-      size: 2
     0x7e:
       packet: useskilltoposinfo
       size: 105
@@ -171,9 +177,6 @@
     0x94:
       packet: movetokafra
       size: 19
-    0x95:
-      packet: SS_NONE
-      size: 30
     0x96:
       packet: wis
       size: -1
@@ -2810,9 +2813,6 @@
       size: 6
     0x885:
       packet: dropitem
-      size: 6
-    0x887:
-      packet: getcharnamerequest
       size: 6
     0x888:
       packet: wanttoconnection
