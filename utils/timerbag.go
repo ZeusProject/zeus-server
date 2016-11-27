@@ -1,68 +1,89 @@
 package utils
 
-import "time"
+import (
+	"sync"
+	"time"
+)
 
 type ScheduledFn func()
 
 type TimerBag struct {
-	close chan bool
+	mutex  sync.Mutex
+	timers *Timer
 }
 
 func NewTimerBag() *TimerBag {
-	return &TimerBag{
-		close: make(chan bool),
+	return &TimerBag{}
+}
+
+func (b *TimerBag) New(d time.Duration) *Timer {
+	t := &Timer{
+		Timer:    time.NewTimer(d),
+		Duration: d,
+		bag:      b,
+	}
+
+	b.mutex.Lock()
+	defer b.mutex.Unlock()
+
+	t.next = b.timers
+
+	return t
+}
+
+func (b *TimerBag) remove(t *Timer) {
+	b.mutex.Lock()
+	defer b.mutex.Unlock()
+
+	if t.prev != nil {
+		t.prev.next = t.next
+	} else {
+		b.timers = t.next
+	}
+
+	if t.next != nil {
+		t.next.prev = t.prev
 	}
 }
 
-func (t *TimerBag) Schedule(d time.Duration, fn ScheduledFn) *Timer {
-	timer := &Timer{
-		Timer:    time.NewTimer(d),
-		Duration: d,
-	}
+func (b *TimerBag) Schedule(d time.Duration, fn ScheduledFn) *Timer {
+	t := b.New(d)
 
 	go func() {
-		select {
-		case _, ok := <-timer.C:
-			if ok {
-				fn()
-			}
-		case _, ok := <-t.close:
-			if !ok {
-				timer.Stop()
-			}
+		_, ok := <-t.C
+
+		if ok {
+			fn()
 		}
 	}()
 
-	return timer
+	return t
 }
 
-func (t *TimerBag) ScheduleRecurrent(d time.Duration, fn ScheduledFn) *Ticker {
-	ticker := &Ticker{
-		Ticker:   time.NewTicker(d),
-		Duration: d,
-	}
+func (b *TimerBag) ScheduleRecurrent(d time.Duration, fn ScheduledFn) *Timer {
+	t := b.New(d)
 
 	go func() {
 		for true {
-			select {
-			case _, ok := <-ticker.C:
-				if !ok {
-					break
-				}
+			_, ok := <-t.C
 
+			if ok {
 				fn()
-			case _, ok := <-t.close:
-				if !ok {
-					ticker.Stop()
-					break
-				}
+				t.Reset()
 			}
 		}
 	}()
 
-	return ticker
+	return t
 }
 
-func (t *TimerBag) Close() {
-	close(t.close)
+func (b *TimerBag) Close() {
+	t := b.timers
+
+	for t != nil {
+		t.Stop()
+		t = t.next
+	}
+
+	b.timers = nil
 }
