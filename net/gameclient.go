@@ -57,7 +57,7 @@ func (c *GameClient) Send(p packets.OutgoingPacket) error {
 	c.log.WithFields(logrus.Fields{
 		"packet": def.Name,
 		"id":     def.ID,
-		"length": raw.Size,
+		"length": raw.Len(),
 		"parsed": p,
 	}).Debug("packet sent")
 
@@ -107,7 +107,9 @@ func (c *GameClient) run() {
 			continue
 		}
 
-		raw := packets.NewRawPacketFromBuffer(packet, size, buffer[header:size])
+		raw := packets.NewRawPacketFromBuffer(packet, buffer[:size])
+		raw.Skip(header)
+
 		def, parsed, err := c.db.Parse(raw)
 
 		if err != nil {
