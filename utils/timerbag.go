@@ -27,6 +27,7 @@ func (b *TimerBag) New(d time.Duration) *Timer {
 	defer b.mutex.Unlock()
 
 	t.next = b.timers
+	b.timers = t
 
 	return t
 }
