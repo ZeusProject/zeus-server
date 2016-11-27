@@ -103,6 +103,88 @@ func (c *Client) SelectChar(slot byte) {
 	})
 }
 
+func (c *Client) CheckCharName(name string) int {
+	return 0
+}
+
+func (c *Client) MakeChar(name string, slot byte, haircolor uint16, hairstyle uint16, startingjobid uint16, sex byte) {
+	var error byte = 0
+	
+	errorcode := c.CheckCharName(name)
+	
+	if (startingjobid != 0) && (startingjobid != 4218) { //JOB_NOVICE && JOB_DORAM
+		errorcode = -2
+	}
+	
+	charsex := false //Female
+	if sex == 1 { 
+		charsex = true //Male
+	}
+	
+	switch errorcode {
+		case -1: error = 0x00 //Charname already exists								CHAR_NAME_EXISTS (custom enum names -ZzZz-)
+		case -2: error = 0xFF //Char creation denied								CHAR_CREATION_DENIED
+		case -3: error = 0x01 //You are underaged									CHAR_UNDERAGED
+		case -4: error = 0x02 //Symbols in Character Names are forbidden			CHAR_FORBIDDEN_SYMBOLS
+		case -5: error = 0x03 //You are not elegible to open the Character Slot		CHAR_NO_SLOT
+	}
+
+	if errorcode < 0 {
+		c.Send(&packets.CharRefuseMakeChar{
+			ErrorCode: error,
+		})
+	} else {
+		c.Send(&packets.CharAcceptMakeChar{
+			CharInfo:
+				&packets.CharacterInfo{
+					ID:			  150002,
+					BaseExp:	  0,
+					Zeny:		  0,
+					JobExp:		  0,
+					JobLevel:	  1,
+					BodyState:	  0,
+					HealthState:  0,
+					EffectState:  0,
+					Virtue:		  0,
+					Honor:		  0,
+					JobPoints:	  48,
+					HP:			  40,
+					MaxHP:		  40,
+					SP:			  11,
+					MaxSP:		  11,
+					WalkSpeed:	  150,
+					Job:		  startingjobid,
+					Head:		  hairstyle,
+					Body:		  0,
+					Weapon:		  0,
+					Level:		  1,
+					SkillPoints:  0,
+					HeadBottom:   0,
+					Shield:		  0,
+					HeadTop:	  0,
+					HeadMid:	  0,
+					HairColor:	  haircolor,
+					ClothesColor: 0,
+					Name:		  name,
+					Str:		  1,
+					Agi:		  1,
+					Vit:		  1,
+					Int:		  1,
+					Dex:		  1,
+					Luk:		  1,
+					Slot:		  slot,
+					Renamed:	  true,
+					MapName:	  "prontera.gat",
+					DeleteDate:	  nil,
+					Robe:		  0,
+					SlotChange:	  0,
+					Rename:		  0,
+					Sex:		  charsex,
+				},
+		})
+	}
+}
+
 func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	c.log.WithFields(logrus.Fields{
 		"packet": d.Name,
@@ -115,6 +197,8 @@ func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 		c.Enter(p)
 	case *packets.CharSelectChar:
 		c.SelectChar(p.Slot)
+	case *packets.CharMakeChar:
+		c.MakeChar(p.Name, p.Slot, p.HairColor, p.HairStyle, p.StartingJobID, p.Sex)
 	case *packets.Ping:
 	case *packets.NullPacket:
 		c.log.WithFields(logrus.Fields{

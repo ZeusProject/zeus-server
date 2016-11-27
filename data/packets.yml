@@ -12,7 +12,7 @@
       packet: CH_SELECT_CHAR
       size: 3
     0x0067:
-      packet: CH_MAKE_CHAR
+      packet: SS_NONE //CH_MAKE_CHAR
       size: 37
     0x0068:
       packet: CH_DELETE_CHAR
@@ -31,7 +31,7 @@
       size: 3
     0x006d:
       packet: HC_ACCEPT_MAKE_CHAR
-      size: 114
+      size: 149
     0x006e:
       packet: HC_REFUSE_MAKE_CHAR
       size: 3
@@ -3603,6 +3603,9 @@
     0xa35:
       packet: oneclick_itemidentify
       size: 4
+    0xa39:
+      packet: CH_MAKE_CHAR
+      size: 36
     0xa3b:
       packet: SS_NONE
       size: -1

@@ -11,6 +11,8 @@ var outgoingTypeMap = map[string]OutgoingPacket{
 	"HC_BLOCK_CHARACTER":     &CharBlockCharacter{},
 	"HC_SECOND_PASSWD_LOGIN": &CharSecondPasswordLogin{},
 	"HC_NOTIFY_ZONESVR":      &CharNotifyZoneServer{},
+	"HC_REFUSE_MAKE_CHAR":    &CharRefuseMakeChar{},
+	"HC_ACCEPT_MAKE_CHAR":	  &CharAcceptMakeChar{},
 
 	"ZC_AID":               &ZoneAid{},
 	"ZC_ACCEPT_ENTER":      &ZoneAcceptEnter{},

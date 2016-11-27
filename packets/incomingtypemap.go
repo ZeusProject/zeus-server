@@ -8,6 +8,7 @@ var incomingTypeMap = map[string]IncomingPacket{
 
 	"CH_ENTER":       &CharEnter{},
 	"CH_SELECT_CHAR": &CharSelectChar{},
+	"CH_MAKE_CHAR":   &CharMakeChar{},
 
 	"CZ_ENTER":            &ZoneEnter{},
 	"CZ_REQUEST_TIME":     &ZoneRequestTime{},
