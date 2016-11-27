@@ -6,6 +6,7 @@ import (
 
 	"github.com/zeusproject/zeus-server/account"
 	"github.com/zeusproject/zeus-server/char"
+	"github.com/zeusproject/zeus-server/inter"
 	"github.com/zeusproject/zeus-server/zone"
 )
 
@@ -30,6 +31,8 @@ Usage:
 			account.Run(args)
 		} else if mode == "char" {
 			char.Run(args)
+		} else if mode == "inter" {
+			inter.Run(args)
 		} else if mode == "zone" {
 			zone.Run(args)
 		} else {
