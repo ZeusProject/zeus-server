@@ -101,16 +101,7 @@ func (db *PacketDatabase) Write(p OutgoingPacket) (*Definition, *RawPacket, erro
 		return nil, nil, errors.New("invalid packet")
 	}
 
-	len := 0
-	variable := def.Size == -1
-
-	if variable {
-		len = 4
-	} else {
-		len = def.Size
-	}
-
-	raw := NewRawPacket(def.ID, len)
+	raw := NewRawPacket(def.ID)
 
 	raw.Write(uint16(def.ID))
 
@@ -127,7 +118,7 @@ func (db *PacketDatabase) Write(p OutgoingPacket) (*Definition, *RawPacket, erro
 	if def.Size == -1 {
 		data := raw.Bytes()
 
-		binary.LittleEndian.PutUint16(data[2:4], uint16(raw.Size))
+		binary.LittleEndian.PutUint16(data[2:4], uint16(raw.Len()))
 	}
 
 	return def, raw, nil

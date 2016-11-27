@@ -9,25 +9,18 @@ import (
 type RawPacket struct {
 	*bytes.Buffer
 
-	ID   uint16
-	Size int
+	ID uint16
 }
 
-func NewRawPacket(id uint16, size int) *RawPacket {
-	return NewRawPacketFromBuffer(id, size, make([]byte, 0, size))
+func NewRawPacket(id uint16) *RawPacket {
+	return NewRawPacketFromBuffer(id, make([]byte, 0))
 }
 
-func NewRawPacketFromBuffer(id uint16, size int, buffer []byte) *RawPacket {
+func NewRawPacketFromBuffer(id uint16, buffer []byte) *RawPacket {
 	return &RawPacket{
 		Buffer: bytes.NewBuffer(buffer),
 		ID:     id,
-		Size:   size,
 	}
-}
-
-func (p *RawPacket) Grow(n int) {
-	p.Size += n
-	p.Buffer.Grow(n)
 }
 
 func (p *RawPacket) Skip(n int) {
@@ -68,5 +61,5 @@ func (p *RawPacket) Hex() string {
 }
 
 func (p *RawPacket) String() string {
-	return fmt.Sprintf("%04x (%d bytes)", p.ID, p.Size)
+	return fmt.Sprintf("%04x (%d bytes)", p.ID, p.Len())
 }
