@@ -48,7 +48,7 @@ func (c *GameClient) Send(p packets.OutgoingPacket) error {
 		return err
 	}
 
-	_, err = c.conn.Write(raw.Bytes()[:raw.Size])
+	_, err = c.conn.Write(raw.Bytes())
 
 	if err != nil {
 		return err
