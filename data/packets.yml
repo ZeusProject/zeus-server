@@ -56,6 +56,24 @@
     0x363:
       packet: CZ_REQUEST_MOVE
       size: 5
+    0x827:
+      packet: CH_DELETE_CHAR3_RESERVED
+      size: 6
+    0x828:
+      packet: HC_DELETE_CHAR3_RESERVED
+      size: 14
+    0x829:
+      packet: CH_DELETE_CHAR3
+      size: 12
+    0x82a:
+      packet: HC_DELETE_CHAR3
+      size: 10
+    0x82b:
+      packet: CH_DELETE_CHAR3_CANCEL
+      size: 6
+    0x82c:
+      packet: HC_DELETE_CHAR3_CANCEL
+      size: 10
     0x082d:
       packet: HC_SLOT_INFO
       size: -1

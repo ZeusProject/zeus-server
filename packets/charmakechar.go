@@ -1,13 +1,13 @@
 package packets
 
 type CharMakeChar struct {
-	Name		  string
-	Slot		  byte
-	HairColor	  uint16
-	HairStyle	  uint16
+	Name          string
+	Slot          byte
+	HairColor     uint16
+	HairStyle     uint16
 	StartingJobID uint16
-	//Unknown     uint16 (or [2]byte)
-	Sex			  byte
+	Unknown       uint16 // or [2]byte
+	Sex           byte
 }
 
 func (r *CharMakeChar) Parse(db *PacketDatabase, d *Definition, p *RawPacket) error {
@@ -16,7 +16,7 @@ func (r *CharMakeChar) Parse(db *PacketDatabase, d *Definition, p *RawPacket) er
 	p.Read(&r.HairColor)
 	p.Read(&r.HairStyle)
 	p.Read(&r.StartingJobID)
-	p.Skip(2) //FIXME: "Sex" always 0
+	p.Read(&r.Unknown)
 	p.Read(&r.Sex)
 
 	return nil

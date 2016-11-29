@@ -1,7 +1,7 @@
 package packets
 
 type CharAcceptMakeChar struct {
-	CharInfo	*CharacterInfo
+	CharInfo *CharacterInfo
 }
 
 func (r *CharAcceptMakeChar) Write(db *PacketDatabase, d *Definition, p *RawPacket) error {
