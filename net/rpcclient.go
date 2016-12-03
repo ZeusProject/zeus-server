@@ -37,7 +37,7 @@ func (c *RpcClient) Disconnect() error {
 func (c *RpcClient) DisconnectWithError(err error) error {
 	c.forcedClose = true
 
-	if err := c.conn.Close(); err != nil {
+	if err := c.rpc.Close(); err != nil {
 		return err
 	}
 
