@@ -2,17 +2,17 @@ package inter
 
 import (
 	"errors"
+	gonet "net"
 	"time"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/zeusproject/zeus-server/rpc"
+	"github.com/zeusproject/zeus-server/net"
 	"github.com/zeusproject/zeus-server/utils"
 )
 
 type client struct {
-	*rpc2.Client
+	*net.RpcClient
 
-	id     uint32
 	log    *logrus.Entry
 	server *Server
 
@@ -23,23 +23,21 @@ type client struct {
 	authenticated bool
 }
 
-func newClient(id uint32, server *Server, rpc *rpc2.Client) *client {
+func newClient(conn gonet.Conn, server *Server) *client {
 	c := &client{
-		Client: rpc,
-
-		id:     id,
 		server: server,
 		timers: utils.NewTimerBag(),
 
 		log: logrus.WithFields(logrus.Fields{
 			"component": "client",
-			"id":        id,
 		}),
 	}
 
+	c.RpcClient = net.NewRpcClient(conn, c)
+
 	// Setup callbacks
-	c.Handle("hello", c.handleHello)
-	c.Handle("ping", c.handlePing)
+	c.Register("hello", c.handleHello)
+	c.Register("ping", c.handlePing)
 
 	// Setup timers
 	c.timeoutTimer = c.timers.Schedule(15*time.Second, c.onTimeout)
@@ -60,10 +58,10 @@ func (c *client) SendGoodbye() {
 	c.Notify("goodbye", &GoodbyeNotification{})
 }
 
-func (c *client) handleHello(_ *rpc2.Client, req *HelloRequest, res *bool) error {
+func (c *client) handleHello(req *HelloRequest, res *bool) error {
 	if req.Secret != c.server.config.Secret {
 		c.log.Warn("authentication failed")
-		c.Close()
+		c.Disconnect()
 
 		return errors.New("authentication failed")
 	}
@@ -78,7 +76,7 @@ func (c *client) handleHello(_ *rpc2.Client, req *HelloRequest, res *bool) error
 	return nil
 }
 
-func (c *client) handlePing(_ *rpc2.Client, req *PingRequest, res *bool) error {
+func (c *client) handlePing(req *PingRequest, res *bool) error {
 	c.timeoutTimer.Reset()
 
 	*res = true
@@ -88,15 +86,15 @@ func (c *client) handlePing(_ *rpc2.Client, req *PingRequest, res *bool) error {
 
 func (c *client) onTimeout() {
 	c.log.Warn("client timeout")
-	c.Close()
+	c.Disconnect()
 }
 
 func (c *client) onAuthenticationTimeout() {
 	c.log.Warn("authentication timeout")
-	c.Close()
+	c.Disconnect()
 }
 
-func (c *client) onDisconnect() {
+func (c *client) OnDisconnect(err error) {
 	c.timers.Close()
 
 	c.log.Info("disconnected")

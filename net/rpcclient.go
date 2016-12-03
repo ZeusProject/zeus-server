@@ -4,7 +4,7 @@ import (
 	"net"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/cenkalti/rpc2"
+	"github.com/zeusproject/zeus-server/rpc"
 )
 
 type RpcClient struct {

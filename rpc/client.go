@@ -25,7 +25,6 @@ type Client struct {
 	codec      Codec
 	handlers   map[string]*handler
 	disconnect chan struct{}
-	State      *State // additional information to associate with client
 }
 
 // NewClient returns a new Client to handle requests to the
@@ -148,7 +147,7 @@ func (c *Client) readRequest(req *Request) error {
 
 	// Call handler function.
 	go func(req Request) {
-		returnValues := method.fn.Call([]reflect.Value{reflect.ValueOf(c), argv, replyv})
+		returnValues := method.fn.Call([]reflect.Value{argv, replyv})
 
 		// Do not send response if request is a notification.
 		if req.Seq == 0 {
