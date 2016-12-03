@@ -26,7 +26,7 @@ func NewClient(conn gonet.Conn, server *Server) *Client {
 		log:    logrus.WithField("component", "client"),
 	}
 
-	c.GameClient = net.NewGameClient(conn, c.handlePacket, server.packetDatabase)
+	c.GameClient = net.NewGameClient(conn, c, server.packetDatabase)
 
 	return c
 }
@@ -89,7 +89,7 @@ func (c *Client) Move(x, y, direction int) {
 	c.y = y
 }
 
-func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
+func (c *Client) HandlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	c.log.WithFields(logrus.Fields{
 		"packet": d.Name,
 		"id":     d.ID,
@@ -114,4 +114,7 @@ func (c *Client) handlePacket(d *packets.Definition, p packets.IncomingPacket) {
 			"id":     d.ID,
 		}).Warning("unhandled packet")
 	}
+}
+
+func (c *Client) OnDisconnect(err error) {
 }

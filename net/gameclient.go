@@ -1,6 +1,7 @@
 package net
 
 import (
+	"bufio"
 	"encoding/binary"
 	"fmt"
 	"net"
@@ -13,19 +14,27 @@ const (
 	MaxPacketSize = 1024 * 16
 )
 
+type DisconnectFunc func(err error)
+
 type GameClient struct {
-	conn    net.Conn
-	handler PacketHandler
-	db      *packets.PacketDatabase
-	log     *logrus.Entry
+	conn        net.Conn
+	stream      *bufio.ReadWriter
+	handler     PacketHandler
+	db          *packets.PacketDatabase
+	log         *logrus.Entry
+	forcedClose bool
 }
 
 func NewGameClient(conn net.Conn, handler PacketHandler, db *packets.PacketDatabase) *GameClient {
+	r := bufio.NewReader(conn)
+	w := bufio.NewWriter(conn)
+
 	return &GameClient{
 		conn:    conn,
+		stream:  bufio.NewReadWriter(r, w),
 		handler: handler,
 		db:      db,
-		log:     logrus.WithField("component", "client"),
+		log:     logrus.WithField("component", "gameclient"),
 	}
 }
 
@@ -34,11 +43,29 @@ func (c *GameClient) Start() {
 }
 
 func (c *GameClient) Disconnect() error {
-	return c.conn.Close()
+	return c.DisconnectWithError(nil)
+}
+
+func (c *GameClient) DisconnectWithError(err error) error {
+	c.forcedClose = true
+
+	if err := c.conn.Close(); err != nil {
+		return err
+	}
+
+	c.handler.OnDisconnect(err)
+
+	return nil
 }
 
 func (c *GameClient) SendRaw(data interface{}) error {
-	return binary.Write(c.conn, binary.LittleEndian, data)
+	err := binary.Write(c.stream, binary.LittleEndian, data)
+
+	if err != nil {
+		return err
+	}
+
+	return c.stream.Flush()
 }
 
 func (c *GameClient) Send(p packets.OutgoingPacket) error {
@@ -48,7 +75,7 @@ func (c *GameClient) Send(p packets.OutgoingPacket) error {
 		return err
 	}
 
-	_, err = c.conn.Write(raw.Bytes())
+	_, err = c.stream.Write(raw.Bytes())
 
 	if err != nil {
 		return err
@@ -61,31 +88,22 @@ func (c *GameClient) Send(p packets.OutgoingPacket) error {
 		"parsed": p,
 	}).Debug("packet sent")
 
-	return err
+	return c.stream.Flush()
 }
 
 func (c *GameClient) run() {
-	buffer := make([]byte, MaxPacketSize)
-	offset := 0
-
 	for true {
-		read, err := c.conn.Read(buffer[offset:])
+		var packet uint16
+		var size int
 
-		if err != nil {
+		if err := binary.Read(c.stream, binary.LittleEndian, &packet); err != nil {
 			c.log.WithError(err).Error("error reading from socket")
-			c.Disconnect()
+			c.DisconnectWithError(err)
 			return
 		}
 
-		offset += read
-
-		header := 2
-		if offset < header {
-			continue
-		}
-
-		packet := binary.LittleEndian.Uint16(buffer[0:2])
 		size, ok := c.db.GetSize(packet)
+		variable := size == -1
 
 		if !ok {
 			c.log.WithField("packet", fmt.Sprintf("%04x", packet)).Error("invalid packet")
@@ -93,22 +111,27 @@ func (c *GameClient) run() {
 			return
 		}
 
-		if size == -1 {
-			header += 2
+		if variable {
+			var s uint16
 
-			if offset < 4 {
-				continue
+			if err := binary.Read(c.stream, binary.LittleEndian, &s); err != nil {
+				c.log.WithError(err).Error("error reading from socket")
+				c.DisconnectWithError(err)
+				return
 			}
 
-			size = int(binary.LittleEndian.Uint16(buffer[2:4]))
+			size = int(s)
 		}
 
-		if offset < size {
-			continue
+		data := make([]byte, size)
+
+		if _, err := c.stream.Read(data); err != nil {
+			c.log.WithError(err).Error("error reading from socket")
+			c.DisconnectWithError(err)
+			return
 		}
 
-		raw := packets.NewRawPacketFromBuffer(packet, buffer[:size])
-		raw.Next(header)
+		raw := packets.NewRawPacketFromBuffer(packet, data)
 
 		def, parsed, err := c.db.Parse(raw)
 
@@ -118,9 +141,10 @@ func (c *GameClient) run() {
 			return
 		}
 
-		c.handler(def, parsed)
+		c.handler.HandlePacket(def, parsed)
+	}
 
-		copy(buffer, buffer[size:offset])
-		offset = 0
+	if !c.forcedClose {
+		c.handler.OnDisconnect(nil)
 	}
 }
