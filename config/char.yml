@@ -1,0 +1,12 @@
+---
+
+endpoint: :6000
+packet_version: 20151104
+
+account_inter:
+  endpoint: 127.0.0.1:7001
+  id: test
+  key: test
+  public_ip: 127.0.0.1
+  public_port: 6000
+

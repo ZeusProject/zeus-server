@@ -8,7 +8,7 @@ import (
 	"github.com/zeusproject/zeus-server/packets"
 )
 
-type Client struct {
+type GameHandler struct {
 	*net.GameClient
 
 	server *Server
@@ -19,18 +19,18 @@ type Client struct {
 	accountId uint32
 }
 
-func NewClient(conn gonet.Conn, server *Server) *Client {
-	c := &Client{
+func NewGameHandler(conn gonet.Conn, server *Server) *GameHandler {
+	c := &GameHandler{
 		server: server,
 		log:    logrus.WithField("component", "client"),
 	}
 
-	c.GameClient = net.NewGameClient(conn, c, server.packetDatabase)
+	c.GameClient = net.NewGameClient(conn, c, server.PacketDB())
 
 	return c
 }
 
-func (c *Client) loadCharacters() {
+func (c *GameHandler) loadCharacters() {
 	c.chars = []*packets.CharacterInfo{
 		&packets.CharacterInfo{
 			ID:        150000,
@@ -59,7 +59,7 @@ func (c *Client) loadCharacters() {
 	}
 }
 
-func (c *Client) Enter(p *packets.CharEnter) {
+func (c *GameHandler) Enter(p *packets.CharEnter) {
 	c.accountId = p.AccountID
 
 	// Send the AID to the client
@@ -94,7 +94,7 @@ func (c *Client) Enter(p *packets.CharEnter) {
 	})
 }
 
-func (c *Client) SelectChar(slot byte) {
+func (c *GameHandler) SelectChar(slot byte) {
 	c.Send(&packets.CharNotifyZoneServer{
 		CharID:  150000,
 		MapName: "prontera.gat",
@@ -103,11 +103,11 @@ func (c *Client) SelectChar(slot byte) {
 	})
 }
 
-func (c *Client) CheckCharName(name string) int {
+func (c *GameHandler) CheckCharName(name string) int {
 	return 0
 }
 
-func (c *Client) MakeChar(name string, slot byte, haircolor uint16, hairstyle uint16, startingjobid uint16, sex byte) {
+func (c *GameHandler) MakeChar(name string, slot byte, haircolor uint16, hairstyle uint16, startingjobid uint16, sex byte) {
 	var error byte = 0
 
 	errorcode := c.CheckCharName(name)
@@ -189,7 +189,7 @@ func (c *Client) MakeChar(name string, slot byte, haircolor uint16, hairstyle ui
 	}
 }
 
-func (c *Client) DeleteChar(charid uint) {
+func (c *GameHandler) DeleteChar(charid uint) {
 	// First we need a DB xd
 	var result int = 1
 	var deletedate uint32 = 1480443780 - 1480440180
@@ -231,7 +231,7 @@ func (c *Client) DeleteChar(charid uint) {
 	})
 }
 
-func (c *Client) CancelDeleteChar(charid uint) {
+func (c *GameHandler) CancelDeleteChar(charid uint) {
 	// 1 (0x718): none/success, (if char id not in deletion process): An unknown error has occurred.
 	// 2 (0x719): A database error occurred.
 	var result int = 1
@@ -242,7 +242,7 @@ func (c *Client) CancelDeleteChar(charid uint) {
 	})
 }
 
-func (c *Client) HandlePacket(d *packets.Definition, p packets.IncomingPacket) {
+func (c *GameHandler) HandlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	c.log.WithFields(logrus.Fields{
 		"packet": d.Name,
 		"id":     d.ID,
@@ -269,5 +269,5 @@ func (c *Client) HandlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	}
 }
 
-func (c *Client) OnDisconnect(err error) {
+func (c *GameHandler) OnDisconnect(err error) {
 }

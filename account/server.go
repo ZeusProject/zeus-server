@@ -115,7 +115,7 @@ func (s *Server) startGameServer() error {
 }
 
 func (s *Server) startInterServer() error {
-	err := s.inter.Listen(s.config.Endpoint)
+	err := s.inter.Listen(s.config.InterEndpoint)
 
 	if err != nil {
 		return err

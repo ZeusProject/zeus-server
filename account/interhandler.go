@@ -27,6 +27,7 @@ type InterHandler struct {
 func NewInterHandler(conn gonet.Conn, server AccountServer) *InterHandler {
 	c := &InterHandler{
 		server: server,
+		timers: utils.NewTimerBag(),
 		log: logrus.WithFields(logrus.Fields{
 			"component": "interclient",
 		}),
@@ -42,23 +43,15 @@ func NewInterHandler(conn gonet.Conn, server AccountServer) *InterHandler {
 	c.timeoutTimer = c.timers.Schedule(15*time.Second, c.onTimeout)
 	c.authTimeoutTimer = c.timers.Schedule(15*time.Second, c.onAuthenticationTimeout)
 
-	c.timers.ScheduleRecurrent(10*time.Second, c.Ping)
-
 	c.log.Info("connected")
 
 	return c
 }
 
-func (c *InterHandler) Ping() {
-	c.Notify("ping", &PingRequest{})
-}
-
-func (c *InterHandler) SendQuit() {
-	c.Notify("goodbye", &QuitNotification{})
-}
-
 func (c *InterHandler) handleAuthentication(req *AuthenticationRequest, res *bool) error {
 	// TODO: Implement real authentication logic
+
+	c.authTimeoutTimer.Close()
 
 	c.authenticated = true
 	c.charserverID = req.ID
@@ -68,6 +61,12 @@ func (c *InterHandler) handleAuthentication(req *AuthenticationRequest, res *boo
 	}
 
 	c.server.CharServerStore().RegisterInstance(c.charserverID, c.instance)
+
+	c.log.WithFields(logrus.Fields{
+		"id":   c.charserverID,
+		"ip":   req.PublicIP,
+		"port": req.PublicPort,
+	}).Info("authenticated")
 
 	return nil
 }
