@@ -1,7 +1,7 @@
 ---
 
-endpoint: :7000
-inter_endpoint: :7001
+endpoint: :6900
+inter_endpoint: :6901
 
 packet_version: 20151104
 

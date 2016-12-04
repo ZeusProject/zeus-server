@@ -7,24 +7,39 @@ services:
   account:
     extends: base
     command: go run main.go server account
+    expose:
+      - 6900
+      - 6901
+    ports:
+      - 6900:6900
     volumes:
       - .:/go/src/github.com/zeusproject/zeus-server
 
   char:
     extends: base
     command: go run main.go server char
+    expose:
+      - 7000
+    ports:
+      - 7000:7000
     volumes:
       - .:/go/src/github.com/zeusproject/zeus-server
 
   inter:
     extends: base
     command: go run main.go server inter
+    expose:
+      - 4000
     volumes:
       - .:/go/src/github.com/zeusproject/zeus-server
 
   zone:
     extends: base
     command: go run main.go server zone
+    expose:
+      - 4500
+    ports:
+      - 4500:4500
     volumes:
       - .:/go/src/github.com/zeusproject/zeus-server
 

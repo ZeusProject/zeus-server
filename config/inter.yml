@@ -1,6 +1,6 @@
 ---
 
-endpoint: :4501
+endpoint: :4000
 secret: deadbeefsupersecret
 packer_version: 20151104
 
