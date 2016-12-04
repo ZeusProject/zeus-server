@@ -18,6 +18,7 @@ func Run(args map[string]interface{}) {
 	err := l.Run()
 
 	if err != nil {
+		logrus.WithError(err).Fatal("error starting server")
 		return
 	}
 

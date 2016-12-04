@@ -1,0 +1,13 @@
+---
+
+endpoint: :7000
+inter_endpoint: :7001
+
+packet_version: 20151104
+
+char_servers:
+  - id: test
+    key: test
+    name: Test Server
+    enabled: true
+

@@ -1,8 +1,6 @@
 package account
 
-import (
-	"math/rand"
-)
+import "math/rand"
 
 type CharServer struct {
 	*CharServerDefinition

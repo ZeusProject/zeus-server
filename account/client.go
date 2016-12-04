@@ -21,9 +21,48 @@ func NewClient(conn gonet.Conn, server *Server) *Client {
 		log:    logrus.WithField("component", "client"),
 	}
 
-	c.GameClient = net.NewGameClient(conn, c, server.packetDatabase)
+	c.GameClient = net.NewGameClient(conn, c, server.packetdb)
 
 	return c
+}
+
+func (c *Client) Login(p *packets.AccountLogin) {
+	servers, err := c.server.charserverStore.Servers()
+
+	if err != nil {
+		c.DisconnectWithError(err)
+		return
+	}
+
+	packetServers := make([]packets.CharServer, len(servers))
+
+	for i, s := range servers {
+		instance := s.RandomInstance()
+
+		if instance == nil {
+			instance = &CharServerInstance{
+				PublicIP:   gonet.ParseIP("0.0.0.0"),
+				PublicPort: 0,
+			}
+		}
+
+		packetServers[i] = packets.CharServer{
+			IP:       instance.PublicIP,
+			Port:     uint16(instance.PublicPort),
+			Name:     s.Name,
+			Users:    uint16(s.OnlinePlayers),
+			State:    0,
+			Property: 0,
+		}
+	}
+
+	c.Send(&packets.AccountAcceptLogin{
+		AuthenticationCode: 0xDEADBEEF,
+		AccountID:          2000000,
+		AccountLevel:       0xBAADCAFE,
+		Sex:                0,
+		Servers:            packetServers,
+	})
 }
 
 func (c *Client) HandlePacket(d *packets.Definition, p packets.IncomingPacket) {
@@ -33,26 +72,9 @@ func (c *Client) HandlePacket(d *packets.Definition, p packets.IncomingPacket) {
 		"parsed": p,
 	}).Debug("packet arrived")
 
-	switch p.(type) {
+	switch p := p.(type) {
 	case *packets.AccountLogin:
-		res := &packets.AccountAcceptLogin{
-			AuthenticationCode: 0xDEADBEEF,
-			AccountID:          2000000,
-			AccountLevel:       0xBAADCAFE,
-			Sex:                0,
-			Servers: []packets.CharServer{
-				packets.CharServer{
-					IP:       gonet.ParseIP("127.0.0.1"),
-					Port:     6121,
-					Name:     "Zeus Project",
-					Users:    1000,
-					State:    0,
-					Property: 0,
-				},
-			},
-		}
-
-		c.Send(res)
+		c.Login(p)
 	case *packets.NullPacket:
 		c.log.WithFields(logrus.Fields{
 			"packet": d.Name,
