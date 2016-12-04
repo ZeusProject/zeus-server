@@ -10,13 +10,15 @@ import (
 )
 
 type Server struct {
-	server   *net.Server
+	config Config
+
+	server *net.Server
+	inter  *net.Server
+
 	packetdb *packets.PacketDatabase
 	log      *logrus.Entry
 
 	charserverStore CharServerStore
-
-	config Config
 }
 
 func NewServer() *Server {
@@ -24,7 +26,8 @@ func NewServer() *Server {
 		log: logrus.WithField("component", "accountserver"),
 	}
 
-	l.server = net.NewServer(net.HandlerFn{l.acceptClient})
+	l.server = net.NewServer(net.HandlerFn{l.acceptGameClient})
+	l.inter = net.NewServer(net.HandlerFn{l.acceptInterClient})
 
 	return l
 }
@@ -42,7 +45,11 @@ func (s *Server) Run() error {
 		return err
 	}
 
-	if err := s.startServer(); err != nil {
+	if err := s.startGameServer(); err != nil {
+		return err
+	}
+
+	if err := s.startInterServer(); err != nil {
 		return err
 	}
 
@@ -59,6 +66,14 @@ func (s *Server) Close() error {
 	s.log.Info("server closed")
 
 	return nil
+}
+
+func (s *Server) CharServerStore() CharServerStore {
+	return s.charserverStore
+}
+
+func (s *Server) PacketDB() *packets.PacketDatabase {
+	return s.packetdb
 }
 
 func (s *Server) readConfig() error {
@@ -87,14 +102,26 @@ func (s *Server) initializeDatabase() error {
 	return nil
 }
 
-func (s *Server) startServer() error {
+func (s *Server) startGameServer() error {
 	err := s.server.Listen(s.config.Endpoint)
 
 	if err != nil {
 		return err
 	}
 
-	s.log.Info("listening on ", s.config.Endpoint)
+	s.log.Info("game listening on ", s.config.Endpoint)
+
+	return nil
+}
+
+func (s *Server) startInterServer() error {
+	err := s.inter.Listen(s.config.Endpoint)
+
+	if err != nil {
+		return err
+	}
+
+	s.log.Info("inter listening on ", s.config.InterEndpoint)
 
 	return nil
 }
@@ -104,9 +131,17 @@ func (s *Server) closeServer() error {
 		return err
 	}
 
+	if err := s.inter.Stop(); err != nil {
+		return err
+	}
+
 	return nil
 }
 
-func (s *Server) acceptClient(conn gonet.Conn) {
-	NewClient(conn, s).Start()
+func (s *Server) acceptGameClient(conn gonet.Conn) {
+	NewGameHandler(conn, s).Start()
+}
+
+func (s *Server) acceptInterClient(conn gonet.Conn) {
+	NewInterHandler(conn, s).Start()
 }

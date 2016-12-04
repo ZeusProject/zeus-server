@@ -8,26 +8,26 @@ import (
 	"github.com/zeusproject/zeus-server/packets"
 )
 
-type Client struct {
+type GameHandler struct {
 	*net.GameClient
 
-	server *Server
+	server AccountServer
 	log    *logrus.Entry
 }
 
-func NewClient(conn gonet.Conn, server *Server) *Client {
-	c := &Client{
+func NewGameHandler(conn gonet.Conn, server AccountServer) *GameHandler {
+	c := &GameHandler{
 		server: server,
 		log:    logrus.WithField("component", "client"),
 	}
 
-	c.GameClient = net.NewGameClient(conn, c, server.packetdb)
+	c.GameClient = net.NewGameClient(conn, c, server.PacketDB())
 
 	return c
 }
 
-func (c *Client) Login(p *packets.AccountLogin) {
-	servers, err := c.server.charserverStore.Servers()
+func (c *GameHandler) Login(p *packets.AccountLogin) {
+	servers, err := c.server.CharServerStore().Servers()
 
 	if err != nil {
 		c.DisconnectWithError(err)
@@ -65,7 +65,7 @@ func (c *Client) Login(p *packets.AccountLogin) {
 	})
 }
 
-func (c *Client) HandlePacket(d *packets.Definition, p packets.IncomingPacket) {
+func (c *GameHandler) HandlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	c.log.WithFields(logrus.Fields{
 		"packet": d.Name,
 		"id":     d.ID,
@@ -83,5 +83,5 @@ func (c *Client) HandlePacket(d *packets.Definition, p packets.IncomingPacket) {
 	}
 }
 
-func (c *Client) OnDisconnect(err error) {
+func (c *GameHandler) OnDisconnect(err error) {
 }
