@@ -3,21 +3,37 @@ package main
 import (
 	"fmt"
 	"github.com/docopt/docopt-go"
+	"math/rand"
+	"time"
 
 	"github.com/zeusproject/zeus-server/account"
 	"github.com/zeusproject/zeus-server/char"
 	"github.com/zeusproject/zeus-server/inter"
+	"github.com/zeusproject/zeus-server/utils/migrations"
 	"github.com/zeusproject/zeus-server/zone"
 )
 
 func main() {
-	usage := `Zeus Project
+	rand.Seed(time.Now().Unix())
+
+	usage := `Zeus Server
 
 Usage:
-	zeus-project server <mode>
+	zeus-server db migrate [up | down]
+	zeus-server server account [options]
+	zeus-server server char [options]
+	zeus-server server inter [options]
+	zeus-server server zone [options]
+	zeus-server -h | --help
+	zeus-server --version
+
+Options:
+	-h --help   Show this screen.
+	--version   Show version.
+    --nobanner  Supress banner.
 	`
 
-	args, err := docopt.Parse(usage, nil, true, "Zeus Project 1.0", false)
+	args, err := docopt.Parse(usage, nil, true, "Zeus Server 1.0", false)
 
 	if err != nil {
 		fmt.Printf("%v\n", err)
@@ -25,19 +41,33 @@ Usage:
 	}
 
 	if args["server"] == true {
-		mode := args["<mode>"]
+		if args["nobanner"] != true {
+			fmt.Printf("\t                   \n")
+			fmt.Printf("\t                   \n")
+			fmt.Printf("\t _______ _   _ ___ \n")
+			fmt.Printf("\t|_  / _ \\ | | / __|\n")
+			fmt.Printf("\t / /  __/ |_| \\__ \\\n")
+			fmt.Printf("\t/___\\___|\\__,_|___/\n")
+			fmt.Printf("\t                   \n")
+			fmt.Printf("\t                   \n")
+		}
 
-		if mode == "account" {
+		if args["account"] == true {
 			account.Run(args)
-		} else if mode == "char" {
+		} else if args["char"] == true {
 			char.Run(args)
-		} else if mode == "inter" {
+		} else if args["inter"] == true {
 			inter.Run(args)
-		} else if mode == "zone" {
+		} else if args["zone"] == true {
 			zone.Run(args)
-		} else {
-			fmt.Printf("Invalid server mode: %s\n", mode)
-			return
+		}
+	} else if args["db"] == true {
+		if args["migrate"] == true {
+			if args["up"] == true {
+				migrations.RunUp(args)
+			} else if args["down"] == true {
+				migrations.RunDown(args)
+			}
 		}
 	}
 }
